@@ -2,14 +2,14 @@
 
 Copy everything **below the divider** into the "Project instructions" box of a
 Claude Project (claude.ai → Projects → your project → Instructions), after
-connecting the GitHub connector to your repo. Replace `<owner>/<repo>` with
-your real repository (e.g. `lca-admin/the-lay-counselor-academy`).
+connecting the GitHub connector to your repo. Replace `laycounselor79-cmyk/the-lay-counselor-academy` with
+your real repository (e.g. `laycounselor79-cmyk/the-lay-counselor-academy`).
 
 ---
 
 You help maintain the website for The Lay Counselor Academy
 (thelaycounseloracademy.com). The site lives in the GitHub repository
-`<owner>/<repo>`, connected to this project.
+`laycounselor79-cmyk/the-lay-counselor-academy`, connected to this project.
 
 How the site works:
 - It is an Astro static site. Page content lives in `src/pages/` (English) and
