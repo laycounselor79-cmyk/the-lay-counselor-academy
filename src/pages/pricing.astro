@@ -1,0 +1,298 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const formats = [
+  {
+    name: "LCA Self-Paced",
+    price: "$1,200",
+    desc: "Fully asynchronous. Start any time, work at your own pace.",
+    rows: {
+      live: "0",
+      flexibleStart: "Yes, anytime",
+      pairedPractice: "No",
+      groupPractices: "No",
+      personalCounseling: "No",
+      observation: "No",
+      certificate: "Yes, on completion",
+    },
+    cta: "Read the sample article",
+    href: "/#sample",
+    current: true,
+  },
+  {
+    name: "LCA Live",
+    price: "Contact for details",
+    desc: "Fourteen live sessions with a cohort, plus personal counseling.",
+    rows: {
+      live: "14 sessions",
+      flexibleStart: "No, cohort-based",
+      pairedPractice: "During live sessions",
+      groupPractices: "Yes",
+      personalCounseling: "5 sessions included",
+      observation: "Yes",
+      certificate: "Yes",
+    },
+    cta: "Contact us to register",
+    href: "/contact/",
+    current: false,
+  },
+];
+
+const rowOrder: Array<[keyof typeof formats[number]["rows"], string]> = [
+  ["live", "Live sessions"],
+  ["flexibleStart", "Flexible start dates"],
+  ["pairedPractice", "Paired practice"],
+  ["groupPractices", "Group practices"],
+  ["personalCounseling", "Personal counseling sessions"],
+  ["observation", "Observation and feedback"],
+  ["certificate", "Certificate"],
+];
+
+/* Two FAQs surfaced here because they map to buyer intent on this page:
+ * org-pricing and format-comparison. Mirrored on /faq so search agents see
+ * both placements. */
+const pricingFaqs: Array<{ q: string; a: string }> = [
+  {
+    q: "Can I enroll my whole team or organization?",
+    a: "Yes. Many of our learners come through their employer: county behavioral health agencies, fire departments, schools, faith communities, community health workers, and non-profits. We offer bulk pricing for groups. Email Angelica at Angelica@emorrisonconsulting.com with your rough headcount and she will get back to you within a business day.",
+  },
+  {
+    q: "What is the difference between the Self-Paced and Live courses?",
+    a: "Self-Paced is the seventy-hour core course, fully asynchronous, with flexible start dates. Live is fourteen live sessions across fourteen weeks with a cohort of peers, plus five personal counseling sessions included. Both lead to the same fundamental skill, Self-Paced is for learners who want to move at their own pace; Live is for those who want practice and feedback with people.",
+  },
+];
+---
+
+<Layout
+  title="Pricing, The Lay Counselor Academy"
+  description="The Self-Paced mental health counseling course is $1,200 with lifetime access. The LCA Live cohort runs fourteen weeks. Group rates for organizations."
+  extraSchemas={[{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://thelaycounseloracademy.com/pricing/#faqpage",
+    inLanguage: "en",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      xpath: ["//main//h1", "//main//h3[@class='pricing-faq-question']"],
+    },
+    mainEntity: pricingFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  }]}
+>
+  <section class="page-hero" aria-labelledby="page-hero-title">
+    <div class="page-container">
+      <p class="eyebrow eyebrow-on-dark">What it costs</p>
+      <h1 id="page-hero-title" class="page-hero-title">
+        Two ways to learn. <span class="title-accent">The same Lay Counselor Academy Course.</span>
+      </h1>
+      <p class="page-hero-lede">
+        The Self-Paced course is fully asynchronous and runs $1,200 with
+        lifetime access. The LCA Live cohort runs fourteen weeks and includes
+        five personal counseling sessions. Contact us for details. Group
+        rates are available for organizations.
+      </p>
+    </div>
+  </section>
+
+  <section class="pricing-compare" aria-labelledby="pricing-compare-title">
+    <div class="page-container">
+      <header class="section-header section-header-center">
+        <p class="eyebrow">Both formats</p>
+        <h2 id="pricing-compare-title" class="section-title">
+          Self-Paced or Live. <span class="title-accent">Pick the one that fits.</span>
+        </h2>
+      </header>
+
+      <ol class="format-compare">
+        {formats.map((fmt) => (
+          <li class={`format-compare-card ${fmt.current ? "format-compare-card-current" : ""}`}>
+            <div class="format-compare-head">
+              <h3 class="format-compare-name">{fmt.name}</h3>
+              <span class="format-compare-price">{fmt.price}</span>
+              <p class="format-compare-desc">{fmt.desc}</p>
+            </div>
+
+            <dl class="format-compare-rows">
+              {rowOrder.map(([key, label]) => (
+                <div class="format-compare-row">
+                  <dt>{label}</dt>
+                  <dd>{fmt.rows[key]}</dd>
+                </div>
+              ))}
+            </dl>
+
+            {fmt.current ? (
+              <span class="format-compare-here">You are here</span>
+            ) : (
+              <a
+                class="btn-secondary format-compare-cta"
+                href={fmt.href}
+                {...(fmt.href.startsWith("http") ? { rel: "noopener" } : {})}
+              >
+                {fmt.cta}
+                <span aria-hidden="true" class="arrow">→</span>
+              </a>
+            )}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="pricing-faq" aria-labelledby="pricing-faq-title">
+    <div class="page-container">
+      <header class="section-header section-header-center">
+        <p class="eyebrow">Common questions</p>
+        <h2 id="pricing-faq-title" class="section-title">
+          Two things people ask <span class="title-accent">before they buy.</span>
+        </h2>
+      </header>
+
+      <ol class="pricing-faq-list">
+        {pricingFaqs.map((f, i) => (
+          <li class="pricing-faq-item">
+            <p class="pricing-faq-number" aria-hidden="true">{String(i + 1).padStart(2, "0")}</p>
+            <div class="pricing-faq-body">
+              <h3 class="pricing-faq-question">{f.q}</h3>
+              <p class="pricing-faq-answer">{f.a}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <p class="pricing-faq-more">
+        <a href="/faq/">See all FAQs <span aria-hidden="true" class="arrow">→</span></a>
+      </p>
+    </div>
+  </section>
+
+  <section class="pricing-org" aria-labelledby="pricing-org-title">
+    <div class="page-container">
+      <div class="pricing-org-inner">
+        <p class="eyebrow eyebrow-on-paper">For organizations</p>
+        <h2 id="pricing-org-title" class="section-title">
+          Enrolling staff, a cohort, or a department?
+        </h2>
+        <p class="pricing-org-text">
+          Many of our learners came through their employer: county behavioral
+          health agencies, fire departments, schools, faith communities,
+          community health workers, non-profits. We offer bulk pricing and
+          equity scholarships for groups. Email Angelica with the rough
+          headcount and we will get back to you within a business day.
+        </p>
+        <div class="pricing-org-actions">
+          <a class="btn-primary" href="mailto:Angelica@emorrisonconsulting.com">
+            Email Angelica
+          </a>
+          <a class="page-hero-link page-hero-link-on-paper" href="/faq/">Read the FAQ <span aria-hidden="true" class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-close">
+    <div class="page-container">
+      <h2 class="page-close-title">
+        Read the sample article <span class="title-accent">before you decide.</span>
+      </h2>
+      <p class="page-close-lede">
+        Our sample article, <em>Advice: Why (&amp; How) We Avoid It</em>, will tell you
+        more than any pricing page can.
+      </p>
+      <div class="page-close-actions">
+        <a class="btn-primary" href="/#sample">Read the sample article</a>
+        <a class="btn-secondary" href="https://app.teachfloor.com/the-lay-counselor-academy/c/32305" rel="noopener">
+          Enroll in Self-Paced
+          <span aria-hidden="true" class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* shared page chrome */
+  .page-hero { background-color: var(--color-navy); background-image: url('/images/topo-light.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; color: var(--color-on-navy); padding: 5rem 0; }
+  @media (min-width: 768px) { .page-hero { padding: 7rem 0; } }
+  .page-hero-title { font-family: var(--font-serif); font-weight: 400; color: var(--color-on-navy); font-size: clamp(2rem, 4.5vw, 3.75rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0.75rem 0 1.5rem 0; max-width: 22ch; text-wrap: balance; }
+  .page-hero-lede { font-family: var(--font-sans); font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.6; color: var(--color-on-navy-soft); margin: 0; max-width: 60ch; }
+  .page-hero-link { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 500; color: var(--color-on-navy-soft); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .page-hero-link:hover { color: var(--color-coral); text-decoration: underline; text-underline-offset: 4px; }
+  .page-hero-link-on-paper { color: var(--color-blue); }
+  .page-hero-link-on-paper:hover { color: var(--color-navy); }
+
+  .eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-coral-text); margin: 0; }
+  .eyebrow-on-dark { color: var(--color-coral); }
+  .eyebrow-on-paper { color: var(--color-blue); }
+  .title-accent { color: var(--color-coral-deep); }
+  .arrow { transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1); display: inline-block; }
+  a:hover .arrow { transform: translateX(3px); }
+
+  .section-header { max-width: 60rem; margin-bottom: 3rem; }
+  .section-header-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .center-prose { margin-left: auto; margin-right: auto; }
+  .section-title { font-family: var(--font-serif); font-weight: 400; color: var(--color-navy); font-size: clamp(1.875rem, 3.5vw, 2.75rem); line-height: 1.15; letter-spacing: -0.015em; margin: 0.75rem 0 0 0; text-wrap: balance; }
+  .section-lede { margin-top: 1.25rem; font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.6; color: var(--color-ink-soft); max-width: 60ch; }
+
+  /* tier cards */
+  /* Sliding-scale section was removed when pricing simplified to Self-Paced
+     and Live. Tier-card / pricing-tiers-full / pricing-honor-note styles are
+     intentionally omitted, re-add if a tiered structure ever returns. */
+
+  /* format comparison */
+  .pricing-compare { padding: 5rem 0; background-color: var(--color-paper-soft); }
+  @media (min-width: 768px) { .pricing-compare { padding: 7rem 0; } }
+  .format-compare { list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 56rem; }
+  @media (min-width: 900px) { .format-compare { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+  .format-compare-card { background-color: var(--color-paper); border: 1px solid var(--color-rule); border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+  .format-compare-card-current { background-color: var(--color-navy); color: var(--color-on-navy); border-color: var(--color-navy); }
+  .format-compare-head { display: flex; flex-direction: column; gap: 0.5rem; }
+  .format-compare-name { font-family: var(--font-serif); font-weight: 500; font-size: 1.5rem; color: var(--color-navy); margin: 0; letter-spacing: -0.01em; }
+  .format-compare-card-current .format-compare-name { color: var(--color-on-navy); }
+  .format-compare-price { font-family: var(--font-serif); font-weight: 400; font-size: 2.25rem; color: var(--color-coral-deep); line-height: 1; }
+  .format-compare-card-current .format-compare-price { color: var(--color-coral); }
+  .format-compare-desc { margin: 0; font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.5; color: var(--color-ink-soft); }
+  .format-compare-card-current .format-compare-desc { color: var(--color-on-navy-soft); }
+  .format-compare-rows { margin: 0; padding: 0; border-top: 1px solid var(--color-rule); }
+  .format-compare-card-current .format-compare-rows { border-top-color: oklch(0.97 0.012 70 / 0.15); }
+  .format-compare-row { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--color-rule); font-family: var(--font-sans); font-size: 0.875rem; }
+  .format-compare-card-current .format-compare-row { border-bottom-color: oklch(0.97 0.012 70 / 0.15); }
+  .format-compare-row dt { color: var(--color-ink-quiet); }
+  .format-compare-card-current .format-compare-row dt { color: var(--color-on-navy-quiet); }
+  .format-compare-row dd { margin: 0; color: var(--color-navy); font-weight: 500; text-align: right; }
+  .format-compare-card-current .format-compare-row dd { color: var(--color-on-navy); }
+  .format-compare-cta { align-self: flex-start; }
+  .format-compare-here { align-self: flex-start; font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-coral); padding: 0.5rem 1rem; border: 1px solid var(--color-coral); border-radius: 9999px; }
+
+  /* organization section */
+  .pricing-faq { padding: 5rem 0; background-color: var(--color-paper); }
+  @media (min-width: 768px) { .pricing-faq { padding: 7rem 0; } }
+  .pricing-faq-list { list-style: none; margin: 0 auto; padding: 0; max-width: 56rem; }
+  .pricing-faq-item { display: grid; grid-template-columns: 1fr; gap: 0.75rem; padding: 2rem 0; border-bottom: 1px solid var(--color-rule); }
+  .pricing-faq-item:last-child { border-bottom: 0; }
+  @media (min-width: 720px) { .pricing-faq-item { grid-template-columns: 4rem 1fr; gap: 0.75rem 2rem; padding: 2.5rem 0; } }
+  .pricing-faq-number { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: clamp(1.625rem, 2.5vw, 2.25rem); line-height: 1; color: var(--color-coral-deep); }
+  .pricing-faq-body { min-width: 0; }
+  .pricing-faq-question { margin: 0 0 0.75rem 0; font-family: var(--font-serif); font-weight: 500; font-size: clamp(1.25rem, 1.75vw, 1.5rem); line-height: 1.3; letter-spacing: -0.01em; color: var(--color-navy); text-wrap: balance; }
+  .pricing-faq-answer { margin: 0; font-family: var(--font-sans); font-size: 1rem; line-height: 1.7; color: var(--color-ink-soft); max-width: 65ch; }
+  .pricing-faq-more { margin: 2.5rem 0 0 0; text-align: center; font-family: var(--font-sans); font-size: 0.95rem; }
+  .pricing-faq-more a { color: var(--color-coral-text); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .pricing-faq-more a:hover { color: var(--color-navy); text-decoration: underline; text-underline-offset: 4px; }
+
+  .pricing-org { padding: 5rem 0; background-color: var(--color-paper); }
+  @media (min-width: 768px) { .pricing-org { padding: 7rem 0; } }
+  .pricing-org-inner { max-width: 56rem; }
+  .pricing-org-text { margin: 1.25rem 0 2rem 0; font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.7; color: var(--color-ink-soft); max-width: 60ch; }
+  .pricing-org-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.5rem; }
+
+  /* closing CTA */
+  .page-close { background-color: var(--color-info); padding: 5rem 0; text-align: center; }
+  @media (min-width: 768px) { .page-close { padding: 7rem 0; } }
+  .page-close-title { font-family: var(--font-serif); font-weight: 500; color: var(--color-navy); font-size: clamp(1.875rem, 3.5vw, 2.75rem); line-height: 1.15; letter-spacing: -0.015em; margin: 0 auto 1rem auto; max-width: 26ch; text-wrap: balance; }
+  .page-close-lede { font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.65; color: var(--color-ink-soft); margin: 0 auto 2rem auto; max-width: 52ch; }
+  .page-close-lede em { font-family: var(--font-serif); font-style: italic; font-weight: 500; color: var(--color-navy); }
+  .page-close-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.25rem 1.5rem; }
+</style>

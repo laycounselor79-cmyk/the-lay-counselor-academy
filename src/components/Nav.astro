@@ -1,0 +1,294 @@
+---
+const locale = (Astro.currentLocale || "en") as "en" | "es";
+const isEs = locale === "es";
+const root = isEs ? "/es" : "";
+
+const navLinks = isEs
+  ? [
+      { href: `${root}/#formats`, label: "Formatos" },
+      { href: `${root}/#teachers`, label: "Maestras" },
+      { href: `${root}/#program`, label: "Currículum" },
+      { href: `${root}/#evaluation`, label: "Evaluación" },
+      { href: `${root}/#sample`, label: "Lección de muestra" },
+    ]
+  : [
+      { href: "/#formats", label: "Formats" },
+      { href: "/#co-creators-and-faculty", label: "Faculty" },
+      { href: "/#program", label: "Curriculum" },
+      { href: "/#evaluation", label: "Evaluation" },
+      { href: "/#sample", label: "Sample lesson" },
+    ];
+
+const enrollLabel = isEs ? "Inscríbete" : "Enroll";
+const homeAria = isEs
+  ? "La Academia del Consejero Laico, A tu propio ritmo"
+  : "The Lay Counselor Academy, Self-Paced";
+
+/* Language switch points to the SAME page in the other language, not the
+ * homepage. English is the complete locale, so stripping the /es prefix always
+ * lands on a real English page. Going EN -> ES only swaps in place for routes
+ * that actually have a Spanish translation; everything else (teacher bios,
+ * accessibility, thanks, 404) falls back to the Spanish homepage rather than
+ * pointing at a noindex fallback stub. */
+const translatedRoutes = new Set([
+  "/",
+  "/curriculum/",
+  "/pricing/",
+  "/faq/",
+  "/contact/",
+  "/reviews/",
+]);
+let currentPath = Astro.url.pathname;
+if (!currentPath.endsWith("/")) currentPath += "/";
+
+let langSwitchHref;
+if (isEs) {
+  const enPath = currentPath.replace(/^\/es(?=\/)/, "");
+  langSwitchHref = enPath === "" ? "/" : enPath;
+} else {
+  langSwitchHref = translatedRoutes.has(currentPath)
+    ? (currentPath === "/" ? "/es/" : `/es${currentPath}`)
+    : "/es/";
+}
+const langSwitchLabel = isEs ? "English" : "Español";
+const langSwitchShort = isEs ? "EN" : "ES";
+---
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="brand" href={isEs ? "/es/" : "/"} aria-label={homeAria}>
+      <img
+        src="/images/lca-logo-horizontal.webp"
+        alt="The Lay Counselor Academy, Self-Paced"
+        width="440"
+        height="206"
+        class="brand-lockup"
+      />
+    </a>
+
+    <nav class="nav-links" aria-label={isEs ? "Primaria" : "Primary"}>
+      <ul>
+        {navLinks.map((link) => (
+          <li>
+            <a href={link.href}>{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="nav-end">
+      <a
+        class="lang-switch"
+        href={langSwitchHref}
+        aria-label={isEs ? "Switch to English" : "Cambiar a español"}
+      >
+        <span aria-hidden="true" class="lang-switch-short">{langSwitchShort}</span>
+        <span class="lang-switch-long">{langSwitchLabel}</span>
+      </a>
+      {isEs ? (
+        <span class="nav-soon">Próximamente</span>
+      ) : (
+        <a
+          class="nav-enroll"
+          href="https://app.teachfloor.com/the-lay-counselor-academy/c/32305"
+          rel="noopener"
+        >
+          {enrollLabel}
+        </a>
+      )}
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: var(--color-paper);
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0.625rem 1rem;
+  }
+  @media (min-width: 768px) {
+    .nav-inner {
+      padding: 0.75rem 1.5rem;
+    }
+  }
+  @media (min-width: 1280px) {
+    .nav-inner {
+      padding: 0.875rem 2rem;
+    }
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.875rem;
+    color: var(--color-navy);
+    text-decoration: none;
+    font-family: var(--font-serif);
+    line-height: 1.05;
+  }
+  .brand:hover {
+    text-decoration: none;
+    color: var(--color-navy-deep);
+  }
+  .brand-lockup {
+    display: block;
+    width: 220px;
+    height: auto;
+    flex: none;
+  }
+  @media (min-width: 768px) {
+    .brand-lockup {
+      width: 300px;
+    }
+  }
+
+  .nav-links {
+    display: none;
+  }
+  @media (min-width: 640px) {
+    .nav-links {
+      display: block;
+      flex: 1 1 auto;
+    }
+    .nav-links ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      color: var(--color-ink-soft);
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+    .nav-links a:hover {
+      color: var(--color-navy);
+      text-decoration: none;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -2px;
+      height: 1.5px;
+      background-color: var(--color-coral);
+      transition: right 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      right: 0;
+    }
+  }
+  @media (min-width: 900px) {
+    .nav-links ul {
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-size: 0.95rem;
+    }
+  }
+
+  .nav-end {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .nav-end {
+      gap: 1rem;
+    }
+  }
+
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-ink-quiet);
+    text-decoration: none;
+    padding: 0.75rem 0.75rem;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 4px;
+    transition: color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .lang-switch:hover {
+    color: var(--color-coral-deep);
+    text-decoration: none;
+  }
+  .lang-switch-long {
+    display: none;
+  }
+  @media (min-width: 900px) {
+    .lang-switch-short {
+      display: none;
+    }
+    .lang-switch-long {
+      display: inline;
+    }
+  }
+
+  .nav-enroll {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.1rem;
+    background-color: transparent;
+    color: var(--color-navy);
+    border: 1.5px solid var(--color-coral);
+    border-radius: 9999px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    min-height: 40px;
+    transition: background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .nav-enroll:hover {
+    background-color: var(--color-navy);
+    color: var(--color-paper);
+    text-decoration: none;
+  }
+  /* Spanish course not yet available: muted, non-interactive "coming soon" pill */
+  .nav-soon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.1rem;
+    background-color: var(--color-paper-soft);
+    color: var(--color-ink-quiet);
+    border: 1px solid var(--color-mint-deep);
+    border-radius: 9999px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9rem;
+    min-height: 40px;
+    white-space: nowrap;
+  }
+</style>

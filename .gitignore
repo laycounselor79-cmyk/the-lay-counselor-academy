@@ -1,0 +1,54 @@
+# build
+dist/
+.astro/
+
+# deps
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment
+.env
+.env.production
+.env.local
+.env.*.local
+
+# macOS
+.DS_Store
+
+# editor
+.vscode/
+.idea/
+*.swp
+
+# cloudflare
+.wrangler/
+.dev.vars
+
+# python
+__pycache__/
+*.pyc
+
+# working artifacts from the original build engagement (kept locally, not part of the client repo)
+dist-images/
+dist-pdf/
+tmp-mobile-audit/
+review-tabs/
+functions/
+handoff/
+DELIVERY_LOG.md
+ELIZABETHS_EDITS.md
+EMAIL_TO_AMANDA.md
+EMAIL_TO_ELIZABETH.md
+OPEN_QUESTIONS_FOR_ELIZABETH.md
+SITE_COPY_FOR_REVIEW.md
+SITE_COPY_FOR_REVIEW.docx
+LCA_BUILD_BRIEF.md
+HANDOFF.md
+
+# local harness config
+.claude/

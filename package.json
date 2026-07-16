@@ -1,0 +1,35 @@
+{
+  "name": "the-lay-counselor-academy",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "prebuild": "python3 scripts/generate-og.py || echo 'OG generation skipped (needs macOS fonts) — committed copies in public/og are used'",
+    "build": "astro build",
+    "postbuild": "node scripts/generate-md-twins.mjs",
+    "preview": "astro preview",
+    "check": "astro check",
+    "astro": "astro",
+    "og": "python3 scripts/generate-og.py",
+    "deploy": "npm run build && env -u CLOUDFLARE_API_TOKEN wrangler deploy && node scripts/submit-indexnow.mjs",
+    "deploy:pages-legacy": "npm run build && env -u CLOUDFLARE_API_TOKEN wrangler pages deploy dist --project-name=the-lay-counselor-academy --commit-dirty=true && node scripts/submit-indexnow.mjs",
+    "indexnow": "node scripts/submit-indexnow.mjs"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/sitemap": "^3.2.1",
+    "@fontsource/josefin-sans": "^5.2.8",
+    "@fontsource/lora": "^5.1.0",
+    "@fontsource/poppins": "^5.1.0",
+    "@tailwindcss/vite": "^4.0.6",
+    "astro": "^5.7.0",
+    "tailwindcss": "^4.0.6",
+    "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "turndown": "^7.2.4",
+    "wrangler": "^4.108.0"
+  }
+}

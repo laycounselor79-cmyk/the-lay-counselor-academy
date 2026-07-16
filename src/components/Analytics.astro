@@ -1,0 +1,31 @@
+---
+/*
+  GA4 loader. Rendered high in <head> from Layout.astro. Emits the gtag.js
+  snippet only when site.analytics.ga4Id is set (blank = zero analytics code).
+  Plain GA4, no consent banner (US-focused audience). The lead-action click
+  tracker is imported as a module script and no-ops until window.gtag exists.
+*/
+import { site } from "../config/site";
+
+const ga4Id = site.analytics.ga4Id;
+---
+
+{
+  ga4Id && (
+    <>
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`} />
+      <script is:inline define:vars={{ ga4Id }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        window.gtag = gtag;
+        gtag("js", new Date());
+        gtag("config", ga4Id);
+      </script>
+      <script>
+        import "../scripts/analytics";
+      </script>
+    </>
+  )
+}

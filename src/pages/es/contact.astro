@@ -1,0 +1,116 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout
+  lang="es"
+  title="Contacto, La Academia del Consejero Laico"
+  description="Ponte en contacto con La Academia del Consejero Laico. Para inscripciones, precios para organizaciones, becas o preguntas generales, escribe a Angelica."
+>
+  <section class="page-hero">
+    <div class="page-container">
+      <p class="eyebrow eyebrow-on-dark">Ponte en contacto</p>
+      <h1 class="page-hero-title">
+        Escribe a <span class="title-accent">Angelica.</span>
+      </h1>
+      <p class="page-hero-lede">
+        Angelica se encarga de inscripciones, precios para organizaciones,
+        becas y preguntas generales sobre el programa. Responde dentro de dos (2)
+        días hábiles.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact-body">
+    <div class="page-container">
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h2 class="contact-card-title">General e inscripciones</h2>
+          <p class="contact-card-text">
+            Para cualquier cosa sobre el curso A tu propio ritmo o En vivo.
+          </p>
+          <a class="contact-card-link" href="mailto:Angelica@emorrisonconsulting.com">
+            Angelica@emorrisonconsulting.com
+          </a>
+        </article>
+
+        <article class="contact-card">
+          <h2 class="contact-card-title">Inscripción de organizaciones</h2>
+          <p class="contact-card-text">
+            Agencias del condado, cuerpos de bomberos, escuelas, comunidades
+            de fe, trabajadores de salud comunitaria, organizaciones sin
+            fines de lucro. Precios por volumen y becas de equidad
+            disponibles.
+          </p>
+          <a class="contact-card-link" href="mailto:Angelica@emorrisonconsulting.com?subject=Inscripción%20de%20organización">
+            Angelica@emorrisonconsulting.com
+          </a>
+        </article>
+
+        <article class="contact-card">
+          <h2 class="contact-card-title">Prensa y alianzas</h2>
+          <p class="contact-card-text">
+            Para consultas de medios, oportunidades de alianza o invitaciones
+            a hablar que involucren a Elizabeth Morrison o Alli Moreno.
+          </p>
+          <a class="contact-card-link" href="https://www.emorrisonconsulting.com/contact/" rel="noopener">
+            Contáctanos a través de Elizabeth Morrison Consulting
+            <span aria-hidden="true" class="arrow">↗</span>
+          </a>
+        </article>
+      </div>
+
+      <p class="contact-note">
+        La Academia del Consejero Laico es un programa de Elizabeth Morrison
+        Consulting. La práctica principal está en California, EE. UU.
+      </p>
+    </div>
+  </section>
+
+  <section class="page-close">
+    <div class="page-container">
+      <h2 class="page-close-title">
+        O simplemente <span class="title-accent">lee un artículo de muestra.</span>
+      </h2>
+      <p class="page-close-lede">
+        <em>El consejo: por qué (y cómo) lo evitamos</em> es un artículo de
+        muestra del programa. Te lo enviaremos a tu correo; sin más preguntas.
+      </p>
+      <div class="page-close-actions">
+        <a class="btn-primary" href="/es/#sample">Lee el artículo de muestra</a>
+        <span class="btn-soon">Inscripción: próximamente</span>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { background-color: var(--color-navy); background-image: url('/images/topo-light.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; color: var(--color-on-navy); padding: 5rem 0; }
+  @media (min-width: 768px) { .page-hero { padding: 7rem 0; } }
+  .page-hero-title { font-family: var(--font-serif); font-weight: 400; color: var(--color-on-navy); font-size: clamp(2rem, 4.5vw, 3.75rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0.75rem 0 1.5rem 0; max-width: 22ch; text-wrap: balance; }
+  .page-hero-lede { font-family: var(--font-sans); font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.6; color: var(--color-on-navy-soft); margin: 0; max-width: 56ch; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-coral-text); margin: 0; }
+  .eyebrow-on-dark { color: var(--color-coral); }
+  .title-accent { color: var(--color-coral-deep); }
+  .arrow { transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1); display: inline-block; }
+  a:hover .arrow { transform: translateX(3px); }
+
+  .contact-body { padding: 5rem 0; background-color: var(--color-paper); }
+  @media (min-width: 768px) { .contact-body { padding: 7rem 0; } }
+  .contact-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 64rem; }
+  @media (min-width: 720px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+  .contact-card { background-color: var(--color-paper-soft); border-radius: 20px; padding: 2rem; }
+  @media (min-width: 768px) { .contact-card { padding: 2.5rem; } }
+  .contact-card-title { margin: 0 0 0.75rem 0; font-family: var(--font-serif); font-weight: 500; font-size: 1.5rem; color: var(--color-navy); letter-spacing: -0.01em; }
+  .contact-card-text { margin: 0 0 1.5rem 0; font-family: var(--font-sans); font-size: 1rem; line-height: 1.65; color: var(--color-ink-soft); }
+  .contact-card-link { font-family: var(--font-sans); font-size: 1.0625rem; font-weight: 500; color: var(--color-coral-deep); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; word-break: break-word; }
+  .contact-card-link:hover { color: var(--color-navy); text-decoration: underline; text-underline-offset: 4px; }
+  .contact-note { margin: 3rem 0 0 0; font-family: var(--font-serif); font-style: italic; font-size: 1rem; color: var(--color-ink-quiet); max-width: 60ch; }
+
+  .page-close { background-color: var(--color-info); padding: 5rem 0; text-align: center; }
+  @media (min-width: 768px) { .page-close { padding: 7rem 0; } }
+  .page-close-title { font-family: var(--font-serif); font-weight: 500; color: var(--color-navy); font-size: clamp(1.875rem, 3.5vw, 2.75rem); line-height: 1.15; letter-spacing: -0.015em; margin: 0 auto 1rem auto; max-width: 26ch; text-wrap: balance; }
+  .page-close-lede { font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.65; color: var(--color-ink-soft); margin: 0 auto 2rem auto; max-width: 52ch; }
+  .page-close-lede em { font-family: var(--font-serif); font-style: italic; font-weight: 500; color: var(--color-navy); }
+  .page-close-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.25rem 1.5rem; }
+</style>

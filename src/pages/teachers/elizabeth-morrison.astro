@@ -1,0 +1,169 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout
+  title="Elizabeth Morrison, PhD, LCSW, MAC, The Lay Counselor Academy"
+  description="Elizabeth Morrison, PhD, LCSW, MAC. Founder of The Lay Counselor Academy. Twenty-five years of California clinical practice and counselor training."
+  extraSchemas={[{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://thelaycounseloracademy.com/#person-elizabeth-morrison",
+    name: "Elizabeth Morrison",
+    honorificSuffix: "PhD, LCSW, MAC",
+    jobTitle: "Founder and Co-Creator, The Lay Counselor Academy",
+    description: "Founder of The Lay Counselor Academy. Practicing clinical social worker for over twenty-five years across California public health, community mental health, and private practice. Master Addiction Counselor. PhD in social psychology.",
+    url: "https://thelaycounseloracademy.com/teachers/elizabeth-morrison/",
+    image: "https://thelaycounseloracademy.com/images/elizabeth-headshot.webp",
+    knowsAbout: [
+      "Mental health counseling",
+      "Lay counseling",
+      "Addiction counseling",
+      "Clinical supervision",
+      "Bias mitigation in counseling",
+      "Community mental health",
+    ],
+    worksFor: [
+      { "@type": "Organization", "@id": "https://thelaycounseloracademy.com/#organization", name: "The Lay Counselor Academy" },
+      { "@type": "Organization", name: "Elizabeth Morrison Consulting", url: "https://www.emorrisonconsulting.com" },
+    ],
+    award: "Steinberg Institute 2023 Champion",
+    sameAs: [
+      "https://www.linkedin.com/in/elizabeth-morrison-consulting/",
+      "https://www.emorrisonconsulting.com",
+    ],
+    subjectOf: [
+      { "@type": "NewsArticle", name: "Amid a dire nationwide therapist shortage, could lay counselors help close the gap?", url: "https://www.statnews.com/2024/01/18/mental-health-therapist-shortage-lay-counselors-needed/", publisher: { "@type": "Organization", name: "STAT News" } },
+      { "@type": "NewsArticle", name: "Severe shortage of mental health clinicians prompts Stanislaus County to try bold approach", url: "https://www.modbee.com/news/local/article275363006.html", publisher: { "@type": "Organization", name: "The Modesto Bee" } },
+      { "@type": "Report", name: "Lay Counselor Academy Evaluation: Strengthening the Behavioral Health Workforce", url: "https://www.chcf.org/publication/lay-counselor-academy-evaluation-strengthening-behavioral-health-workforce/", publisher: { "@type": "Organization", name: "California Health Care Foundation" } },
+    ],
+  }]}
+>
+  <section class="bio-hero">
+    <div class="page-container">
+      <div class="bio-hero-grid">
+        <div class="bio-hero-photo">
+          <img
+            src="/images/elizabeth-headshot.webp"
+            alt="Photograph of Elizabeth Morrison"
+            width="411"
+            height="411"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="bio-hero-body">
+          <p class="eyebrow eyebrow-on-dark">Founder, Co-Creator</p>
+          <h1 class="bio-hero-name">Elizabeth Morrison</h1>
+          <p class="bio-hero-credentials">PhD, LCSW, MAC.</p>
+          <p class="bio-hero-lede">
+            Founder of The Lay Counselor Academy. Practicing clinical social
+            worker for over twenty-five years across California public health,
+            community mental health, and private practice. Master Addiction
+            Counselor. PhD in social psychology.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bio-body">
+    <div class="page-container">
+      <div class="bio-prose">
+        <h2 class="bio-section-title">A practitioner who teaches.</h2>
+        <p>
+          Elizabeth started in California's public mental health system more
+          than two decades ago, working with the people most underserved by
+          conventional care: the unhoused, people in active addiction, people
+          who had given up on systems that had given up on them. The work
+          shaped how she thinks about counseling, and what she thinks counseling
+          is for.
+        </p>
+
+        <p>
+          Over the years she trained clinicians, ran teams, consulted with
+          county agencies, and kept seeing the same gap: the licensed clinical
+          workforce could not meet community need, and the people most likely
+          to be in the room when someone was hurting were rarely clinicians.
+          The Lay Counselor Academy is her answer to that gap.
+        </p>
+
+        <h2 class="bio-section-title">What she teaches.</h2>
+        <p>
+          Elizabeth teaches across the seven modules of the academy. Her
+          strongest classroom voice is on the foundations: how to sit with
+          someone, how to notice your own biases without flinching, how to
+          counter the urge to fix, how to recognize when counseling is on
+          fertile ground.
+        </p>
+        <p>
+          She has been featured in <a href="https://www.statnews.com/2024/01/18/mental-health-therapist-shortage-lay-counselors-needed/" rel="noopener">STAT News</a>, <a href="https://www.modbee.com/news/local/article275363006.html" rel="noopener">the Modesto Bee</a>,
+          and the <a href="https://www.chcf.org/publication/lay-counselor-academy-evaluation-strengthening-behavioral-health-workforce/" rel="noopener">California Health Care Foundation's external evaluation</a>
+          of the academy. The Steinberg Institute named her and Alli Moreno
+          their 2023 Champions for this work.
+        </p>
+
+        <h2 class="bio-section-title">Beyond the academy.</h2>
+        <p>
+          Elizabeth is the founder of <a href="https://www.emorrisonconsulting.com" rel="noopener">Elizabeth Morrison Consulting</a>,
+          a California-based practice and consultancy. She also runs Flourish,
+          a counseling service for working adults. She still sees clients.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-close">
+    <div class="page-container">
+      <h2 class="page-close-title">
+        Read the sample article <span class="title-accent">Elizabeth teaches.</span>
+      </h2>
+      <p class="page-close-lede">
+        <em>Advice: Why (&amp; How) We Avoid It</em> is a sample article from the academy. She wrote it.
+      </p>
+      <div class="page-close-actions">
+        <a class="btn-primary" href="/#sample">Read the sample article</a>
+        <a class="btn-secondary" href="/teachers/alli-moreno/">
+          Meet Alli Moreno
+          <span aria-hidden="true" class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* .bio-hero shares the visual language of .page-hero (navy + contour pattern)
+     but keeps its own 2-column photo/text grid distinct from the text-only
+     hero on other inner pages. */
+  .bio-hero { background-color: var(--color-navy); background-image: url('/images/topo-light.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; color: var(--color-on-navy); padding: 5rem 0; }
+  @media (min-width: 768px) { .bio-hero { padding: 7rem 0; } }
+  .bio-hero-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
+  @media (min-width: 720px) { .bio-hero-grid { grid-template-columns: 280px 1fr; gap: 3.5rem; } }
+  @media (min-width: 1024px) { .bio-hero-grid { grid-template-columns: 320px 1fr; gap: 5rem; } }
+  .bio-hero-photo img { width: 100%; height: auto; aspect-ratio: 1 / 1; border-radius: 9999px; object-fit: cover; box-shadow: 0 16px 48px oklch(0 0 0 / 0.35); }
+  .bio-hero-name { font-family: var(--font-serif); font-weight: 400; color: var(--color-on-navy); font-size: clamp(2.25rem, 4.5vw, 3.75rem); line-height: 1.05; letter-spacing: -0.02em; margin: 0.75rem 0 0.5rem 0; }
+  .bio-hero-credentials { margin: 0 0 1.5rem 0; font-family: var(--font-sans); font-size: 1rem; color: var(--color-on-navy-soft); letter-spacing: 0.01em; }
+  .bio-hero-lede { margin: 0; font-family: var(--font-sans); font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.6; color: var(--color-on-navy-soft); max-width: 56ch; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-coral-text); margin: 0; }
+  .eyebrow-on-dark { color: var(--color-coral); }
+  .title-accent { color: var(--color-coral-deep); }
+  .arrow { transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1); display: inline-block; }
+  a:hover .arrow { transform: translateX(3px); }
+
+  .bio-body { padding: 5rem 0; background-color: var(--color-paper); }
+  @media (min-width: 768px) { .bio-body { padding: 7rem 0; } }
+  .bio-prose { max-width: 40rem; }
+  .bio-section-title { font-family: var(--font-serif); font-weight: 500; font-size: clamp(1.5rem, 2.25vw, 1.875rem); line-height: 1.2; letter-spacing: -0.01em; color: var(--color-navy); margin: 2.5rem 0 1rem 0; }
+  .bio-section-title:first-child { margin-top: 0; }
+  .bio-prose p { font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.75; color: var(--color-ink-soft); margin: 0 0 1.25rem 0; }
+  .bio-prose a { color: var(--color-coral-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .bio-prose a:hover { color: var(--color-navy); }
+
+  .page-close { background-color: var(--color-paper-soft); padding: 5rem 0; text-align: center; }
+  @media (min-width: 768px) { .page-close { padding: 7rem 0; } }
+  .page-close-title { font-family: var(--font-serif); font-weight: 500; color: var(--color-navy); font-size: clamp(1.875rem, 3.5vw, 2.75rem); line-height: 1.15; letter-spacing: -0.015em; margin: 0 auto 1rem auto; max-width: 26ch; text-wrap: balance; }
+  .page-close-lede { font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.65; color: var(--color-ink-soft); margin: 0 auto 2rem auto; max-width: 52ch; }
+  .page-close-lede em { font-family: var(--font-serif); font-style: italic; font-weight: 500; color: var(--color-navy); }
+  .page-close-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.25rem 1.5rem; }
+</style>

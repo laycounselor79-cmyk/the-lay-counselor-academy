@@ -1,0 +1,369 @@
+---
+interface Props {
+  formId?: string;
+  buttonLabel?: string;
+}
+
+const { formId = "sample-lesson-form", buttonLabel = "Send the article" } = Astro.props;
+const inputId = `${formId}-email`;
+const errorId = `${formId}-error`;
+const successId = `${formId}-success`;
+const returningId = `${formId}-returning`;
+
+const locale = (Astro.currentLocale || "en") as "en" | "es";
+const isEs = locale === "es";
+---
+
+<div class="form-shell" data-form-shell>
+  <form
+    id={formId}
+    method="POST"
+    action="/api/sample-lesson"
+    novalidate
+    data-form
+  >
+    <label for={inputId} class="sr-only">Your email address</label>
+    <div class="form-row">
+      <input
+        id={inputId}
+        type="email"
+        name="email"
+        autocomplete="email"
+        inputmode="email"
+        placeholder="you@example.com"
+        required
+        aria-describedby={errorId}
+        aria-invalid="false"
+        data-email-input
+      />
+      <button type="submit" class="btn-primary" data-submit-button>
+        <span data-label-default>{buttonLabel}</span>
+        <span data-label-submitting hidden>Sending…</span>
+      </button>
+    </div>
+    <p id={errorId} class="form-message" hidden role="status" aria-live="polite" data-form-error></p>
+    <p class="form-reassurance">
+      One email. No upsells. Unsubscribe any time.
+    </p>
+  </form>
+
+  <div id={successId} class="form-success" hidden role="status" aria-live="polite" data-form-success>
+    <p>
+      <span class="marker-coral" aria-hidden="true"></span>
+      Sent. Check your inbox for
+      <em>Advice: Why (&amp; How) We Avoid It</em>.
+    </p>
+    <p class="form-success-note">
+      It can take a minute or two to arrive. If you don't see it, please check
+      your spam folder.
+    </p>
+  </div>
+
+  <div id={returningId} class="form-returning" hidden data-form-returning>
+    <p>
+      {isEs
+        ? "Ya tienes el artículo de muestra en camino. ¿Listo para ir más allá?"
+        : "You already have the sample article on its way. Ready to go further?"}
+    </p>
+    <p class="form-returning-actions">
+      {isEs ? (
+        <>
+          <span class="btn-soon">Inscripción: próximamente</span>
+          <span class="form-returning-divider" aria-hidden="true">·</span>
+          <a href="/es/pricing/">Ver precios</a>
+        </>
+      ) : (
+        <>
+          <a class="form-returning-primary" href="https://app.teachfloor.com/the-lay-counselor-academy/c/32305" rel="noopener">
+            Enroll in Self-Paced
+            <span aria-hidden="true" class="arrow">→</span>
+          </a>
+          <span class="form-returning-divider" aria-hidden="true">·</span>
+          <a href="/pricing/">See pricing</a>
+        </>
+      )}
+    </p>
+  </div>
+</div>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .form-shell {
+    width: 100%;
+    max-width: 30rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  @media (min-width: 560px) {
+    .form-row {
+      flex-direction: row;
+      align-items: stretch;
+      gap: 0.625rem;
+    }
+  }
+
+  input[type="email"] {
+    flex: 1 1 auto;
+    padding: 0.875rem 1rem;
+    background-color: var(--color-paper-soft);
+    border: 1.5px solid var(--color-rule);
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-ink);
+    line-height: 1.4;
+    min-height: 48px;
+    transition: border-color 180ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  input[type="email"]::placeholder {
+    color: var(--color-ink-quiet);
+  }
+  input[type="email"]:hover {
+    border-color: oklch(0.6 0.04 261);
+  }
+  input[type="email"]:focus {
+    outline: none;
+    border-color: var(--color-navy);
+    background-color: var(--color-paper);
+    box-shadow: 0 0 0 3px oklch(0.27 0.10 261 / 0.15);
+  }
+  input[type="email"][aria-invalid="true"] {
+    border-color: var(--color-coral-deep);
+  }
+
+  button[type="submit"] {
+    flex: none;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  button[type="submit"]:disabled {
+    cursor: progress;
+    opacity: 0.75;
+  }
+  @media (min-width: 560px) {
+    button[type="submit"] {
+      padding: 0.875rem 1.5rem;
+    }
+  }
+
+  .form-message {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-coral-deep);
+    line-height: 1.5;
+  }
+
+  .form-reassurance {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-ink-quiet);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .form-success {
+    padding: 1.25rem 1.5rem;
+    background-color: var(--color-info);
+    border-radius: 12px;
+    border: 1px solid oklch(0.85 0.020 261);
+  }
+  .form-success p {
+    margin: 0;
+    color: var(--color-navy);
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  .form-success p + p {
+    margin-top: 0.5rem;
+  }
+  .form-success em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
+  }
+  .form-success-note {
+    font-size: 0.875rem !important;
+    color: var(--color-ink-quiet) !important;
+  }
+
+  .form-returning {
+    padding: 1.25rem 1.5rem;
+    background-color: var(--color-paper-soft);
+    border-radius: 12px;
+    border: 1px solid var(--color-rule);
+  }
+  .form-returning p {
+    margin: 0;
+    color: var(--color-ink-soft);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+  }
+  .form-returning-actions {
+    margin-top: 0.75rem !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+  }
+  .form-returning-primary {
+    color: var(--color-coral-deep);
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .form-returning-primary:hover {
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .form-returning-divider {
+    color: var(--color-ink-quiet);
+  }
+</style>
+
+<script>
+  const RETURNED_KEY = "lca:sample-lesson-sent";
+
+  function isPlausibleEmail(value: string): boolean {
+    if (!value || value.length > 254) return false;
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  document.querySelectorAll<HTMLElement>("[data-form-shell]").forEach((shell) => {
+    const form = shell.querySelector<HTMLFormElement>("[data-form]");
+    const input = shell.querySelector<HTMLInputElement>("[data-email-input]");
+    const button = shell.querySelector<HTMLButtonElement>("[data-submit-button]");
+    const labelDefault = shell.querySelector<HTMLElement>("[data-label-default]");
+    const labelSubmitting = shell.querySelector<HTMLElement>("[data-label-submitting]");
+    const errorEl = shell.querySelector<HTMLParagraphElement>("[data-form-error]");
+    const successEl = shell.querySelector<HTMLElement>("[data-form-success]");
+    const returningEl = shell.querySelector<HTMLElement>("[data-form-returning]");
+
+    if (!form || !input || !button || !errorEl || !successEl) return;
+
+    // returning visitor: replace the form with a quiet message
+    try {
+      if (window.localStorage.getItem(RETURNED_KEY)) {
+        form.hidden = true;
+        if (returningEl) returningEl.hidden = false;
+      }
+    } catch {
+      // localStorage unavailable; show the form
+    }
+
+    function setError(message: string | null) {
+      if (!errorEl || !input) return;
+      if (message) {
+        errorEl.textContent = message;
+        errorEl.hidden = false;
+        input.setAttribute("aria-invalid", "true");
+      } else {
+        errorEl.textContent = "";
+        errorEl.hidden = true;
+        input.setAttribute("aria-invalid", "false");
+      }
+    }
+
+    function setSubmitting(isSubmitting: boolean) {
+      if (!button || !labelDefault || !labelSubmitting || !input) return;
+      button.disabled = isSubmitting;
+      input.readOnly = isSubmitting;
+      labelDefault.hidden = isSubmitting;
+      labelSubmitting.hidden = !isSubmitting;
+    }
+
+    input.addEventListener("input", () => {
+      if (input.getAttribute("aria-invalid") === "true") {
+        setError(null);
+      }
+    });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const email = (input.value || "").trim();
+      if (!isPlausibleEmail(email)) {
+        setError("Please check this. It doesn't look like an email.");
+        input.focus();
+        return;
+      }
+
+      setError(null);
+      setSubmitting(true);
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          headers: { "content-type": "application/json", accept: "application/json" },
+          body: JSON.stringify({ email }),
+        });
+
+        if (!response.ok) {
+          let message = "Something went wrong on our end. We've logged it. Please try again in a moment.";
+          try {
+            const payload = await response.json();
+            if (payload && typeof payload.error === "string") message = payload.error;
+          } catch {
+            // body wasn't JSON; use default message
+          }
+          setError(message);
+          setSubmitting(false);
+          return;
+        }
+
+        // GA4: a successful sample-article signup is a lead.
+        const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+        if (typeof gtag === "function") {
+          gtag("event", "generate_lead", {
+            method: "sample_lesson_form",
+            lead_source: "sample_article",
+            page_path: window.location.pathname,
+          });
+        }
+
+        // success: replace form with the editorial success message
+        try {
+          window.localStorage.setItem(RETURNED_KEY, String(Date.now()));
+        } catch {
+          // localStorage unavailable; success still shows
+        }
+
+        form.hidden = true;
+        successEl.hidden = false;
+        successEl.focus?.();
+        successEl.scrollIntoView({ behavior: "smooth", block: "center" });
+      } catch {
+        setError("Something went wrong on our end. We've logged it. Please try again in a moment.");
+        setSubmitting(false);
+      }
+    });
+  });
+</script>

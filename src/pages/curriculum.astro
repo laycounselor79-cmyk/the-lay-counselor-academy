@@ -1,0 +1,461 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Session titles and overviews are taken from Elizabeth's "LCA Modules" doc
+// (June 2026). Learning-objective bullets and module intros were removed at
+// her request to keep the page accurate to that source.
+const modules = [
+  {
+    n: 1,
+    name: "Foundations of Lay Counseling",
+    sessions: [
+      {
+        n: 1,
+        title: "Introduction to The Lay Counselor Academy",
+        overview:
+          "In this session, we learn about the foundations of lay counseling. We discuss personal growth and its connection to being an effective counselor.",
+      },
+      {
+        n: 2,
+        title: "Equity Foundations: Identifying and Mitigating Negative Biases",
+        overview:
+          "In this session, we discuss the history of racism and discrimination in the helping professions, learn practices to identify our own biases, and practices to counter. We will learn how these anti-racist counseling practices are applicable to all discriminatory judgments.",
+      },
+    ],
+  },
+  {
+    n: 2,
+    name: "Core Counseling Approaches",
+    sessions: [
+      {
+        n: 1,
+        title: "Core Counseling Approaches",
+        overview:
+          "In this session, we will dive into “Home Stance” strategies: open-ended questions, empathic reflection, affirming strengths, countering shame, and acknowledging feelings. These are relational, evidence-based counseling strategies that are the foundation of counseling. We will also introduce “Ways of Being,” which are foundational attitudes and orientations that ensure effective and equitable care.",
+      },
+      {
+        n: 2,
+        title: "Strength-Based, Values-Based Counseling",
+        overview:
+          "In this session, we practice listening for, reflecting, and elevating clients’ values; we’ll also dive deeper into amplifying the good with clients.",
+      },
+    ],
+  },
+  {
+    n: 3,
+    name: "Working with Thoughts, Helping with Depression and Anxiety",
+    sessions: [
+      {
+        n: 1,
+        title: "Working with Thoughts",
+        overview:
+          "In this session we will gain knowledge of the Parts-of-Self framework and strategies, including CBT-informed principles and practices.",
+      },
+      {
+        n: 2,
+        title: "Helping with Depression and Anxiety",
+        overview:
+          "In this session, we will review the signs and symptoms of depression and anxiety, the benefit of conceptualizing these conditions as related, and pragmatic, evidence-based helping strategies for patients struggling with these symptoms.",
+      },
+    ],
+  },
+  {
+    n: 4,
+    name: "Positive Psychology, Happiness Practices, and Staying on Fertile Ground",
+    sessions: [
+      {
+        n: 1,
+        title: "Positive Psychology and Helping with Happiness Practices",
+        overview:
+          "In this session we will discuss the principles of positive psychology, the research on positive emotions and strength-based approaches. We will learn evidence-based happiness practices and how to help clients enhance wellbeing through increasing positive emotion and experiences.",
+      },
+      {
+        n: 2,
+        title: "Staying on Fertile Ground and Avoiding Anti-Growth Practices",
+        overview:
+          "In this session we will learn how to guide patients to a place of reflection and growth during sessions, and help them stay there. We will review anti-growth missteps, what might make us vulnerable to these, and how to repair when necessary.",
+      },
+    ],
+  },
+  {
+    n: 5,
+    name: "Motivational Interviewing, Helping with Addictive Disorders, and Difficult Childhoods",
+    sessions: [
+      {
+        n: 1,
+        title: "Helping with Addictive Disorders and Motivational Interviewing",
+        overview:
+          "In this session, we will take a deep dive into substance use and other addictive disorders, including the historical divide from mental health, the impact of stigma on those who struggle with addictive disorders, identifying and countering judgments we might have, and one of the most effective, evidence-based helping strategies for addictive disorders: Motivational Interviewing.",
+      },
+      {
+        n: 2,
+        title: "Helping People with Adverse Childhood Experiences, Managing Distress Empathy, and Preventing Vicarious Trauma",
+        overview:
+          "In this session we will gain a thorough knowledge of adverse childhood experiences, the impact on adults, and how to be helpful. We will learn about distress empathy, and how to manage this in ourselves.",
+      },
+    ],
+  },
+  {
+    n: 6,
+    name: "Suicidal Ideation, Mandated Reporting, and Personal Identities in Counseling",
+    sessions: [
+      {
+        n: 1,
+        title: "Suicidal Thoughts and How to Help",
+        overview:
+          "In this session, we will discuss suicide and suicidal thoughts, strategies to ensure clients feel comfortable enough to share these thoughts with us, how to respond, and how we can be helpful.",
+      },
+      {
+        n: 2,
+        title: "Personal Identities in Counseling",
+        overview:
+          "In this session, we focus on practices to support Black, Indigenous, and other people of color (BIPOC), as well as others who have been historically marginalized and oppressed. These practices make connections between sociocultural identities, life experiences, and relationships, including experiences and emotional distress that result from racism, other discrimination, and systemic oppression.",
+      },
+    ],
+  },
+  {
+    n: 7,
+    name: "Boundaries, Continual Learning, and Endings",
+    sessions: [
+      {
+        n: 1,
+        title: "Boundaries, Humility, Continued Learning and Growth",
+        overview:
+          "In this session we will discuss boundaries: how our history and personality shape our own boundaries, and ethical considerations in boundaries with clients. We will discuss the deep importance of regular clinical support as a foundation for continued life-long learning and growth in the practice of counseling.",
+      },
+      {
+        n: 2,
+        title: "Ending Counseling Relationships",
+        overview:
+          "In this session we discuss endings and goodbyes with clients and how to be helpful.",
+      },
+    ],
+  },
+];
+---
+
+<Layout
+  title="The Self-Paced curriculum, The Lay Counselor Academy"
+  description="The full LCA Self-Paced curriculum: seven modules, fourteen sessions, seventy hours of mental health counseling training for non-clinicians."
+>
+  <section class="page-hero" aria-labelledby="page-hero-title">
+    <div class="page-container">
+      <p class="eyebrow eyebrow-on-dark">The full curriculum</p>
+      <h1 id="page-hero-title" class="page-hero-title">
+        Seven modules. Fourteen sessions. <span class="title-accent">Seventy hours.</span>
+      </h1>
+      <p class="page-hero-lede">
+        The whole shape of the program, paced for evenings and weekends. Each
+        module has two sessions, each with an overview of what you'll learn.
+      </p>
+      <div class="page-hero-actions">
+        <a class="btn-primary" href="/#sample">Read the sample article</a>
+        <a class="page-hero-link" href="/pricing/">See pricing <span aria-hidden="true" class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="curriculum-detail" aria-label="Course modules">
+    <div class="page-container">
+      {modules.map((mod, i) => (
+        <article id={`module-${mod.n}`} class={`module-block ${i % 2 === 1 ? "module-block-alt" : ""}`}>
+          <header class="module-header">
+            <p class="eyebrow">Module {mod.n}</p>
+            <h2 class="module-name">{mod.name}</h2>
+          </header>
+
+          <div class="session-spread">
+            {mod.sessions.map((s) => (
+              <section class="session-card" id={`module-${mod.n}-session-${s.n}`}>
+                <p class="session-label">Session {s.n}</p>
+                <h3 class="session-title">{s.title}</h3>
+                <p class="session-overview">{s.overview}</p>
+              </section>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="page-close" aria-label="Next steps">
+    <div class="page-container">
+      <h2 class="page-close-title">
+        Ready to <span class="title-accent">read the first lesson?</span>
+      </h2>
+      <p class="page-close-lede">
+        Our sample article is <em>Advice: Why (&amp; How) We Avoid It</em>. We will send it to your inbox.
+      </p>
+      <div class="page-close-actions">
+        <a class="btn-primary" href="/#sample">Read the sample article</a>
+        <a
+          class="btn-secondary"
+          href="https://app.teachfloor.com/the-lay-counselor-academy/c/32305"
+          rel="noopener"
+        >
+          Enroll now
+          <span aria-hidden="true" class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ---------- page hero (navy ground, used on inner pages) ---------- */
+  .page-hero {
+    background-color: var(--color-navy);
+    background-image: url('/images/topo-light.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--color-on-navy);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  @media (min-width: 768px) {
+    .page-hero {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  .page-hero-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-on-navy);
+    font-size: clamp(2rem, 4.5vw, 3.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0.75rem 0 1.5rem 0;
+    max-width: 22ch;
+    text-wrap: balance;
+  }
+  .page-hero-lede {
+    font-family: var(--font-sans);
+    font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--color-on-navy-soft);
+    margin: 0 0 2rem 0;
+    max-width: 56ch;
+  }
+  .page-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem 1.5rem;
+  }
+  .page-hero-link {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-on-navy-soft);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .page-hero-link:hover {
+    color: var(--color-coral);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  /* ---------- module blocks ---------- */
+  .curriculum-detail {
+    background-color: var(--color-paper);
+  }
+  .module-block {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  @media (min-width: 768px) {
+    .module-block {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+  .module-block:last-child {
+    border-bottom: 0;
+  }
+  .module-header {
+    max-width: 56rem;
+    margin-bottom: 2.5rem;
+  }
+  .module-name {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.875rem, 3vw, 2.625rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--color-navy);
+    margin: 0.75rem 0 1.25rem 0;
+    text-wrap: balance;
+  }
+  .module-intro {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    max-width: 60ch;
+  }
+
+  .session-spread {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  @media (min-width: 900px) {
+    .session-spread {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+  }
+  .session-card {
+    background-color: var(--color-paper-soft);
+    border-radius: 16px;
+    padding: 1.75rem 1.75rem 2rem 1.75rem;
+  }
+  @media (min-width: 768px) {
+    .session-card {
+      padding: 2.25rem 2.25rem 2.5rem 2.25rem;
+    }
+  }
+  .session-label {
+    margin: 0 0 0.5rem 0;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-coral-text);
+  }
+  .session-title {
+    margin: 0 0 1rem 0;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.25rem, 1.875vw, 1.5rem);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--color-navy);
+    text-wrap: balance;
+  }
+  .session-overview {
+    margin: 0 0 1.5rem 0;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+  }
+  .session-objectives-label {
+    margin: 0 0 0.5rem 0;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-blue);
+  }
+  .session-objectives {
+    margin: 0;
+    padding-left: 1.25rem;
+    list-style: none;
+  }
+  .session-objectives li {
+    position: relative;
+    padding-left: 0.5rem;
+    margin-bottom: 0.625rem;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+  }
+  .session-objectives li::before {
+    content: "";
+    position: absolute;
+    left: -1rem;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background-color: var(--color-coral);
+  }
+  .module-block-alt {
+    background-color: var(--color-paper-soft);
+  }
+  .module-block-alt .session-card {
+    background-color: var(--color-paper);
+  }
+
+  /* ---------- closing CTA ---------- */
+  .page-close {
+    background-color: var(--color-info);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .page-close {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  .page-close-title {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    color: var(--color-navy);
+    font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0 auto 1rem auto;
+    max-width: 24ch;
+    text-wrap: balance;
+  }
+  .page-close-lede {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    margin: 0 auto 2rem auto;
+    max-width: 52ch;
+  }
+  .page-close-lede em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-navy);
+  }
+  .page-close-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem 1.5rem;
+  }
+  .title-accent {
+    color: var(--color-coral-deep);
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-coral-text);
+    margin: 0;
+  }
+  .eyebrow-on-dark {
+    color: var(--color-coral);
+  }
+  .arrow {
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    display: inline-block;
+  }
+  a:hover .arrow {
+    transform: translateX(3px);
+  }
+</style>

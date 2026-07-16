@@ -1,0 +1,111 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout
+  lang="es"
+  title="Página no encontrada, La Academia del Consejero Laico"
+  description="La página que buscabas no existe o se ha movido. Aquí están las rutas más comunes para encontrar lo que viniste a buscar."
+>
+  <section class="page-hero">
+    <div class="page-container">
+      <p class="eyebrow eyebrow-on-dark">404</p>
+      <h1 class="page-hero-title">
+        Esta página <span class="title-accent">no está aquí.</span>
+      </h1>
+      <p class="page-hero-lede">
+        O la URL está mal escrita, o la página se movió. Casi todo lo que la
+        gente busca está a un clic de distancia.
+      </p>
+    </div>
+  </section>
+
+  <section class="recovery">
+    <div class="page-container">
+      <ul class="recovery-list">
+        <li>
+          <a href="/es/" class="recovery-link">
+            <span class="recovery-eyebrow">Inicio</span>
+            <span class="recovery-title">La Academia del Consejero Laico</span>
+            <span class="recovery-text">
+              Qué es el programa, para quién es, y una lección de muestra que
+              puedes leer gratis.
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/es/#sample" class="recovery-link">
+            <span class="recovery-eyebrow">Artículo de muestra</span>
+            <span class="recovery-title">Lee el artículo de muestra</span>
+            <span class="recovery-text">
+              <em>El consejo: por qué (y cómo) lo evitamos</em>. Te lo enviamos a
+              tu correo en aproximadamente un minuto.
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/es/curriculum/" class="recovery-link">
+            <span class="recovery-eyebrow">Currículo</span>
+            <span class="recovery-title">Las setenta horas completas</span>
+            <span class="recovery-text">
+              Siete módulos, catorce sesiones, todos los objetivos de aprendizaje.
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/es/pricing/" class="recovery-link">
+            <span class="recovery-eyebrow">Precios</span>
+            <span class="recovery-title">Dos formas de aprender</span>
+            <span class="recovery-text">
+              A tu propio ritmo es $1,200 con acceso de por vida. Cohorte En
+              vivo $5,500 a lo largo de catorce semanas.
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/es/contact/" class="recovery-link">
+            <span class="recovery-eyebrow">Contacto</span>
+            <span class="recovery-title">Escribe a Angelica</span>
+            <span class="recovery-text">
+              Para inscripciones, precios para organizaciones, becas, o cualquier
+              otra cosa.
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="recovery-note">
+        Si llegaste aquí desde otro sitio, escríbenos a
+        <a href="mailto:Angelica@emorrisonconsulting.com">Angelica@emorrisonconsulting.com</a>
+        y dinos dónde está el enlace roto. Lo arreglamos.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { background-color: var(--color-navy); background-image: url('/images/topo-light.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; color: var(--color-on-navy); padding: 5rem 0; }
+  @media (min-width: 768px) { .page-hero { padding: 7rem 0; } }
+  .page-hero-title { font-family: var(--font-serif); font-weight: 400; color: var(--color-on-navy); font-size: clamp(2rem, 4.5vw, 3.75rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0.75rem 0 1.5rem 0; max-width: 18ch; text-wrap: balance; }
+  .page-hero-lede { font-family: var(--font-sans); font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.6; color: var(--color-on-navy-soft); margin: 0; max-width: 56ch; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-coral-text); margin: 0; }
+  .eyebrow-on-dark { color: var(--color-coral); }
+  .title-accent { color: var(--color-coral-deep); }
+
+  .recovery { padding: 5rem 0; background-color: var(--color-paper); }
+  @media (min-width: 768px) { .recovery { padding: 7rem 0; } }
+  .recovery-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--color-rule); max-width: 56rem; }
+  .recovery-list li { border-bottom: 1px solid var(--color-rule); }
+  .recovery-link { display: grid; grid-template-columns: 1fr; gap: 0.5rem; padding: 1.75rem 0; text-decoration: none; color: var(--color-navy); transition: color 200ms cubic-bezier(0.22, 1, 0.36, 1); }
+  @media (min-width: 720px) { .recovery-link { grid-template-columns: 10rem 1fr; gap: 0.25rem 2.5rem; align-items: baseline; padding: 2rem 0; } }
+  .recovery-link:hover { color: var(--color-coral-deep); }
+  .recovery-link:hover .recovery-title { text-decoration: underline; text-underline-offset: 3px; }
+  .recovery-eyebrow { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-coral-text); }
+  @media (min-width: 720px) { .recovery-eyebrow { padding-top: 0.25rem; } }
+  .recovery-title { font-family: var(--font-serif); font-weight: 500; font-size: clamp(1.25rem, 1.75vw, 1.5rem); line-height: 1.25; letter-spacing: -0.01em; }
+  .recovery-text { font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.6; color: var(--color-ink-soft); grid-column: 1; max-width: 56ch; }
+  @media (min-width: 720px) { .recovery-text { grid-column: 2; } }
+  .recovery-text em { font-family: var(--font-serif); font-style: italic; font-weight: 500; color: var(--color-navy); }
+  .recovery-note { margin: 3rem 0 0 0; font-family: var(--font-serif); font-style: italic; font-size: 1rem; line-height: 1.6; color: var(--color-ink-quiet); max-width: 56ch; }
+  .recovery-note a { color: var(--color-coral-deep); text-decoration: underline; text-underline-offset: 3px; }
+</style>

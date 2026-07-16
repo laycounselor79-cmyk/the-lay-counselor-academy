@@ -1,0 +1,3107 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SampleLessonForm from "../components/SampleLessonForm.astro";
+
+const modules = [
+  {
+    n: "1",
+    title: "What lay counseling is, why we need lay counselors now more than ever.",
+    tease:
+      "How biases and judgments can damage our relationships with others, and what we can do to mitigate our own.",
+  },
+  {
+    n: "2",
+    title: "Core Counseling Approaches",
+    tease:
+      "What we call 'Home Stance': the essential techniques we use over and over again: warm tone and body language, open-ended questions, empathic reflection, affirming strengths, and the practice of countering shame. Plus, strength-based counseling approaches.",
+  },
+  {
+    n: "3",
+    title: "Helping people with thoughts that are causing suffering (CBT).",
+    tease:
+      "How to recognize anxiety and depression, and practical strategies to help others who are suffering with these conditions.",
+  },
+  {
+    n: "4",
+    title: "Staying on what we call 'Fertile Ground'; ensuring we guide people toward the most helpful things to share about.",
+    tease:
+      "Using positive psychology to help others build up their happiness practices.",
+  },
+  {
+    n: "5",
+    title: "Recognizing addiction and using motivational interviewing to help people make changes.",
+    tease:
+      "How to help when someone shares difficult childhood experiences, and how to protect ourselves from vicarious trauma.",
+  },
+  {
+    n: "6",
+    title: "How to ask about suicidal thoughts and what we can do to help.",
+    tease:
+      "Cultural humility and helping others understand their identities.",
+  },
+  {
+    n: "7",
+    title: "Practical boundaries guidance (including when and when not to self-disclose) to ensure safety for those we are helping and ourselves.",
+    tease:
+      "How do we end a counseling relationship with care, ensuring those we are helping have a healthy goodbye with us.",
+  },
+];
+
+const pressLinks = [
+  {
+    name: "California Healthline",
+    href: "https://californiahealthline.org/news/article/asian-lay-counseling-mental-health-therapist-shortage-oakland-california/",
+    title: "Asian Health Center Tries Unconventional Approach to Counseling",
+  },
+  {
+    name: "STAT News",
+    href: "https://www.statnews.com/2024/01/18/mental-health-therapist-shortage-lay-counselors-needed/",
+    title: "Amid a dire nationwide therapist shortage, could lay counselors help close the gap?",
+  },
+  {
+    name: "the Modesto Bee",
+    href: "https://www.modbee.com/news/local/article275363006.html",
+    title: "Severe shortage of mental health clinicians prompts Stanislaus County to try bold approach",
+  },
+  {
+    name: "the Steinberg Institute",
+    href: "https://steinberginstitute.org/champion/elizabeth-morrison-and-alli-moreno/",
+    title: "2023 Steinberg Institute Champions: Elizabeth Morrison & Alli Moreno",
+  },
+  {
+    name: "CHCF Blog",
+    href: "https://www.chcf.org/blog/new-workforce-lay-counselors-strives-bridge-mental-health-care-gaps/",
+    title: "New Workforce of Lay Counselors Strives to Bridge Mental Health Care Gaps",
+  },
+];
+
+const courseFormats = [
+  {
+    n: "01",
+    name: "The LCA: Self-Paced",
+    tease:
+      "Our fully asynchronous course, giving you foundational mental health counseling skills on your own schedule. The course is deep and wide, with essential information on core counseling skills to help those with anxiety, depression, substance use struggles, and more.",
+    href: "#sample",
+    cta: "You are here",
+    current: true,
+  },
+  {
+    n: "02",
+    name: "The LCA: Live",
+    tease:
+      "Our flagship course. Fourteen weeks of live, practice-based learning with a cohort of peers. The LCA Live is delivered virtually, and includes 5 personal counseling sessions.",
+    href: "/contact/",
+    cta: "Contact us to register",
+    current: false,
+  },
+  {
+    n: "03",
+    name: "CHW Certification, with a Mental Health Counseling emphasis.",
+    tease:
+      "Community Health Worker certification in California, with an emphasis on mental health counseling. Learn all CHW core competencies plus essential mental health counseling skills.",
+    href: "/contact/",
+    cta: "Contact us to register",
+    current: false,
+  },
+];
+
+const benefits = [
+  "If you work in human services as a Community Health Worker, SUD counselor, case manager, health navigator, or similar position…",
+  "If you work in a school system, are a first responder, or a faith leader… do crisis work.",
+  "If you work in human resources, medical systems, or are a barber or stylist…",
+  "If you are serving people in your community who have little or no access to high-quality, culturally concordant mental health counseling.",
+  "If you are a helper at heart, and are passionate about supporting others.",
+  "If you are busy and need a flexible course that you can complete at your own pace, when it is convenient for you!",
+];
+
+const downloads = [
+  {
+    title: "LCA Course Options",
+    thumb: "/images/pdf-thumb-course-options.webp",
+    href: "/downloads/LCA_Course_Options.pdf",
+    external: false,
+  },
+  {
+    title: "LCA Self-Paced FAQs",
+    thumb: "/images/pdf-thumb-self-paced-faq.webp",
+    href: "/downloads/LCA_Self_Paced_FAQs.pdf",
+    external: false,
+  },
+  {
+    title: "LCA Self-Paced Details",
+    thumb: "/images/pdf-thumb-self-paced.webp",
+    href: "/downloads/LCA_Self_Paced_QR.pdf",
+    external: false,
+  },
+];
+---
+
+<Layout
+  title="Mental health counseling course, The Lay Counselor Academy"
+  extraSchemas={[{
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: "The story of The Lay Counselor Academy",
+    description: "Co-Creators Elizabeth Morrison and Alli Moreno share the story and mission behind The Lay Counselor Academy.",
+    thumbnailUrl: "https://img.youtube.com/vi/5c1knT6_ejs/maxresdefault.jpg",
+    uploadDate: "2024-01-01T08:00:00-08:00",
+    contentUrl: "https://www.youtube.com/watch?v=5c1knT6_ejs",
+    embedUrl: "https://www.youtube-nocookie.com/embed/5c1knT6_ejs",
+    publisher: { "@id": "https://thelaycounseloracademy.com/#organization" },
+  }, {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: "Why Lay Counseling Matters Now",
+    description: "Elizabeth Morrison, Co-Creator of The Lay Counselor Academy, on why the world needs more skilled helpers right now.",
+    thumbnailUrl: "https://thelaycounseloracademy.com/images/why-lay-counseling-matters-now-poster.webp",
+    uploadDate: "2026-07-02T09:00:00-07:00",
+    duration: "PT51S",
+    contentUrl: "https://thelaycounseloracademy.com/video/why-lay-counseling-matters-now.mp4",
+    publisher: { "@id": "https://thelaycounseloracademy.com/#organization" },
+  }, {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: { "@id": "https://thelaycounseloracademy.com/#course" },
+    reviewBody: "Hands down the most valuable course I've ever taken. I use the mental health counseling skills I learned in the LCA every day, with my patients but also at home!",
+    author: {
+      "@type": "Person",
+      name: "Oscar",
+      jobTitle: "Community Health Worker",
+      description: "LCA graduate",
+    },
+  }, {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: { "@id": "https://thelaycounseloracademy.com/#course" },
+    reviewBody: "The Lay Counselor Academy changed everything for us. The wait time for a behavioral health visit was reduced from 3-4 months to 1 week. I receive fewer SOS calls from my colleagues about patients in crisis. And now we have enough Spanish-speaking staff to provide our patients with mental health care in their native languages!",
+    author: {
+      "@type": "Person",
+      name: "Dr. Guarav Mishra",
+      jobTitle: "CBHO",
+      worksFor: { "@type": "Organization", name: "San Ysidro Health Centers" },
+    },
+  }, {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: { "@id": "https://thelaycounseloracademy.com/#course" },
+    reviewBody: "I continue to be amazed by the impact the Lay Counselor Academy has had on our team. Time and again, I hear from employees who describe the experience as transformative. They talk about how much they have learned, the confidence they have gained, and how much better prepared they feel to support patients experiencing mental health challenges. Over the past four years, Hill Country Community Clinic has sent more than 50 employees through the Lay Counselor Academy. By equipping our case and care managers and SUD teams with evidence-based counseling skills, we are expanding access to care in meaningful ways. Our patients don't always have to wait weeks for an appointment with a licensed clinician. Because of the LCA course, they can receive support, encouragement, and practical tools when they need them most. The benefits extend beyond our patients. Staff consistently report greater job satisfaction, increased confidence in their roles, and reduced feelings of burnout. Our supervisors have also noticed a difference, receiving fewer crisis calls from support staff because employees feel better equipped to respond effectively and compassionately. For an organization like Hill Country, which strives to meet people where they are and provide whole-person care, the Lay Counselor Academy has been an invaluable investment in both our workforce and those we serve.",
+    author: {
+      "@type": "Person",
+      name: "Jo Campbell",
+      jobTitle: "CEO",
+      worksFor: { "@type": "Organization", name: "Hill Country Community Clinic" },
+    },
+  }]}
+>
+  {/* -----------------------------------------------------------------------
+       Hero
+       --------------------------------------------------------------------- */}
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="page-container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <p class="hero-kicker">
+            <span class="marker-coral" aria-hidden="true"></span>
+            A how-to course on mental health counseling.
+          </p>
+
+          <h1 id="hero-title" class="hero-title hero-fade">
+            Learn essential mental health counseling skills.
+          </h1>
+
+          <p class="hero-subhead">
+            A self-paced course for everyone who wants to be a better helper.
+            Taught by deeply experienced licensed clinicians and lay counselors.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn-primary" href="#sample">
+              Read the sample article
+            </a>
+            <a class="hero-enroll-link" href="https://app.teachfloor.com/the-lay-counselor-academy/c/32305" rel="noopener">
+              or enroll now
+              <span aria-hidden="true" class="arrow">→</span>
+            </a>
+          </div>
+
+          <p class="hero-cta-note">
+            It's &lsquo;Advice: Why &amp; How We Avoid It,&rsquo; from Module 2 of
+            the course.
+          </p>
+        </div>
+
+        <figure class="hero-photo">
+          <img
+            src="/images/hero-counseling-2.webp"
+            alt="A lay counselor speaking and gesturing with her hand on her heart during a session"
+            width="537"
+            height="557"
+            class="hero-photo-img"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </figure>
+      </div>
+
+      <div class="hero-trust-panel" aria-label="Featured in">
+        <span class="hero-trust-panel-label">Featured in</span>
+        <div class="hero-trust-panel-logos">
+          <a class="hero-trust-link" href="https://www.chcf.org/publication/lay-counselor-academy-evaluation-strengthening-behavioral-health-workforce/" rel="noopener" target="_blank" aria-label="Read the California Health Care Foundation evaluation of The Lay Counselor Academy">
+            <img src="/images/press/chcf-on-navy.png" alt="California Health Care Foundation" width="880" height="120" class="hero-trust-logo hero-trust-logo-chcf" loading="eager" />
+          </a>
+          <a class="hero-trust-link" href="https://www.statnews.com/2024/01/18/mental-health-therapist-shortage-lay-counselors-needed/" rel="noopener" target="_blank" aria-label="Read the STAT News article on the therapist shortage and lay counselors">
+            <img src="/images/press/stat-on-navy.svg" alt="STAT News" width="516" height="100" class="hero-trust-logo hero-trust-logo-stat" loading="eager" />
+          </a>
+          <a class="hero-trust-link" href="https://www.modbee.com/news/local/article275363006.html" rel="noopener" target="_blank" aria-label="Read the Modesto Bee article on Stanislaus County's lay counselor approach">
+            <span class="hero-trust-logo hero-trust-logo-modbee">The Modesto Bee</span>
+          </a>
+          <a class="hero-trust-link" href="https://steinberginstitute.org/champion/elizabeth-morrison-and-alli-moreno/" rel="noopener" target="_blank" aria-label="Read the Steinberg Institute profile of Elizabeth Morrison and Alli Moreno">
+            <img src="/images/press/steinberg-on-navy.png" alt="Steinberg Institute" width="721" height="157" class="hero-trust-logo hero-trust-logo-steinberg" loading="eager" />
+          </a>
+          <a class="hero-trust-link" href="https://californiahealthline.org/news/article/asian-lay-counseling-mental-health-therapist-shortage-oakland-california/" rel="noopener" target="_blank" aria-label="Read the California Healthline article on lay counseling and the therapist shortage">
+            <img src="/images/press/healthline-on-navy.svg" alt="California Healthline" width="443" height="53" class="hero-trust-logo hero-trust-logo-healthline" loading="eager" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       Feature video, self-hosted "Why Lay Counseling Matters Now".
+       Two-column: context copy alongside the clip so it has a lead-in and
+       sits at a contained size. Native <video>, preload="none" + branded
+       poster so the 13MB file only downloads on play.
+       --------------------------------------------------------------------- */}
+  <section class="feature-video" aria-labelledby="feature-video-title">
+    <div class="page-container">
+      <div class="feature-video-grid">
+        <div class="feature-video-copy">
+          <p class="eyebrow">A word from our co-creator</p>
+          <h2 id="feature-video-title" class="feature-video-heading">
+            Why lay counseling <span class="title-accent">matters now.</span>
+          </h2>
+          <p class="feature-video-lead">
+            In just under a minute, Elizabeth Morrison shares why the world
+            needs more skilled everyday helpers, and how this course prepares
+            you to become one.
+          </p>
+          <p class="feature-video-attr">
+            <span class="marker-coral" aria-hidden="true"></span>
+            Elizabeth Morrison, PhD, LCSW, Co-Creator of the LCA
+          </p>
+        </div>
+        <div class="feature-video-media">
+          <div class="video-wrap">
+            <video
+              class="feature-video-el"
+              data-video-title="Why Lay Counseling Matters Now"
+              controls
+              preload="none"
+              playsinline
+              poster="/images/why-lay-counseling-matters-now-poster.webp"
+              width="1920"
+              height="1080"
+            >
+              <source src="/video/why-lay-counseling-matters-now.mp4" type="video/mp4" />
+              Your browser doesn&rsquo;t support embedded video.
+              <a href="/video/why-lay-counseling-matters-now.mp4">Download the video</a>.
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       Framing paragraph, two-column with the LCA cohort photo on the right
+       --------------------------------------------------------------------- */}
+  <section class="framing reveal" aria-label="Who this program is for">
+    <div class="page-container">
+      <div class="framing-grid">
+        <div class="framing-prose">
+          <p class="framing-text">
+            You're probably the person in your family, community or friend
+            group who people turn to when they need support; you've likely been told
+            you are easy to talk to. This means you're an empathic, skillful
+            listener! This course will build on the skills you already have,
+            deepen your understanding of mental health conditions, and give
+            you practical counseling skills to help others even more.
+          </p>
+          <p class="framing-aside">
+            Become the best helper you can be, at a time when the world needs
+            you most.
+          </p>
+        </div>
+        <figure class="framing-photo">
+          <img
+            src="/images/hero-counseling-900.webp"
+            alt="A cohort of Lay Counselor Academy graduates standing together after their training"
+            width="900"
+            height="329"
+            class="framing-photo-img"
+            loading="lazy"
+          />
+          <figcaption class="framing-photo-caption">
+            Graduation day at one of our in-person courses!
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       What is a Lay Counselor, short definition + portrait
+       --------------------------------------------------------------------- */}
+  <section class="lay-counselor reveal" aria-labelledby="lay-counselor-title">
+    <div class="page-container">
+      <div class="lay-counselor-grid">
+        <figure class="lay-counselor-photo">
+          <img
+            src="/images/what-is-lay-counselor.webp"
+            alt="A community health worker in a moment of conversation"
+            width="540"
+            height="600"
+            loading="lazy"
+          />
+        </figure>
+        <div class="lay-counselor-body">
+          <h2 id="lay-counselor-title" class="section-title">
+            What is <span class="title-accent">lay counseling?</span>
+          </h2>
+          <p class="lay-counselor-text">
+            Lay counseling is mental health counseling, delivered by helpers
+            who have learned the skills outside of the conventional academic
+            and licensure pathways. They sit with people in hard moments and
+            offer empathic, evidence-based care, bridging gaps that licensed
+            clinicians alone cannot fill.
+          </p>
+          <a class="link-arrow" href="https://www.emorrisonconsulting.com/what-is-a-lay-counselor/" rel="noopener">
+            Learn more
+            <span aria-hidden="true" class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       Course formats, 4 tiles. Self-Paced highlighted as the current page.
+       --------------------------------------------------------------------- */}
+  <section id="formats" class="formats reveal" aria-labelledby="formats-title">
+    <div class="page-container">
+      <header class="section-header section-header-center">
+        <p class="eyebrow">Courses and certificates</p>
+        <h2 id="formats-title" class="section-title">
+          What is the <span class="title-accent">Lay Counselor Academy?</span>
+        </h2>
+        <p class="section-lede center-prose">
+          The LCA is a course that equips you with practical skills in mental
+          health counseling.
+        </p>
+      </header>
+
+      <ol class="format-grid" aria-label="Course formats">
+        {courseFormats.map((fmt) => (
+          <li class={`format-card ${fmt.current ? "is-current" : ""}`}>
+            <span class="format-number" aria-hidden="true">{fmt.n}</span>
+            <h3 class="format-name">{fmt.name}</h3>
+            <p class="format-tease">{fmt.tease}</p>
+            {fmt.current ? (
+              <span class="format-current-badge">You are here</span>
+            ) : (
+              <a class="format-link" href={fmt.href} {...(fmt.href.startsWith("http") ? { rel: "noopener" } : {})}>
+                {fmt.cta}
+                <span aria-hidden="true" class="arrow">→</span>
+              </a>
+            )}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       Video, Co-Creators of LCA share the story.
+       Direct iframe with loading="lazy" and a YouTube nocookie embed.
+       Simple, reliable, no JS required.
+       --------------------------------------------------------------------- */}
+  <section class="video reveal" aria-labelledby="video-title">
+    <div class="page-container">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/5c1knT6_ejs?rel=0"
+          title="Co-Creators Elizabeth Morrison and Alli Moreno share the story of The Lay Counselor Academy"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+      </div>
+      <h2 id="video-title" class="video-caption">
+        Listen to Co-Creators <span class="title-accent">Elizabeth Morrison &amp; Alli Moreno</span> share the story and the mission behind The Lay Counselor Academy.
+      </h2>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       Teachers, placed right after the video so readers who just watched
+       Elizabeth and Alli speak can now meet them statically with bios.
+       --------------------------------------------------------------------- */}
+  <section id="co-creators-and-faculty" class="teachers reveal" aria-label="Co-creators and faculty">
+    <div class="page-container">
+      <header class="section-header">
+        <p class="eyebrow">Faculty</p>
+        <p class="section-lede">
+          The academy is small on purpose. You learn from people who are still
+          doing the work, not from a faceless platform.
+        </p>
+      </header>
+
+      <div class="teacher-spread">
+        <article class="teacher">
+          <img
+            src="/images/elizabeth-headshot.webp"
+            alt="Photograph of Elizabeth Morrison"
+            width="320"
+            height="320"
+            class="teacher-photo"
+            loading="lazy"
+          />
+          <div class="teacher-body">
+            <h3 class="teacher-name">Elizabeth Morrison</h3>
+            <p class="teacher-credential">PhD, LCSW, MAC. Co-creator of the LCA and licensed clinician.</p>
+            <p class="teacher-bio">
+              Elizabeth has a Doctorate in Psychology, is a Licensed Clinical
+              Social Worker, and has a Master of Addiction Counseling. She has
+              been a practicing therapist for over 30 years, working in
+              addiction treatment settings, primary care systems, and specialty
+              care clinics. She is passionate about expanding access to mental
+              health care by training trusted community members to provide
+              mental health counseling.
+            </p>
+            <a class="teacher-link" href="/teachers/elizabeth-morrison/">
+              Read more about Elizabeth
+              <span aria-hidden="true" class="arrow">→</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="teacher">
+          <img
+            src="/images/alli-moreno-headshot.webp"
+            alt="Photograph of Alli Moreno"
+            width="360"
+            height="360"
+            class="teacher-photo"
+            loading="lazy"
+          />
+          <div class="teacher-body">
+            <h3 class="teacher-name">Alli Moreno</h3>
+            <p class="teacher-credential">Alli is the Co-Creator of the LCA and a Lay Counselor.</p>
+            <p class="teacher-bio">
+              Alli co-created The Lay Counselor Academy with Elizabeth. Like
+              most lay counselors, Alli was naturally skilled and built on this
+              with more training, continual learning, and practice. She is
+              passionate about elevating and supporting community members who
+              are already providing mental health support to the people they
+              serve.
+            </p>
+            <a class="teacher-link" href="/teachers/alli-moreno/">
+              Read more about Alli
+              <span aria-hidden="true" class="arrow">→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       Benefits, 2x3 grid of why-lay-counselors. Card grid, authorized as
+       parent-brand-continuity exception to impeccable's no-card-grid rule.
+       --------------------------------------------------------------------- */}
+  <section class="benefits reveal" aria-labelledby="benefits-title">
+    <div class="page-container">
+      <header class="section-header section-header-center">
+        <p class="eyebrow">Who it's for</p>
+        <h2 id="benefits-title" class="section-title">
+          Is the Lay Counselor Academy <span class="title-accent">for me?</span>
+        </h2>
+        <p class="section-lede center-prose">
+          Are you often talking to people who share their mental health
+          struggles with you? Then the answer is yes!
+        </p>
+      </header>
+
+      <ul class="benefits-grid" aria-label="Is this for me?">
+        {benefits.map((b) => (
+          <li class="benefit-item">
+            <span class="benefit-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+                <circle cx="16" cy="16" r="16" fill="var(--color-blue)"/>
+                <path d="M22.4 9.9c-0.6-0.3-1.3 0.3-1.7 0.7-1 1-1.8 2-2.7 3-1 1.1-1.9 2.1-3 3.2-0.6 0.6-1.2 1.2-1.6 1.9-0.9-0.9-1.6-1.8-2.6-2.5-0.7-0.5-1.9-0.9-1.9 0.4 0 1.7 1.5 3.5 2.6 4.6 0.5 0.5 1.1 1 1.8 1 0.9 0 1.7-1 2.2-1.6 0.9-1 1.7-2 2.5-3 1.1-1.3 2.2-2.6 3.2-4 0.7-0.8 2.7-2.8 1.2-3.7z" fill="#fff"/>
+              </svg>
+            </span>
+            <p class="benefit-text">{b}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       Testimonial, a single pull quote, not a carousel.
+       --------------------------------------------------------------------- */}
+  <section class="testimonial reveal" aria-label="A graduate's experience">
+    <div class="page-container">
+      <figure class="testimonial-block">
+        <blockquote class="testimonial-quote">
+          Hands down the most valuable course I've ever taken. I use the
+          mental health counseling skills I learned in the LCA every day, with
+          my patients but also at home!
+        </blockquote>
+        <figcaption class="testimonial-attribution">
+          <span class="marker-coral" aria-hidden="true"></span>
+          Oscar, Community Health Worker and LCA graduate.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       Organizational testimonials, provided by the client (July 2026).
+       Named quotes from partner health organizations. Verbatim.
+       --------------------------------------------------------------------- */}
+  <section class="org-testimonials reveal" aria-labelledby="org-testimonials-title">
+    <div class="page-container">
+      <header class="section-header section-header-center">
+        <p class="eyebrow">From the organizations we train</p>
+        <h2 id="org-testimonials-title" class="section-title">
+          What it looks like <span class="title-accent">at scale.</span>
+        </h2>
+      </header>
+
+      <div class="org-testimonials-grid">
+        <figure class="org-testimonial">
+          <blockquote class="org-testimonial-quote">
+            <p>
+              The Lay Counselor Academy changed everything for us. The wait
+              time for a behavioral health visit was reduced from 3&ndash;4
+              months to 1 week. I receive fewer SOS calls from my colleagues
+              about patients in crisis. And now we have enough Spanish-speaking
+              staff to provide our patients with mental health care in their
+              native languages!
+            </p>
+          </blockquote>
+          <figcaption class="org-testimonial-attribution">
+            <span class="marker-coral" aria-hidden="true"></span>
+            <span class="org-testimonial-cite">
+              <span class="org-testimonial-name">Dr. Guarav Mishra, CBHO</span>
+              <span class="org-testimonial-org">San Ysidro Health Centers</span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="org-testimonial">
+          <blockquote class="org-testimonial-quote">
+            <p>
+              I continue to be amazed by the impact the Lay Counselor Academy
+              has had on our team. Time and again, I hear from employees who
+              describe the experience as transformative. They talk about how
+              much they have learned, the confidence they have gained, and how
+              much better prepared they feel to support patients experiencing
+              mental health challenges.
+            </p>
+            <p>
+              Over the past four years, Hill Country Community Clinic has sent
+              more than 50 employees through the Lay Counselor Academy. By
+              equipping our case and care managers and SUD teams with
+              evidence-based counseling skills, we are expanding access to care
+              in meaningful ways. Our patients don&rsquo;t always have to wait
+              weeks for an appointment with a licensed clinician. Because of the
+              LCA course, they can receive support, encouragement, and practical
+              tools when they need them most.
+            </p>
+            <p>
+              The benefits extend beyond our patients. Staff consistently report
+              greater job satisfaction, increased confidence in their roles, and
+              reduced feelings of burnout. Our supervisors have also noticed a
+              difference, receiving fewer crisis calls from support staff because
+              employees feel better equipped to respond effectively and
+              compassionately.
+            </p>
+            <p>
+              For an organization like Hill Country, which strives to meet people
+              where they are and provide whole-person care, the Lay Counselor
+              Academy has been an invaluable investment in both our workforce and
+              those we serve.
+            </p>
+          </blockquote>
+          <figcaption class="org-testimonial-attribution">
+            <span class="marker-coral" aria-hidden="true"></span>
+            <span class="org-testimonial-cite">
+              <span class="org-testimonial-name">Jo Campbell, CEO</span>
+              <span class="org-testimonial-org">Hill Country Community Clinic</span>
+            </span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       Program, table of contents, not card grid
+       --------------------------------------------------------------------- */}
+  <section id="program" class="program reveal" aria-labelledby="program-title">
+    <div class="page-container">
+      <header class="section-header">
+        <p class="eyebrow">The curriculum</p>
+        <h2 id="program-title" class="section-title">
+          Seven modules. Fourteen sessions. Seventy hours of practical mental
+          health counseling skills.
+        </h2>
+        <p class="section-lede">
+          The Lay Counselor Academy Self-Paced is fully asynchronous. You read
+          articles, watch videos, listen to audio, and write reflections and
+          complete learning checks on your own schedule.
+        </p>
+      </header>
+
+      <ol class="program-grid" aria-label="Course modules">
+        {modules.map((mod) => (
+          <li class="program-card">
+            <span class="program-number" aria-hidden="true">{mod.n.padStart(2, "0")}</span>
+            <p class="program-eyebrow">Module {mod.n}</p>
+            <h3 class="program-title">{mod.title}</h3>
+            <p class="program-tease">{mod.tease}</p>
+            <a class="program-link" href={`/curriculum#module-${mod.n}`}>
+              Read the module
+              <span aria-hidden="true" class="arrow">→</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+
+      <p class="program-foot">
+        For a full list of learning objectives and session-by-session detail,
+        see our <a href="/curriculum/">curriculum page</a>.
+      </p>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       What's inside the Self-Paced course, the "what do I actually get for
+       $1,200" answer. Per the April 30 onboarding call: SCORM modules with
+       video/audio/written essays, quizzes + open-ended prompts, in-course
+       AI study partner, discussion board, certificate, lifetime access.
+       --------------------------------------------------------------------- */}
+  <section class="inside reveal" aria-labelledby="inside-title">
+    <div class="page-container">
+      <header class="section-header section-header-center">
+        <p class="eyebrow">What you actually get</p>
+        <h2 id="inside-title" class="section-title">
+          Inside the <span class="title-accent">Self-Paced course.</span>
+        </h2>
+        <p class="section-lede center-prose">
+          For $1,200 you'll receive the entire 70-hour, self-paced Lay
+          Counselor Academy Course.
+        </p>
+      </header>
+
+      <ul class="inside-grid" aria-label="What the course includes">
+        <li class="inside-item">
+          <span class="inside-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </span>
+          <div class="inside-body">
+            <h3 class="inside-name">The course is yours for life, to return to again and again.</h3>
+            <p class="inside-text">Seven modules and fourteen sessions. Move as fast or as slowly as you need.</p>
+          </div>
+        </li>
+
+        <li class="inside-item">
+          <span class="inside-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+              <path d="M21 19a2 2 0 0 1-2 2h-1v-7h3z"/>
+              <path d="M3 19a2 2 0 0 0 2 2h1v-7H3z"/>
+            </svg>
+          </span>
+          <div class="inside-body">
+            <h3 class="inside-name">Multi-modal learning: reading, listening, watching and writing.</h3>
+            <p class="inside-text">Every session has articles, recorded audio for those who would rather listen than read, and short videos.</p>
+          </div>
+        </li>
+
+        <li class="inside-item">
+          <span class="inside-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <path d="M3 10h18"/>
+              <path d="m8 15 2 2 4-4"/>
+            </svg>
+          </span>
+          <div class="inside-body">
+            <h3 class="inside-name">Learning Checks and Reflective Questions</h3>
+            <p class="inside-text">Multiple-choice and true-or-false learning checks reinforce the concepts. Open-ended prompts invite you to write through your own practice.</p>
+          </div>
+        </li>
+
+        <li class="inside-item">
+          <span class="inside-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </span>
+          <div class="inside-body">
+            <h3 class="inside-name">A community of lay counselors</h3>
+            <p class="inside-text">An in-course discussion board with fellow graduates and current learners. People who do this work, talking to each other about it.</p>
+          </div>
+        </li>
+
+        <li class="inside-item">
+          <span class="inside-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="9" r="6"/>
+              <path d="m8.21 13.89-1.42 7.11 5.21-3 5.21 3-1.42-7.11"/>
+              <path d="M12 6v3l2 1"/>
+            </svg>
+          </span>
+          <div class="inside-body">
+            <h3 class="inside-name">Lifetime access and a certificate</h3>
+            <p class="inside-text">Finish the program and receive a certificate of completion. Lifetime access including all future updates included at no additional cost.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       Sample lesson, the primary conversion. The form sits next to a
+       paper-artifact preview of the lesson that will arrive in the inbox.
+       Placed right after "Inside the course" to catch readers at their
+       highest-intent moment, before the credibility detours (CHCF + press).
+       --------------------------------------------------------------------- */}
+  <section id="sample" class="sample reveal" aria-labelledby="sample-title">
+    <div class="page-container">
+      <div class="sample-inner">
+        <div class="sample-grid">
+          <div class="sample-form">
+            <p class="eyebrow">Read a sample article!</p>
+            <h2 id="sample-title" class="sample-title">
+              Advice: Why (&amp; How) We Avoid It
+            </h2>
+            <p class="sample-meta">
+              <em>From Module 2.</em> By Elizabeth Morrison.
+            </p>
+            <p class="sample-cta-note">
+              The article opening is on the right. Drop your email and
+              we will send the full version straight to your inbox.
+            </p>
+
+            <SampleLessonForm />
+          </div>
+
+          <aside class="excerpt-page sample-excerpt" aria-label="An excerpt from Module 2">
+            <span class="excerpt-spine" aria-hidden="true"></span>
+
+            <header class="excerpt-page-header">
+              <p class="excerpt-eyebrow">From Module 2 &mdash; Advice: Why (&amp; How) We Avoid It</p>
+            </header>
+
+            <div class="excerpt-body">
+              <p class="excerpt-text">
+                We engage in deeply focused, empathic, mindful listening, with an
+                attitude of unconditional positive regard for the person we are
+                working with. Giving advice is not counseling, and often damages
+                our relationship with those we are trying to help. How can we
+                break the advice habit?
+              </p>
+              <p class="excerpt-text">
+                Counselors practice listening to others share about deep and
+                often painful issues, without judging, and without immediately
+                relating (&ldquo;me too&rdquo;). We avoid advice or jumping in to
+                &lsquo;fix&rsquo;. We work to maintain a &lsquo;know
+                nothing&rsquo;, without an agenda about what the person we are
+                helping &ldquo;should&rdquo; do.
+              </p>
+            </div>
+
+            <footer class="excerpt-page-footer">
+              <span class="excerpt-rule" aria-hidden="true"></span>
+              <p class="excerpt-attribution">
+                <em>From the Module 2 flipbook.</em>
+                Taught by Elizabeth Morrison.
+              </p>
+            </footer>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       CHCF evaluation, on navy ground, the serious moment
+       --------------------------------------------------------------------- */}
+  <section id="evaluation" class="evaluation reveal" aria-labelledby="evaluation-title">
+    <div class="page-container">
+      <div class="evaluation-grid">
+        <div class="evaluation-cover">
+          <img
+            src="/images/chcf-evaluation.webp"
+            alt="Cover of the California Health Care Foundation's 2025 evaluation report of The Lay Counselor Academy"
+            width="240"
+            height="312"
+            loading="lazy"
+          />
+        </div>
+        <div class="evaluation-body">
+          <p class="eyebrow eyebrow-on-dark">An external evaluation</p>
+          <h2 id="evaluation-title" class="evaluation-title">
+            The California Health Care Foundation evaluated the academy in 2025.
+          </h2>
+          <p class="evaluation-text">
+            Their report concluded that The Lay Counselor Academy successfully
+            increases mental health counseling knowledge, skills and confidence
+            for those who engage in the course. The evaluation also found The
+            Lay Counselor Academy meaningfully expands a culturally concordant
+            mental health workforce in communities where licensed clinicians
+            are scarce.
+          </p>
+          <p class="evaluation-text">
+            We are proud of the findings in this formal evaluation! Don't take
+            our word for it, when you can read it yourself!
+          </p>
+          <a
+            class="btn-on-dark"
+            href="https://www.chcf.org/publication/lay-counselor-academy-evaluation-strengthening-behavioral-health-workforce/"
+            rel="noopener"
+          >
+            Read the evaluation
+            <span aria-hidden="true" class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       Press, typographic strip + named article list with real article URLs.
+       Replaces the parent's low-res compiled logos.jpg with a cleaner
+       text-based "logo" treatment for each publication.
+       --------------------------------------------------------------------- */}
+  <section class="press reveal" aria-labelledby="press-title">
+    <div class="page-container">
+      <header class="section-header section-header-center">
+        <p class="eyebrow eyebrow-on-paper">In the press</p>
+        <h2 id="press-title" class="section-title">
+          What the press are saying about <span class="title-accent">our work.</span>
+        </h2>
+      </header>
+
+      <div class="press-logos" aria-label="Publications covering The Lay Counselor Academy">
+        <img
+          src="/images/press/chcf.png"
+          alt="California Health Care Foundation" width="880" height="120"
+          class="press-logo press-logo-chcf"
+          loading="lazy"
+        />
+        <span class="press-logo-divider" aria-hidden="true"></span>
+        <img
+          src="/images/press/stat.svg"
+          alt="STAT News" width="516" height="100"
+          class="press-logo press-logo-stat"
+          loading="lazy"
+        />
+        <span class="press-logo-divider" aria-hidden="true"></span>
+        <span class="press-logo press-logo-modbee" aria-label="The Modesto Bee">
+          The Modesto Bee
+        </span>
+        <span class="press-logo-divider" aria-hidden="true"></span>
+        <img
+          src="/images/press/steinberg.png"
+          alt="Steinberg Institute" width="721" height="157"
+          class="press-logo press-logo-steinberg"
+          loading="lazy"
+        />
+        <span class="press-logo-divider" aria-hidden="true"></span>
+        <img
+          src="/images/press/healthline.svg"
+          alt="California Healthline" width="443" height="53"
+          class="press-logo press-logo-healthline"
+          loading="lazy"
+        />
+      </div>
+
+      <ul class="press-articles" aria-label="Press coverage">
+        {pressLinks.map((p) => (
+          <li class="press-article">
+            <a href={p.href} rel="noopener" target="_blank" class="press-article-link">
+              <span class="press-article-publication">{p.name}</span>
+              <span class="press-article-title">{p.title}</span>
+              <span aria-hidden="true" class="arrow press-article-arrow">↗</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       LCA Book, purchase in English or Spanish
+       --------------------------------------------------------------------- */}
+  <section class="lca-book reveal" aria-labelledby="book-title">
+    <div class="page-container">
+      <header class="section-header">
+        <p class="eyebrow eyebrow-on-paper">Take it with you</p>
+        <h2 id="book-title" class="section-title">
+          Get a copy of the <span class="title-accent">LCA book.</span>
+        </h2>
+        <p class="section-lede">
+          Three hundred pages of LCA articles, the same essays we use to teach
+          the basics of mental health counseling. Sold at cost: just printing
+          and shipping. Available in English and Spanish.
+        </p>
+      </header>
+
+      <div class="book-grid">
+        <article class="book-card">
+          <img
+            src="/images/lca-book-cover-en.webp"
+            alt="The Lay Counselor Academy book, English edition"
+            width="613"
+            height="512"
+            class="book-cover"
+            loading="lazy"
+          />
+          <a
+            class="btn-primary"
+            href="https://buy.stripe.com/28EbJ15fT4Ej47ag4tcMM06"
+            rel="noopener"
+          >
+            Purchase your copy here
+          </a>
+        </article>
+
+        <article class="book-card">
+          <img
+            src="/images/lca-book-cover-es.webp"
+            alt="La Academia del Consejero Laico, edición en español"
+            width="478"
+            height="400"
+            class="book-cover"
+            loading="lazy"
+          />
+          <a
+            class="btn-primary"
+            href="https://buy.stripe.com/00w4gzcIl0o3avy5pPcMM05"
+            rel="noopener"
+          >
+            Compra tu copia aquí
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       More information, 4 downloadable PDFs. Authorized card grid.
+       --------------------------------------------------------------------- */}
+  <section class="downloads reveal" aria-labelledby="downloads-title">
+    <div class="page-container">
+      <header class="section-header section-header-center">
+        <p class="eyebrow">Read more</p>
+        <h2 id="downloads-title" class="section-title">
+          See below for <span class="title-accent">more information.</span>
+        </h2>
+      </header>
+
+      <ol class="downloads-grid" aria-label="Downloadable resources">
+        {downloads.map((d) => (
+          <li class="download-card">
+            <a
+              href={d.href}
+              {...(d.external ? { rel: "noopener", target: "_blank" } : { target: "_blank" })}
+              class="download-link"
+            >
+              <img
+                src={d.thumb}
+                alt=""
+                class="download-thumb"
+                loading="lazy"
+                width="287"
+                height="203"
+              />
+              <h3 class="download-title">{d.title}</h3>
+              <span class="download-cta">
+                Download
+                <span aria-hidden="true" class="arrow">↗</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  {/* -----------------------------------------------------------------------
+       Pricing doorway
+       --------------------------------------------------------------------- */}
+  <section class="pricing-door reveal" aria-labelledby="pricing-title">
+    <div class="page-container">
+      <div class="pricing-grid">
+        <div class="pricing-copy">
+          <p class="eyebrow">What it costs</p>
+          <h2 id="pricing-title" class="section-title">
+            Two ways to learn. <span class="title-accent">The same Lay Counselor Academy Course.</span>
+          </h2>
+          <p class="pricing-text">
+            The Self-Paced course is fully asynchronous: start any time and
+            work at your own pace, with lifetime access to the full Lay
+            Counselor Academy curriculum.
+          </p>
+          <div class="pricing-actions">
+            <a class="btn-primary" href="https://app.teachfloor.com/the-lay-counselor-academy/c/32305" rel="noopener">
+              Enroll in Self-Paced
+            </a>
+            <a class="btn-secondary" href="/pricing/">
+              See full pricing
+              <span aria-hidden="true" class="arrow">→</span>
+            </a>
+          </div>
+          <p class="pricing-es-note">
+            Serving a Spanish-speaking community? A Spanish version of the
+            course is coming soon.
+            <a href="/es/">
+              See the Spanish site
+              <span aria-hidden="true" class="arrow">→</span>
+            </a>
+          </p>
+          <p class="pricing-note">
+            If you are a human service organization, and would like to enroll
+            your staff, email
+            <a href="mailto:Angelica@emorrisonconsulting.com">
+              Angelica@emorrisonconsulting.com
+            </a>
+          </p>
+        </div>
+
+        <aside class="pricing-tiers" aria-label="Pricing at a glance">
+          <ul class="pricing-tier-list">
+            <li class="pricing-tier pricing-tier-standard">
+              <div class="pricing-tier-label">
+                <span class="pricing-tier-name">Self-Paced</span>
+                <span class="pricing-tier-note">Asynchronous, anytime.</span>
+              </div>
+              <span class="pricing-tier-amount">$1,200</span>
+            </li>
+          </ul>
+          <p class="pricing-tier-aside-note">
+            Lifetime access on the course platform. Group rates for organizations on request.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* common section primitives */
+  .section-header {
+    max-width: 36rem;
+    margin-bottom: 3rem;
+  }
+  .section-header .eyebrow {
+    margin-bottom: 1rem;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-coral-text);
+    margin: 0 0 0.5rem 0;
+  }
+  .eyebrow-on-paper {
+    color: var(--color-blue);
+  }
+  .eyebrow-on-dark {
+    color: var(--color-coral);
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-navy);
+    font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .section-title-tight {
+    max-width: 22ch;
+  }
+
+  .section-lede {
+    margin-top: 1.25rem;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+    max-width: 60ch;
+  }
+
+  .arrow {
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    display: inline-block;
+  }
+  a:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  /* ----- HERO, navy ground, two columns: text + photo. Compact vertical
+       spacing so the press logos stay above the fold on typical laptops. ---- */
+  .hero {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+    background-color: var(--color-navy);
+    background-image: url('/images/topo-light.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--color-on-navy);
+    position: relative;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .hero {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .hero {
+      padding-top: 4.5rem;
+      padding-bottom: 4.5rem;
+    }
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .hero-grid {
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 3rem;
+    }
+  }
+  @media (min-width: 1200px) {
+    .hero-grid {
+      gap: 4rem;
+    }
+  }
+
+  .hero-content {
+    min-width: 0;
+  }
+
+  .hero-photo {
+    margin: 0;
+    order: 2;
+  }
+  @media (min-width: 900px) {
+    .hero-photo {
+      order: 0;
+    }
+  }
+  .hero-photo-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 537 / 557;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow:
+      0 2px 4px oklch(0 0 0 / 0.18),
+      0 24px 50px oklch(0 0 0 / 0.35);
+  }
+  @media (max-width: 899px) {
+    .hero-photo-img {
+      max-height: 320px;
+      aspect-ratio: auto;
+    }
+  }
+
+  /* Trust strip, real press logos directly on the navy hero. Logos are
+     inverted to white silhouettes via CSS filter so they're legible on
+     the dark ground without needing a card. */
+  .hero-trust-panel {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid oklch(0.97 0.012 70 / 0.18);
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+  @media (min-width: 900px) {
+    .hero-trust-panel {
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5rem;
+      /* let the panel grow with its content so the border-top extends to
+         the right edge of the logo strip, instead of stopping at the
+         narrower hero-inner max-width */
+      width: max-content;
+      max-width: 100%;
+    }
+  }
+  .hero-trust-panel-label {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-coral);
+    flex: none;
+  }
+  /* Single horizontal row of logos at desktop. At tablet widths we shrink
+     gap + logo heights so all five still fit in one row instead of wrapping
+     to two visually-unbalanced rows. */
+  .hero-trust-panel-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.875rem 1.25rem;
+  }
+  @media (min-width: 640px) and (max-width: 899px) {
+    .hero-trust-panel-logos {
+      flex-wrap: nowrap;
+      gap: 0.875rem;
+    }
+    .hero-trust-logo-chcf { height: 22px; }
+    .hero-trust-logo-stat { height: 18px; }
+    .hero-trust-logo-modbee { font-size: 0.78rem; letter-spacing: 0.02em; }
+    .hero-trust-logo-steinberg { height: 22px; }
+    .hero-trust-logo-healthline { height: 16px; }
+  }
+  @media (min-width: 900px) {
+    .hero-trust-panel-logos {
+      flex-wrap: nowrap;
+      gap: 1.5rem;
+    }
+  }
+  .hero-trust-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    flex: none;
+    border-radius: 4px;
+  }
+  .hero-trust-link:focus-visible {
+    outline: 2px solid var(--color-coral);
+    outline-offset: 4px;
+  }
+  .hero-trust-logo {
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    width: auto;
+    /* Logos render in their original brand colors. */
+    opacity: 0.85;
+    transition: opacity 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hero-trust-link:hover .hero-trust-logo,
+  .hero-trust-logo:hover {
+    opacity: 1;
+  }
+  .hero-trust-logo-chcf { height: 28px; }
+  .hero-trust-logo-stat { height: 22px; }
+  .hero-trust-logo-modbee {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.125rem;
+    line-height: 1;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+    user-select: none;
+  }
+  .hero-trust-logo-steinberg { height: 28px; }
+  .hero-trust-logo-healthline { height: 20px; }
+  @media (min-width: 900px) {
+    .hero-trust-logo-chcf { height: 34px; }
+    .hero-trust-logo-stat { height: 26px; }
+    .hero-trust-logo-modbee { font-size: 1.25rem; }
+    .hero-trust-logo-steinberg { height: 32px; }
+    .hero-trust-logo-healthline { height: 24px; }
+  }
+
+  .hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin: 0 0 1rem 0;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-on-navy-soft);
+    letter-spacing: 0.01em;
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-on-navy);
+    font-size: clamp(2rem, 4.5vw, 3.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.25rem 0;
+    max-width: 18ch;
+    text-wrap: balance;
+  }
+
+  .hero-subhead {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    color: var(--color-on-navy-soft);
+    font-size: clamp(1rem, 1.3vw, 1.125rem);
+    line-height: 1.55;
+    margin: 0 0 1.5rem 0;
+    max-width: 44ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.25rem;
+    margin-bottom: 0.875rem;
+  }
+  .hero-enroll-link {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-on-navy-soft);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .hero-enroll-link:hover {
+    color: var(--color-coral);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .hero-cta-note {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--color-on-navy-soft);
+  }
+  .hero-cta-note em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-on-navy-soft);
+  }
+
+  .hero-trust {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-on-navy-quiet);
+    max-width: 44ch;
+    margin: 0;
+    border-top: 1px solid oklch(0.97 0.012 70 / 0.18);
+    padding-top: 1rem;
+  }
+
+  /* ----- FRAMING ----- */
+  .framing {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-paper);
+    background-image: url('/images/topo-dark.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top: 1px solid var(--color-rule);
+  }
+  @media (min-width: 768px) {
+    .framing {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  .framing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .framing-grid {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+      gap: 4rem;
+    }
+  }
+  .framing-prose {
+    max-width: 36ch;
+  }
+  .framing-text {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-navy);
+    font-size: clamp(1.3rem, 2vw, 1.625rem);
+    line-height: 1.45;
+    letter-spacing: -0.005em;
+    margin: 0;
+    text-wrap: pretty;
+    text-align: left;
+  }
+  .framing-aside {
+    margin: 1.5rem 0 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-rule);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+    line-height: 1.4;
+    color: var(--color-navy);
+  }
+  .framing-photo {
+    margin: 0;
+  }
+  .framing-photo-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow:
+      0 2px 4px oklch(0 0 0 / 0.06),
+      0 16px 40px oklch(0 0 0 / 0.12);
+  }
+  .framing-photo-caption {
+    margin-top: 0.75rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.875rem;
+    color: var(--color-ink-quiet);
+    text-align: right;
+    line-height: 1.4;
+  }
+
+  /* ----- PROGRAM (table of contents) ----- */
+  .program {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-paper-soft);
+  }
+  @media (min-width: 768px) {
+    .program {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+
+  .program-grid {
+    list-style: none;
+    margin: 3rem 0 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 720px) {
+    .program-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+  }
+  /* Module 7 (closing module) spans the full row at 720px+ */
+  @media (min-width: 720px) {
+    .program-card:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+  .program-card {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-rule);
+    border-radius: 20px;
+    padding: 1.75rem 1.75rem 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: border-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+                transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .program-card:hover {
+    border-color: var(--color-coral);
+  }
+  .program-number {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(2.25rem, 3vw, 3rem);
+    line-height: 1;
+    color: var(--color-coral-deep);
+    margin-bottom: 0.25rem;
+  }
+  .program-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-ink-quiet);
+    margin: 0;
+  }
+  .program-title {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.375rem, 1.875vw, 1.625rem);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--color-navy);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .program-tease {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+    margin: 0.25rem 0 0 0;
+    flex: 1;
+  }
+  .program-link {
+    margin-top: 0.875rem;
+    align-self: flex-start;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-coral-deep);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .program-link:hover {
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .program-foot {
+    margin-top: 2.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-ink-quiet);
+  }
+
+  /* Pricing grid + tier list */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (min-width: 900px) {
+    .pricing-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 4rem;
+    }
+  }
+  .pricing-copy {
+    min-width: 0;
+  }
+  .pricing-tiers {
+    background-color: var(--color-paper-soft);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .pricing-tiers {
+      padding: 2.5rem 2.25rem;
+    }
+  }
+  .pricing-tier-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .pricing-tier {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .pricing-tier:last-child {
+    border-bottom: 0;
+  }
+  .pricing-tier-aside-note {
+    margin: 1.5rem 0 0 0;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--color-ink-quiet);
+  }
+  .pricing-tier-standard {
+    background-color: var(--color-info);
+    margin: 0.25rem -0.875rem;
+    padding: 1rem 0.875rem;
+    border-radius: 12px;
+    border-bottom: 0;
+  }
+  .pricing-tier-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 0;
+  }
+  .pricing-tier-name {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+  .pricing-tier-note {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-ink-quiet);
+  }
+  .pricing-tier-amount {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 2vw, 1.875rem);
+    color: var(--color-navy);
+    letter-spacing: -0.01em;
+    flex: none;
+  }
+  .pricing-tier-standard .pricing-tier-amount {
+    color: var(--color-coral-deep);
+  }
+  .pricing-text {
+    margin: 1.25rem 0 0 0;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-ink-soft);
+    max-width: 56ch;
+  }
+
+  /* ----- TEACHERS ----- */
+  .teachers {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-paper);
+  }
+  @media (min-width: 768px) {
+    .teachers {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+
+  .teacher-spread {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  @media (min-width: 900px) {
+    .teacher-spread {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .teacher {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 480px) {
+    .teacher {
+      grid-template-columns: 140px 1fr;
+      gap: 2rem;
+    }
+  }
+  @media (min-width: 900px) {
+    .teacher {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  .teacher-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 9999px;
+    object-fit: cover;
+    background-color: var(--color-paper-soft);
+  }
+  @media (min-width: 900px) {
+    .teacher-photo {
+      max-width: 240px;
+    }
+  }
+
+  .teacher-photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-info);
+    border: 1.5px dashed oklch(0.7 0.03 261);
+  }
+  .placeholder-initials {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 500;
+    color: var(--color-navy);
+    letter-spacing: -0.01em;
+  }
+
+  .teacher-name {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    line-height: 1.15;
+    color: var(--color-navy);
+    margin: 0 0 0.25rem 0;
+    letter-spacing: -0.01em;
+  }
+  .teacher-credential {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-ink-quiet);
+    margin: 0 0 1rem 0;
+    letter-spacing: 0.01em;
+  }
+  .teacher-bio {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    margin: 0 0 1.25rem 0;
+    max-width: 48ch;
+  }
+  .teacher-link {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-blue);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .teacher-link:hover {
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  /* ----- EXCERPT (Home Stance teaching moment, as a paper artifact) ----- */
+  .excerpt {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-info);
+  }
+  @media (min-width: 768px) {
+    .excerpt {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+
+  .excerpt-page {
+    position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
+    background-color: var(--color-paper);
+    border-radius: 4px;
+    padding: 2.5rem 1.75rem 2.5rem 2.25rem;
+    box-shadow:
+      0 1px 0 oklch(0 0 0 / 0.04),
+      0 2px 6px oklch(0 0 0 / 0.06),
+      0 20px 50px -20px oklch(0.27 0.10 261 / 0.25);
+    overflow: hidden;
+  }
+  @media (min-width: 720px) {
+    .excerpt-page {
+      padding: 4rem 4rem 3.5rem 5rem;
+    }
+  }
+
+  /* the coral "spine" along the left edge */
+  .excerpt-spine {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 6px;
+    background-color: var(--color-coral);
+  }
+
+  .excerpt-page-header {
+    margin-bottom: 1.25rem;
+  }
+  .excerpt-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-coral-deep);
+    margin: 0;
+  }
+
+  .excerpt-title {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    color: var(--color-navy);
+    font-size: clamp(1.875rem, 3vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0 0 1.5rem 0;
+    text-wrap: balance;
+  }
+
+  .excerpt-body {
+    margin: 0;
+  }
+
+  .excerpt-text {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-navy-deep);
+    font-size: clamp(1.125rem, 1.4vw, 1.3125rem);
+    line-height: 1.6;
+    letter-spacing: -0.005em;
+    margin: 0 0 1.25rem 0;
+    max-width: 62ch;
+    text-wrap: pretty;
+  }
+  .excerpt-text:last-child {
+    margin-bottom: 0;
+  }
+
+  .excerpt-page-footer {
+    margin-top: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .excerpt-rule {
+    display: block;
+    width: 3rem;
+    height: 1px;
+    background-color: var(--color-rule);
+  }
+  .excerpt-attribution {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+    color: var(--color-ink-quiet);
+  }
+  .excerpt-attribution em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-ink-soft);
+  }
+
+  /* ----- EVALUATION (CHCF), navy ground, the serious moment ----- */
+  .evaluation {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-navy);
+    color: var(--color-on-navy);
+  }
+  @media (min-width: 768px) {
+    .evaluation {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+
+  .evaluation-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  @media (min-width: 720px) {
+    .evaluation-grid {
+      grid-template-columns: 200px 1fr;
+      gap: 3.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .evaluation-grid {
+      grid-template-columns: 240px 1fr;
+      gap: 5rem;
+    }
+  }
+
+  .evaluation-cover img {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow:
+      0 2px 4px oklch(0 0 0 / 0.25),
+      0 16px 40px oklch(0 0 0 / 0.35);
+  }
+
+  .evaluation-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-on-navy);
+    font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0;
+    text-wrap: balance;
+    max-width: 22ch;
+  }
+
+  .evaluation-text {
+    margin: 1rem 0 1rem 0;
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--color-on-navy-soft);
+    max-width: 56ch;
+  }
+  .evaluation-text + .evaluation-text {
+    margin-top: 0.75rem;
+  }
+  .evaluation-body .btn-on-dark {
+    margin-top: 1.25rem;
+  }
+
+  /* ----- PRESS (named, not logo soup) ----- */
+  .press {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: var(--color-paper);
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .press-line {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-ink-quiet);
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .press-line {
+      font-size: 1.05rem;
+    }
+  }
+  .press-label {
+    color: var(--color-ink-quiet);
+    margin-right: 0.5rem;
+    letter-spacing: 0.01em;
+  }
+  .press-line a {
+    color: var(--color-coral-deep);
+    text-decoration: none;
+    border-bottom: 1px solid oklch(0.68 0.20 21 / 0.4);
+    padding-bottom: 1px;
+  }
+  .press-line a:hover {
+    color: var(--color-navy);
+    border-bottom-color: var(--color-navy);
+  }
+
+  /* ----- SAMPLE LESSON (the primary conversion) ----- */
+  .sample {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: var(--color-paper-soft);
+    background-image: radial-gradient(
+      circle at 80% 20%,
+      oklch(0.92 0.012 70) 0%,
+      transparent 55%
+    );
+  }
+  @media (min-width: 768px) {
+    .sample {
+      padding-top: 9rem;
+      padding-bottom: 9rem;
+    }
+  }
+
+  .sample-inner {
+    max-width: 76rem;
+    margin: 0 auto;
+  }
+  .sample-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (min-width: 960px) {
+    .sample-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+  }
+
+  .sample-form {
+    max-width: 32rem;
+  }
+
+  .sample-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-navy);
+    margin: 0.5rem 0 0.5rem 0;
+    text-wrap: balance;
+  }
+  .sample-meta {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-ink-quiet);
+    margin: 0 0 1.5rem 0;
+  }
+  .sample-meta em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-ink-soft);
+  }
+  .sample-cta-note {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+    margin: 0 0 2rem 0;
+    max-width: 36ch;
+  }
+
+  /* artifact tweaks when nested inside .sample (not a standalone section).
+     Type and padding scaled down so the page-card height matches the form
+     column instead of overflowing it. */
+  .sample-excerpt {
+    max-width: none;
+    margin: 0;
+    padding: 2.25rem 1.75rem 2rem 2.5rem;
+  }
+  @media (min-width: 720px) {
+    .sample-excerpt {
+      padding: 2.5rem 2.5rem 2.25rem 3rem;
+    }
+  }
+  .sample-excerpt .excerpt-page-header {
+    margin-bottom: 0.875rem;
+  }
+  .sample-excerpt .excerpt-text {
+    font-size: clamp(1rem, 1vw, 1.0625rem);
+    line-height: 1.55;
+    margin-bottom: 0.875rem;
+  }
+  .sample-excerpt .excerpt-page-footer {
+    margin-top: 1.25rem;
+    gap: 0.5rem;
+  }
+  .sample-excerpt .excerpt-attribution {
+    font-size: 0.8125rem;
+  }
+
+  /* ----- PRICING DOORWAY ----- */
+  .pricing-door {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+    background-color: var(--color-paper);
+    background-image: url('/images/topo-dark.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  @media (min-width: 768px) {
+    .pricing-door {
+      padding-top: 7rem;
+      padding-bottom: 8rem;
+    }
+  }
+  .pricing-inner {
+    max-width: 44rem;
+  }
+  .pricing-text {
+    margin: 1.5rem 0 0 0;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-ink-soft);
+    max-width: 60ch;
+  }
+  .pricing-actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.25rem;
+  }
+  .pricing-note {
+    margin: 1.25rem 0 0 0;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-ink-quiet);
+    line-height: 1.55;
+  }
+  .pricing-note a {
+    color: var(--color-blue);
+  }
+  .pricing-es-note {
+    margin: 1.25rem 0 0 0;
+    padding: 0.85rem 1.1rem;
+    background-color: var(--color-paper-soft);
+    border: 1px solid var(--color-mint-deep);
+    border-radius: 12px;
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    color: var(--color-ink-soft);
+    line-height: 1.55;
+    max-width: 42ch;
+  }
+  .pricing-es-note a {
+    color: var(--color-coral-deep);
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .pricing-es-note a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ---------- shared helpers for the new sections ---------- */
+  .section-header-center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .center-prose {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .title-accent {
+    color: var(--color-coral-deep);
+  }
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-blue);
+    text-decoration: none;
+  }
+  .link-arrow:hover {
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  /* ---------- "What is a Lay Counselor?" ---------- */
+  .lay-counselor {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-paper);
+  }
+  @media (min-width: 768px) {
+    .lay-counselor {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  .lay-counselor-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .lay-counselor-grid {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+      gap: 5rem;
+    }
+  }
+  .lay-counselor-photo {
+    margin: 0;
+  }
+  .lay-counselor-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    object-fit: cover;
+    max-height: 520px;
+  }
+  .lay-counselor-text {
+    margin: 1.25rem 0 1.5rem 0;
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    max-width: 56ch;
+  }
+
+  /* ---------- Course formats, 3 tile grid ---------- */
+  .formats {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-paper-soft);
+  }
+  @media (min-width: 768px) {
+    .formats {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  .format-grid {
+    list-style: none;
+    margin: 3rem 0 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 960px) {
+    .format-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+  .format-card {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-rule);
+    border-radius: 20px;
+    padding: 1.75rem 1.75rem 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: border-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+                transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .format-card:hover {
+    border-color: var(--color-coral);
+  }
+  .format-card.is-current {
+    background-color: var(--color-navy);
+    border-color: var(--color-navy);
+    color: var(--color-on-navy);
+  }
+  .format-card.is-current .format-number {
+    color: var(--color-coral);
+  }
+  .format-card.is-current .format-name {
+    color: var(--color-on-navy);
+  }
+  .format-card.is-current .format-tease {
+    color: var(--color-on-navy-soft);
+  }
+  .format-number {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(2.25rem, 3vw, 3rem);
+    line-height: 1;
+    color: var(--color-coral-deep);
+  }
+  .format-name {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 2vw, 1.875rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--color-navy);
+    margin: 0;
+  }
+  .format-tease {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+    margin: 0;
+    flex: 1;
+  }
+  .format-link {
+    margin-top: 0.5rem;
+    align-self: flex-start;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-coral-deep);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .format-link:hover {
+    color: var(--color-navy);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .format-current-badge {
+    margin-top: 0.5rem;
+    align-self: flex-start;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-coral);
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--color-coral);
+    border-radius: 9999px;
+  }
+
+  /* ---------- Video, lite YouTube poster ---------- */
+  .video {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-paper);
+  }
+  @media (min-width: 768px) {
+    .video {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  .video-wrap {
+    max-width: 64rem;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+      0 2px 4px oklch(0 0 0 / 0.10),
+      0 16px 48px oklch(0 0 0 / 0.18);
+    position: relative;
+  }
+  .video-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  .video-poster {
+    appearance: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: block;
+  }
+  .video-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .video-poster:hover .video-thumb {
+    transform: scale(1.02);
+  }
+  .video-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .video-play svg {
+    filter: drop-shadow(0 2px 8px oklch(0 0 0 / 0.4));
+  }
+  .video-caption {
+    margin-top: 2rem;
+    text-align: center;
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    line-height: 1.4;
+    color: var(--color-navy);
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- Feature video (self-hosted, near top) ---------- */
+  .feature-video {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: var(--color-paper-soft);
+  }
+  @media (min-width: 768px) {
+    .feature-video {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+  .feature-video-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    max-width: 68rem;
+    margin: 0 auto;
+  }
+  @media (min-width: 900px) {
+    .feature-video-grid {
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 3.5rem;
+    }
+    /* video on the left, copy on the right (copy is first in the DOM so it
+       leads on mobile) */
+    .feature-video-media { grid-column: 1; grid-row: 1; }
+    .feature-video-copy  { grid-column: 2; grid-row: 1; }
+  }
+  .feature-video-heading {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-navy);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin: 0.75rem 0 0 0;
+    text-wrap: balance;
+  }
+  .feature-video-lead {
+    margin: 1.25rem 0 0 0;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-ink-soft);
+    max-width: 42ch;
+  }
+  .feature-video-attr {
+    margin: 1.5rem 0 0 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-ink-quiet);
+  }
+  .video-wrap video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    background-color: var(--color-navy);
+  }
+
+  /* ---------- Benefits 2x3 grid ---------- */
+  .benefits {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-paper-soft);
+  }
+  @media (min-width: 768px) {
+    .benefits {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  .benefits-grid {
+    list-style: none;
+    margin: 3rem 0 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+  @media (min-width: 720px) {
+    .benefits-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 1.25rem;
+    background-color: var(--color-paper);
+    border-radius: 12px;
+  }
+  .benefit-icon {
+    flex: none;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+  }
+  .benefit-text {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    color: var(--color-ink-soft);
+  }
+
+  /* ---------- Inside the course, feature list ---------- */
+  .inside {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-paper);
+  }
+  @media (min-width: 768px) {
+    .inside {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  .inside-grid {
+    list-style: none;
+    margin: 3rem 0 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 720px) {
+    .inside-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem 2rem;
+    }
+    /* Last tile spans full width so an odd item count still looks tidy */
+    .inside-grid > .inside-item:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+  .inside-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    align-items: start;
+    padding: 1.5rem 1.5rem;
+    background-color: var(--color-paper-soft);
+    border-radius: 16px;
+  }
+  @media (min-width: 768px) {
+    .inside-item {
+      padding: 1.875rem 1.875rem;
+      gap: 1.5rem;
+    }
+  }
+  .inside-icon {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: var(--color-paper);
+    color: var(--color-navy);
+    border: 1px solid var(--color-rule);
+  }
+  .inside-body {
+    min-width: 0;
+  }
+  .inside-name {
+    margin: 0 0 0.375rem 0;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.1875rem, 1.5vw, 1.375rem);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--color-navy);
+    text-wrap: balance;
+  }
+  .inside-text {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+  }
+
+  /* ---------- Testimonial pull quote ---------- */
+  .testimonial {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-paper);
+  }
+  @media (min-width: 768px) {
+    .testimonial {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  .testimonial-block {
+    max-width: 52rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .testimonial-quote {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.35;
+    color: var(--color-navy);
+    letter-spacing: -0.015em;
+    text-wrap: pretty;
+  }
+  .testimonial-quote::before {
+    content: "\201C";
+  }
+  .testimonial-quote::after {
+    content: "\201D";
+  }
+  .testimonial-attribution {
+    margin: 1.5rem 0 0 0;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-ink-quiet);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  /* ---------- Organizational testimonials (navy band) ---------- */
+  .org-testimonials {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-navy);
+    background-image: url('/images/topo-light.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  @media (min-width: 768px) {
+    .org-testimonials {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  .org-testimonials .eyebrow { color: var(--color-coral); }
+  .org-testimonials .section-title { color: var(--color-on-navy); }
+  .org-testimonials .title-accent { color: var(--color-coral); }
+  .org-testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 68rem;
+    margin: 0 auto;
+  }
+  @media (min-width: 860px) {
+    .org-testimonials-grid {
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 2rem;
+      align-items: start;
+    }
+  }
+  .org-testimonial {
+    position: relative;
+    margin: 0;
+    background-color: oklch(1 0 0 / 0.05);
+    border: 1px solid oklch(1 0 0 / 0.12);
+    border-radius: 16px;
+    padding: 1.75rem 1.75rem 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .org-testimonial {
+      padding: 2.25rem 2.25rem 2rem;
+    }
+  }
+  /* coral opening-quote glyph as the brand accent (replaces a side stripe) */
+  .org-testimonial::before {
+    content: "\201C";
+    position: absolute;
+    top: 0.35rem;
+    left: 1.25rem;
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--color-coral);
+  }
+  .org-testimonial-quote {
+    margin: 1.75rem 0 0 0;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-on-navy-soft);
+    max-width: 62ch;
+  }
+  .org-testimonial-quote p {
+    margin: 0;
+  }
+  .org-testimonial-quote p + p {
+    margin-top: 0.85rem;
+  }
+  .org-testimonial-attribution {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid oklch(1 0 0 / 0.14);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--font-sans);
+  }
+  .org-testimonial-cite {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .org-testimonial-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-on-navy);
+  }
+  .org-testimonial-org {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-on-navy-quiet);
+  }
+
+  /* ---------- Press section, logos + article list ---------- */
+  .press {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-paper);
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+  }
+  @media (min-width: 768px) {
+    .press {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  /* Press logo strip, real publication logos, normalized to similar visual weight */
+  .press-logos {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 1.75rem 1.25rem;
+    background-color: var(--color-paper-soft);
+    border-radius: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem 2rem;
+  }
+  @media (min-width: 768px) {
+    .press-logos {
+      padding: 2.25rem 2rem;
+      gap: 1.5rem 2.5rem;
+    }
+  }
+  .press-logo {
+    display: inline-flex;
+    align-items: center;
+    height: auto;
+    width: auto;
+    flex: none;
+  }
+  /* Logos sized by height so they sit on a common visual baseline.
+     Each publication's logo has a different aspect ratio, so per-logo
+     heights compensate. */
+  .press-logo-chcf {
+    height: 32px;
+  }
+  .press-logo-stat {
+    height: 32px;
+  }
+  .press-logo-modbee {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--color-navy);
+    letter-spacing: -0.01em;
+    user-select: none;
+  }
+  .press-logo-steinberg {
+    height: 40px;
+  }
+  .press-logo-healthline {
+    height: 26px;
+  }
+  @media (min-width: 768px) {
+    .press-logo-chcf {
+      height: 36px;
+    }
+    .press-logo-stat {
+      height: 36px;
+    }
+    .press-logo-modbee {
+      font-size: 1.75rem;
+    }
+    .press-logo-steinberg {
+      height: 48px;
+    }
+    .press-logo-healthline {
+      height: 30px;
+    }
+  }
+  .press-logo-divider {
+    width: 1px;
+    height: 32px;
+    background-color: var(--color-rule);
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .press-logo-divider {
+      display: block;
+    }
+  }
+  .press-articles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-rule);
+  }
+  .press-article {
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .press-article-link {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    column-gap: 1rem;
+    row-gap: 0.25rem;
+    padding: 1.25rem 0;
+    text-decoration: none;
+    color: var(--color-navy);
+    transition: color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .press-article-link:hover {
+    color: var(--color-coral-deep);
+    text-decoration: none;
+  }
+  .press-article-link:hover .press-article-title {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .press-article-publication {
+    grid-column: 1;
+    grid-row: 1;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-coral-deep);
+  }
+  .press-article-title {
+    grid-column: 1;
+    grid-row: 2;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.1rem, 1.5vw, 1.375rem);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .press-article-arrow {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    font-size: 1.5rem;
+    color: var(--color-ink-quiet);
+  }
+
+  /* ---------- LCA Book purchase ---------- */
+  .lca-book {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-paper-soft);
+  }
+  @media (min-width: 768px) {
+    .lca-book {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  .book-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-top: 3rem;
+  }
+  @media (min-width: 720px) {
+    .book-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+  .book-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .book-cover {
+    max-width: 360px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 12px 24px oklch(0 0 0 / 0.18));
+  }
+
+  /* ---------- More information, 4-tile downloads ---------- */
+  .downloads {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-paper);
+  }
+  @media (min-width: 768px) {
+    .downloads {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+  .downloads-grid {
+    list-style: none;
+    margin: 3rem 0 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  @media (min-width: 600px) {
+    .downloads-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .downloads-grid {
+      /* Three self-paced PDFs — sit them in a centered row instead of a
+         four-column grid with an empty cell. */
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      max-width: 60rem;
+      margin-inline: auto;
+    }
+  }
+  .download-card {
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-rule);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+                transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .download-card:hover {
+    border-color: var(--color-coral);
+    transform: translateY(-2px);
+  }
+  .download-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+  .download-thumb {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 287 / 203;
+    object-fit: cover;
+    display: block;
+  }
+  .download-title {
+    margin: 1rem 1rem 0.5rem 1rem;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.3;
+    color: var(--color-navy);
+    text-align: center;
+  }
+  .download-cta {
+    margin: 0.5rem 1rem 1.25rem 1rem;
+    padding: 0.625rem 1rem;
+    align-self: stretch;
+    text-align: center;
+    border: 1.5px solid var(--color-coral);
+    border-radius: 9999px;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-navy);
+    transition: background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+                color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+  }
+  .download-link:hover .download-cta {
+    background-color: var(--color-navy);
+    color: var(--color-paper);
+  }
+</style>
+
+<script>
+  // Lite YouTube embed: swap the poster button for an iframe on click,
+  // so the iframe (and its ~300KB of YT JS) only loads when the user opts in.
+  document.querySelectorAll<HTMLElement>("[data-video-id]").forEach((wrap) => {
+    const id = wrap.getAttribute("data-video-id");
+    if (!id) return;
+    const trigger = wrap.querySelector<HTMLButtonElement>("[data-video-trigger]");
+    if (!trigger) return;
+    trigger.addEventListener("click", () => {
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      iframe.title = "Co-Creators Elizabeth Morrison and Alli Moreno share the story of The Lay Counselor Academy";
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+      iframe.setAttribute("allowfullscreen", "");
+      wrap.replaceChildren(iframe);
+    });
+  });
+</script>

@@ -1,0 +1,149 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout
+  title="Alli Moreno, Co-Creator, The Lay Counselor Academy"
+  description="Alli Moreno, co-creator of The Lay Counselor Academy. Flourish Counselor Emeritus. Brings the lived practice of peer counseling to the curriculum."
+  extraSchemas={[{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://thelaycounseloracademy.com/#person-alli-moreno",
+    name: "Alli Moreno",
+    jobTitle: "Co-Creator, The Lay Counselor Academy",
+    description: "Co-creator of The Lay Counselor Academy and a lay counselor. Flourish Counselor Emeritus. Brings the lived practice of peer counseling to the curriculum.",
+    url: "https://thelaycounseloracademy.com/teachers/alli-moreno/",
+    image: "https://thelaycounseloracademy.com/images/alli-moreno-headshot.webp",
+    knowsAbout: [
+      "Lay counseling",
+      "Peer counseling",
+      "Mental health counseling skills",
+    ],
+    worksFor: {
+      "@type": "Organization",
+      "@id": "https://thelaycounseloracademy.com/#organization",
+      name: "The Lay Counselor Academy",
+    },
+    award: "Steinberg Institute 2023 Champion",
+    subjectOf: {
+      "@type": "WebPage",
+      name: "2023 Steinberg Institute Champions: Elizabeth Morrison & Alli Moreno",
+      url: "https://steinberginstitute.org/champion/elizabeth-morrison-and-alli-moreno/",
+    },
+  }]}
+>
+  <section class="bio-hero">
+    <div class="page-container">
+      <div class="bio-hero-grid">
+        <div class="bio-hero-photo">
+          <img
+            src="/images/alli-moreno-headshot.webp"
+            alt="Photograph of Alli Moreno"
+            width="400"
+            height="400"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="bio-hero-body">
+          <p class="eyebrow eyebrow-on-dark">Co-Creator</p>
+          <h1 class="bio-hero-name">Alli Moreno</h1>
+          <p class="bio-hero-credentials">Co-Creator. Flourish Counselor Emeritus.</p>
+          <p class="bio-hero-lede">
+            Alli co-created The Lay Counselor Academy with Elizabeth Morrison
+            and teaches alongside her across the program. She brings the lived
+            practice of peer counseling to the curriculum.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bio-body">
+    <div class="page-container">
+      <div class="bio-prose">
+        <h2 class="bio-section-title">A peer counselor by practice.</h2>
+        <p>
+          Alli came to counseling through doing it. Long before she was a
+          teacher of the academy, she was the person who answered when someone
+          needed to talk. The work taught her things about presence,
+          non-judgment, and the limits of advice that no degree had told her.
+        </p>
+        <p>
+          She brings that lived practice into the academy's curriculum. Where
+          Elizabeth often speaks from twenty-five years of clinical experience,
+          Alli speaks from the perspective most of our learners are coming
+          from: helping people in hard moments without a license, often without
+          a formal title, and learning by doing.
+        </p>
+
+        <h2 class="bio-section-title">What she teaches.</h2>
+        <p>
+          Alli teaches alongside Elizabeth across all seven modules. She helps
+          shape how the material lands for working adults who are not in
+          clinical roles. Her voice carries the program's commitment to
+          treating learners as adults, not aspirational projects.
+        </p>
+        <p>
+          The Steinberg Institute named her and Elizabeth their <a href="https://steinberginstitute.org/champion/elizabeth-morrison-and-alli-moreno/" rel="noopener">2023 Champions</a>
+          for this work. She is a Flourish Counselor Emeritus and continues to
+          consult with the practice.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-close">
+    <div class="page-container">
+      <h2 class="page-close-title">
+        Watch Alli and Elizabeth <span class="title-accent">tell the story.</span>
+      </h2>
+      <p class="page-close-lede">
+        The short video on the home page is Alli and Elizabeth on how the
+        academy started and who it is for.
+      </p>
+      <div class="page-close-actions">
+        <a class="btn-primary" href="/#sample">Read the sample article</a>
+        <a class="btn-secondary" href="/teachers/elizabeth-morrison/">
+          Meet Elizabeth Morrison
+          <span aria-hidden="true" class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* .bio-hero shares the visual language of .page-hero (navy + contour pattern)
+     but keeps its own 2-column photo/text grid distinct from the text-only
+     hero on other inner pages. */
+  .bio-hero { background-color: var(--color-navy); background-image: url('/images/topo-light.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; color: var(--color-on-navy); padding: 5rem 0; }
+  @media (min-width: 768px) { .bio-hero { padding: 7rem 0; } }
+  .bio-hero-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
+  @media (min-width: 720px) { .bio-hero-grid { grid-template-columns: 280px 1fr; gap: 3.5rem; } }
+  @media (min-width: 1024px) { .bio-hero-grid { grid-template-columns: 320px 1fr; gap: 5rem; } }
+  .bio-hero-photo img { width: 100%; height: auto; aspect-ratio: 1 / 1; border-radius: 9999px; object-fit: cover; box-shadow: 0 16px 48px oklch(0 0 0 / 0.35); }
+  .bio-hero-name { font-family: var(--font-serif); font-weight: 400; color: var(--color-on-navy); font-size: clamp(2.25rem, 4.5vw, 3.75rem); line-height: 1.05; letter-spacing: -0.02em; margin: 0.75rem 0 0.5rem 0; }
+  .bio-hero-credentials { margin: 0 0 1.5rem 0; font-family: var(--font-sans); font-size: 1rem; color: var(--color-on-navy-soft); letter-spacing: 0.01em; }
+  .bio-hero-lede { margin: 0; font-family: var(--font-sans); font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.6; color: var(--color-on-navy-soft); max-width: 56ch; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-coral-text); margin: 0; }
+  .eyebrow-on-dark { color: var(--color-coral); }
+  .title-accent { color: var(--color-coral-deep); }
+  .arrow { transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1); display: inline-block; }
+  a:hover .arrow { transform: translateX(3px); }
+
+  .bio-body { padding: 5rem 0; background-color: var(--color-paper); }
+  @media (min-width: 768px) { .bio-body { padding: 7rem 0; } }
+  .bio-prose { max-width: 40rem; }
+  .bio-section-title { font-family: var(--font-serif); font-weight: 500; font-size: clamp(1.5rem, 2.25vw, 1.875rem); line-height: 1.2; letter-spacing: -0.01em; color: var(--color-navy); margin: 2.5rem 0 1rem 0; }
+  .bio-section-title:first-child { margin-top: 0; }
+  .bio-prose p { font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.75; color: var(--color-ink-soft); margin: 0 0 1.25rem 0; }
+  .bio-prose a { color: var(--color-coral-deep); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .bio-prose a:hover { color: var(--color-navy); }
+
+  .page-close { background-color: var(--color-paper-soft); padding: 5rem 0; text-align: center; }
+  @media (min-width: 768px) { .page-close { padding: 7rem 0; } }
+  .page-close-title { font-family: var(--font-serif); font-weight: 500; color: var(--color-navy); font-size: clamp(1.875rem, 3.5vw, 2.75rem); line-height: 1.15; letter-spacing: -0.015em; margin: 0 auto 1rem auto; max-width: 26ch; text-wrap: balance; }
+  .page-close-lede { font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.65; color: var(--color-ink-soft); margin: 0 auto 2rem auto; max-width: 52ch; }
+  .page-close-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.25rem 1.5rem; }
+</style>

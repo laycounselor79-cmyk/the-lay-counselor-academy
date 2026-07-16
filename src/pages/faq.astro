@@ -1,0 +1,213 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const faqs: Array<{ q: string; a: string }> = [
+  {
+    q: "What is The Lay Counselor Academy?",
+    a: "The Lay Counselor Academy is a course that equips you with practical skills in mental health counseling.",
+  },
+  {
+    q: "Why does lay counseling exist?",
+    a: "We are in a public health crisis in this country. There are far more people who need mental healthcare than there are licensed clinicians to meet the need, and the licensed workforce rarely reflects the communities it serves in age, culture, ethnicity, race, or language. We need a non-academic pathway to train mental health counselors.",
+  },
+  {
+    q: "How many hours is the Self-Paced course?",
+    a: "The Self-Paced course is seventy hours. The Live cohort runs across fourteen weeks and adds live sessions plus five personal counseling sessions on top of the core content. There are many links and further reading included throughout. Learners who want to dive deeper will find hundreds of hours of learning material.",
+  },
+  {
+    q: "Is seventy hours long enough to learn to be a skillful mental health counselor?",
+    a: "No. Mental health counseling is an incredibly complex undertaking that demands enormous skill and lifelong practice. We expect learners who take the LCA (live or self-paced) already have natural skill, will continue to pursue lifelong learning, and will obtain clinical support if they provide counseling in any formal setting.",
+  },
+  {
+    q: "I am not in a counseling position at my job. What will the Self-Paced course do for me?",
+    a: "Most people who take the LCA are not in counseling positions. Past students include fire department employees, paramedics, teachers, teachers' aides, HR professionals, non-profit leaders, outreach workers, community health workers, legal aides, and more. Mental health counseling is treatment through talking. If your job involves talking with people, you can incorporate these skills into those conversations to help with hope, healing, and change.",
+  },
+  {
+    q: "What if I don't like it?",
+    a: "We will give you your money back. We will also ask if you can share feedback about what did not work for you, so we can keep improving.",
+  },
+  {
+    q: "Will I get a certificate when I complete the course?",
+    a: "Yes. If you complete the Self-Paced course, your certificate will say you completed The Lay Counselor Academy seventy-hour course. If you take part in the Live cohort, your certificate will note that you completed the course and the live practice hours.",
+  },
+  {
+    q: "What can I do with the certificate?",
+    a: "Lay counseling is not yet recognized as a distinct profession. We do not want to mislead anyone about job possibilities based on this course. That said, mental health counseling by people without degrees is increasingly understood as an important way to respond to community need. Many organizations in California and across the US have sent employees to the LCA and may look favorably on graduates. We hope mental health counseling by lay people is recognized and elevated in the future.",
+  },
+  {
+    q: "Do you provide CEUs?",
+    a: "Yes, for some California professions. If you are a substance use disorder counselor, the LCA provides sixty-five hours of continuing education for all the SUD certification agencies in California.",
+  },
+  {
+    q: "I already have a BA or a master's degree in counseling. Will I learn anything new?",
+    a: "Feedback from over twelve hundred past participants says yes. We have had LCSWs, LMFTs, licensed psychologists, and psychiatrists take the course and tell us things like “I wish I'd learned this in graduate school” and “I learned more in this course than I did in my practicum.” Everything we teach is evidence-based, but it is taught quite differently than traditional academic training.",
+  },
+  {
+    q: "I really don't like school-like things.",
+    a: "We understand. The course is a mix of learning methods: reading, audio recordings, videos, self-reflective writing, quizzes, and more. Everything that is written is also audio-recorded for people who do not like reading.",
+  },
+  {
+    q: "Can I enroll my whole team or organization?",
+    a: "Yes. Many of our learners come through their employer: county behavioral health agencies, fire departments, schools, faith communities, community health workers, and non-profits. We offer bulk pricing and equity scholarships for groups. Email Angelica at Angelica@emorrisonconsulting.com with your rough headcount and she will get back to you within two (2) business days.",
+  },
+  {
+    q: "What is the difference between the Self-Paced and Live courses?",
+    a: "LCA Self-Paced is the seventy-hour core course, fully asynchronous, with flexible start dates. LCA Live is fourteen live sessions across fourteen weeks with a cohort of peers, plus five personal counseling sessions included. Both lead to the same fundamental skill. Self-Paced is for learners who want to move at their own pace; Live is for those who want practice and feedback with people.",
+  },
+  {
+    q: "Do I have to finish by a certain date? Will I lose access after a year?",
+    a: "No deadline and no expiry. Once you enroll, you have lifetime access on the course platform, including every future update to the curriculum at no additional cost.",
+  },
+];
+
+/* Pull the live count into the eyebrow so it can never drift when we add or
+ * remove entries. Falls back to digits past twenty. */
+const numberWord = [
+  "Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
+  "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen",
+  "Sixteen", "Seventeen", "Eighteen", "Nineteen", "Twenty",
+][faqs.length] ?? String(faqs.length);
+---
+
+<Layout
+  title="Frequently asked questions, The Lay Counselor Academy"
+  description="Straight answers about the LCA Self-Paced course: what it is, who it is for, certificates, CEUs, refund policy, and what to expect."
+  extraSchemas={[{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://thelaycounseloracademy.com/faq/#faqpage",
+    inLanguage: "en",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      xpath: ["/html/head/title", "//main//h1", "//main//h2[@class='faq-question']"],
+    },
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  }]}
+>
+  <section class="page-hero" aria-labelledby="page-hero-title">
+    <div class="page-container">
+      <p class="eyebrow eyebrow-on-dark">{numberWord} straight answers</p>
+      <h1 id="page-hero-title" class="page-hero-title">
+        Frequently asked <span class="title-accent">questions.</span>
+      </h1>
+      <p class="page-hero-lede">
+        Most of what you might want to know about the Self-Paced course is
+        here. If we missed your question, write to Angelica.
+      </p>
+    </div>
+  </section>
+
+  <nav class="faq-toc" aria-label="Jump to a question">
+    <div class="page-container">
+      <p class="faq-toc-label">Jump to:</p>
+      <ol class="faq-toc-list">
+        {faqs.map((f, i) => (
+          <li>
+            <a href={`#q${i + 1}`} class="faq-toc-link">
+              <span class="faq-toc-number" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+              <span class="faq-toc-text">{f.q}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </nav>
+
+  <section class="faq-list-section" aria-label="Frequently asked questions">
+    <div class="page-container">
+      <ol class="faq-list">
+        {faqs.map((f, i) => (
+          <li class="faq-item" id={`q${i + 1}`}>
+            <p class="faq-number" aria-hidden="true">{String(i + 1).padStart(2, "0")}</p>
+            <div class="faq-body">
+              <h2 class="faq-question">{f.q}</h2>
+              <p class="faq-answer">{f.a}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div class="faq-still">
+        <h2 class="faq-still-title">
+          Still have a question?
+        </h2>
+        <p class="faq-still-text">
+          Email Angelica with anything we did not answer here. She handles
+          enrollment and program questions and replies within two (2) business
+          days.
+        </p>
+        <a class="btn-primary" href="mailto:Angelica@emorrisonconsulting.com">
+          Angelica@emorrisonconsulting.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-close">
+    <div class="page-container">
+      <h2 class="page-close-title">
+        Ready to <span class="title-accent">read a sample article?</span>
+      </h2>
+      <p class="page-close-lede">
+        Our sample article is <em>Advice: Why (&amp; How) We Avoid It</em>. We will send it to your inbox.
+      </p>
+      <div class="page-close-actions">
+        <a class="btn-primary" href="/#sample">Read the sample article</a>
+        <a class="btn-secondary" href="https://app.teachfloor.com/the-lay-counselor-academy/c/32305" rel="noopener">
+          Enroll in Self-Paced
+          <span aria-hidden="true" class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { background-color: var(--color-navy); background-image: url('/images/topo-light.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; color: var(--color-on-navy); padding: 5rem 0; }
+  @media (min-width: 768px) { .page-hero { padding: 7rem 0; } }
+  .page-hero-title { font-family: var(--font-serif); font-weight: 400; color: var(--color-on-navy); font-size: clamp(2rem, 4.5vw, 3.75rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0.75rem 0 1.5rem 0; max-width: 22ch; text-wrap: balance; }
+  .page-hero-lede { font-family: var(--font-sans); font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.6; color: var(--color-on-navy-soft); margin: 0; max-width: 56ch; }
+
+  .eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-coral-text); margin: 0; }
+  .eyebrow-on-dark { color: var(--color-coral); }
+  .title-accent { color: var(--color-coral-deep); }
+  .arrow { transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1); display: inline-block; }
+  a:hover .arrow { transform: translateX(3px); }
+
+  .faq-toc { padding: 3rem 0 2rem 0; background-color: var(--color-paper-soft); border-bottom: 1px solid var(--color-rule); }
+  @media (min-width: 768px) { .faq-toc { padding: 4rem 0 3rem 0; } }
+  .faq-toc-label { margin: 0 0 1.25rem 0; font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-coral-deep); }
+  .faq-toc-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0.5rem; max-width: 56rem; }
+  @media (min-width: 720px) { .faq-toc-list { grid-template-columns: 1fr 1fr; gap: 0.5rem 2rem; } }
+  .faq-toc-link { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0.75rem; align-items: baseline; padding: 0.4rem 0; font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.4; color: var(--color-ink-soft); text-decoration: none; transition: color 180ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .faq-toc-link:hover { color: var(--color-coral-deep); }
+  .faq-toc-link:hover .faq-toc-text { text-decoration: underline; text-underline-offset: 3px; }
+  .faq-toc-number { font-family: var(--font-serif); font-weight: 500; color: var(--color-coral-deep); font-size: 0.95rem; }
+  .faq-toc-text { color: inherit; }
+
+  .faq-list-section { padding: 5rem 0; background-color: var(--color-paper); }
+  @media (min-width: 768px) { .faq-list-section { padding: 7rem 0; } }
+  .faq-list { list-style: none; margin: 0; padding: 0; max-width: 56rem; }
+  .faq-item { display: grid; grid-template-columns: 1fr; gap: 1rem; padding: 2.25rem 0; border-bottom: 1px solid var(--color-rule); }
+  @media (min-width: 720px) { .faq-item { grid-template-columns: 5rem 1fr; gap: 1rem 2rem; padding: 3rem 0; } }
+  .faq-number { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: clamp(2rem, 3vw, 2.75rem); line-height: 1; color: var(--color-coral-deep); }
+  .faq-body { min-width: 0; }
+  .faq-question { margin: 0 0 1rem 0; font-family: var(--font-serif); font-weight: 500; font-size: clamp(1.375rem, 2vw, 1.75rem); line-height: 1.25; letter-spacing: -0.01em; color: var(--color-navy); text-wrap: balance; }
+  .faq-answer { margin: 0; font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.7; color: var(--color-ink-soft); max-width: 65ch; }
+
+  .faq-still { margin-top: 4rem; padding: 2.5rem 2rem; background-color: var(--color-info); border-radius: 20px; max-width: 56rem; }
+  @media (min-width: 768px) { .faq-still { padding: 3rem 2.5rem; } }
+  .faq-still-title { margin: 0 0 0.875rem 0; font-family: var(--font-serif); font-weight: 500; font-size: clamp(1.5rem, 2.25vw, 1.875rem); color: var(--color-navy); line-height: 1.2; letter-spacing: -0.01em; }
+  .faq-still-text { margin: 0 0 1.5rem 0; font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.65; color: var(--color-ink-soft); max-width: 56ch; }
+
+  .page-close { background-color: var(--color-paper-soft); padding: 5rem 0; text-align: center; }
+  @media (min-width: 768px) { .page-close { padding: 7rem 0; } }
+  .page-close-title { font-family: var(--font-serif); font-weight: 500; color: var(--color-navy); font-size: clamp(1.875rem, 3.5vw, 2.75rem); line-height: 1.15; letter-spacing: -0.015em; margin: 0 auto 1rem auto; max-width: 26ch; text-wrap: balance; }
+  .page-close-lede { font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.65; color: var(--color-ink-soft); margin: 0 auto 2rem auto; max-width: 52ch; }
+  .page-close-lede em { font-family: var(--font-serif); font-style: italic; font-weight: 500; color: var(--color-navy); }
+  .page-close-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.25rem 1.5rem; }
+</style>

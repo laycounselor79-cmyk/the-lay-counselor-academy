@@ -1,0 +1,274 @@
+---
+/* Newsletter signup → Mailchimp (double opt-in). Lives in the footer, so it
+   inherits the navy ground. On-brand: mint eyebrow, coral action button. */
+const locale = (Astro.currentLocale || "en") as "en" | "es";
+const isEs = locale === "es";
+
+const t = isEs
+  ? {
+      eyebrow: "Boletín",
+      heading: "Suscríbete al boletín de la LCA",
+      blurb: "Ideas sobre consejería laica y novedades de la Academia. Sin spam.",
+      placeholder: "tu@ejemplo.com",
+      button: "Suscribirme",
+      sending: "Enviando…",
+      reassure: "Te enviaremos un correo para confirmar. Cancela cuando quieras.",
+      invalid: "Revisa esto. No parece un correo.",
+      server: "Algo salió mal. Inténtalo de nuevo en un momento.",
+    }
+  : {
+      eyebrow: "Newsletter",
+      heading: "Sign up for the LCA newsletter",
+      blurb: "Occasional notes on lay counseling and news from the Academy. No spam.",
+      placeholder: "you@example.com",
+      button: "Subscribe",
+      sending: "Sending…",
+      reassure: "We'll email you to confirm. Unsubscribe any time.",
+      invalid: "Please check this. It doesn't look like an email.",
+      server: "Something went wrong on our end. Please try again in a moment.",
+    };
+
+const formId = "newsletter-form";
+---
+
+<section class="newsletter" id="newsletter" aria-labelledby="newsletter-title" data-newsletter-shell>
+  <div class="newsletter-copy">
+    <p class="newsletter-eyebrow">{t.eyebrow}</p>
+    <h2 id="newsletter-title" class="newsletter-heading">{t.heading}</h2>
+    <p class="newsletter-blurb">{t.blurb}</p>
+  </div>
+
+  <div class="newsletter-form-wrap">
+    <form id={formId} method="POST" action="/api/newsletter" novalidate data-newsletter-form>
+      <label for={`${formId}-email`} class="sr-only">{t.heading}</label>
+      <div class="newsletter-row">
+        <input
+          id={`${formId}-email`}
+          type="email"
+          name="email"
+          autocomplete="email"
+          inputmode="email"
+          placeholder={t.placeholder}
+          required
+          data-email
+        />
+        <button type="submit" class="newsletter-btn" data-submit>
+          <span data-label>{t.button}</span>
+          <span data-submitting hidden>{t.sending}</span>
+        </button>
+      </div>
+      <p class="newsletter-msg" hidden role="status" aria-live="polite" data-msg></p>
+      <p class="newsletter-reassure">{t.reassure}</p>
+    </form>
+    <p class="newsletter-success" hidden role="status" aria-live="polite" data-success></p>
+  </div>
+</section>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .newsletter {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid oklch(0.92 0.012 70 / 0.15);
+  }
+  @media (min-width: 768px) {
+    .newsletter {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+  }
+
+  .newsletter-eyebrow {
+    margin: 0 0 0.5rem 0;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #bfe5cc; /* brand mint */
+  }
+  .newsletter-heading {
+    margin: 0 0 0.5rem 0;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.375rem, 2.4vw, 1.75rem);
+    line-height: 1.2;
+    color: oklch(0.97 0.012 70);
+  }
+  .newsletter-blurb {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: oklch(0.85 0.012 70);
+    max-width: 42ch;
+  }
+
+  .newsletter-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+  @media (min-width: 480px) {
+    .newsletter-row {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+
+  .newsletter-row input[type="email"] {
+    flex: 1 1 auto;
+    padding: 0.8rem 1rem;
+    min-height: 48px;
+    background-color: var(--color-paper);
+    border: 1.5px solid transparent;
+    border-radius: 9999px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-ink);
+    line-height: 1.4;
+    transition: border-color 180ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .newsletter-row input[type="email"]::placeholder {
+    color: var(--color-ink-quiet);
+  }
+  .newsletter-row input[type="email"]:focus {
+    outline: none;
+    /* Backlit brand mint (#bfe5cc): mint border + a soft glowing mint halo. */
+    border-color: #bfe5cc;
+    box-shadow: 0 0 0 4px rgba(191, 229, 204, 0.7),
+      0 0 20px 3px rgba(191, 229, 204, 0.65);
+  }
+
+  .newsletter-btn {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.6rem;
+    min-height: 48px;
+    border: 0;
+    cursor: pointer;
+    background-color: var(--color-coral);
+    color: var(--color-navy);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 9999px;
+    transition: background-color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .newsletter-btn:hover {
+    background-color: var(--color-coral-deep);
+  }
+  .newsletter-btn:disabled {
+    cursor: progress;
+    opacity: 0.8;
+  }
+
+  .newsletter-msg {
+    margin: 0.625rem 0 0 0;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-mint);
+    line-height: 1.5;
+  }
+  .newsletter-reassure {
+    margin: 0.625rem 0 0 0;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-style: italic;
+    color: oklch(0.78 0.012 70);
+    line-height: 1.5;
+  }
+  .newsletter-success {
+    margin: 0;
+    padding: 0.875rem 1.125rem;
+    /* Solid mint fill with navy text — reads unmistakably as mint on navy. */
+    background-color: #bfe5cc;
+    border-radius: 12px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--color-navy);
+  }
+</style>
+
+<script define:vars={{ invalidMsg: t.invalid, serverMsg: t.server }}>
+  const shell = document.querySelector("[data-newsletter-shell]");
+  if (shell) {
+    const form = shell.querySelector("[data-newsletter-form]");
+    const input = shell.querySelector("[data-email]");
+    const button = shell.querySelector("[data-submit]");
+    const label = shell.querySelector("[data-label]");
+    const submitting = shell.querySelector("[data-submitting]");
+    const msg = shell.querySelector("[data-msg]");
+    const success = shell.querySelector("[data-success]");
+
+    const plausible = (v) =>
+      !!v && v.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
+    function setBusy(busy) {
+      button.disabled = busy;
+      input.readOnly = busy;
+      label.hidden = busy;
+      submitting.hidden = !busy;
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const email = (input.value || "").trim();
+      if (!plausible(email)) {
+        msg.textContent = invalidMsg;
+        msg.hidden = false;
+        input.focus();
+        return;
+      }
+      msg.hidden = true;
+      setBusy(true);
+      try {
+        const res = await fetch("/api/newsletter", {
+          method: "POST",
+          headers: { "content-type": "application/json", accept: "application/json" },
+          body: JSON.stringify({ email }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.ok) {
+          if (typeof window.gtag === "function") {
+            window.gtag("event", "newsletter_signup", {
+              method: "footer_form",
+              page_path: window.location.pathname,
+            });
+          }
+          form.hidden = true;
+          success.textContent = data.message || "Thanks! Check your inbox to confirm.";
+          success.hidden = false;
+        } else {
+          msg.textContent = (data && data.error) || serverMsg;
+          msg.hidden = false;
+          setBusy(false);
+        }
+      } catch {
+        msg.textContent = serverMsg;
+        msg.hidden = false;
+        setBusy(false);
+      }
+    });
+  }
+</script>

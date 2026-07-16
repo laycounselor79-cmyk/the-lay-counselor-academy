@@ -1,0 +1,209 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const faqs: Array<{ q: string; a: string }> = [
+  {
+    q: "¿Qué es La Academia del Consejero Laico?",
+    a: "La Academia del Consejero Laico es un curso diseñado para enseñar a personas no profesionales cómo brindar consejería en salud mental.",
+  },
+  {
+    q: "¿Por qué existe la consejería laica?",
+    a: "Estamos en una crisis de salud pública en este país. Hay muchas más personas que necesitan atención en salud mental que clínicos licenciados para atender la demanda, y la fuerza laboral licenciada rara vez refleja a las comunidades que sirve en edad, cultura, etnicidad, raza o idioma. Necesitamos una vía no académica para formar consejeros en salud mental.",
+  },
+  {
+    q: "¿Cuántas horas dura el curso A tu propio ritmo?",
+    a: "El curso A tu propio ritmo es de setenta horas. La cohorte En vivo se extiende a lo largo de catorce semanas y añade sesiones en vivo más cinco sesiones de consejería personal sobre el contenido principal. A lo largo del programa se incluyen muchos enlaces y lecturas adicionales. Quienes quieran profundizar encontrarán cientos de horas de material de aprendizaje.",
+  },
+  {
+    q: "¿Setenta horas son suficientes para aprender a ser un consejero hábil en salud mental?",
+    a: "No. La consejería en salud mental es una empresa increíblemente compleja que exige una enorme habilidad y práctica de por vida. Esperamos que quienes toman la LCA (en vivo o a su propio ritmo) ya tengan habilidad natural, sigan aprendiendo toda la vida y obtengan apoyo clínico si brindan consejería en algún entorno formal.",
+  },
+  {
+    q: "No estoy en un puesto de consejería en mi trabajo. ¿Qué me aportará el curso A tu propio ritmo?",
+    a: "La mayoría de las personas que toman la LCA no están en puestos de consejería. Entre los participantes pasados hay personal de cuerpos de bomberos, paramédicos, docentes, asistentes de aula, profesionales de Recursos Humanos, líderes de organizaciones sin fines de lucro, trabajadores de alcance comunitario, trabajadores de salud comunitaria, asistentes legales y muchos más. La consejería en salud mental es tratamiento a través de la conversación. Si tu trabajo implica hablar con personas, puedes incorporar estas habilidades a esas conversaciones para acompañar la esperanza, la sanación y el cambio.",
+  },
+  {
+    q: "¿Y si no me gusta?",
+    a: "Te devolvemos tu dinero. También te pediremos que, si puedes, compartas qué fue lo que no funcionó para ti, para que sigamos mejorando.",
+  },
+  {
+    q: "¿Recibiré un certificado al completar el curso?",
+    a: "Sí. Si completas el curso A tu propio ritmo, tu certificado indicará que completaste el curso de setenta horas de La Academia del Consejero Laico. Si participas en la cohorte En vivo, tu certificado anotará que completaste el curso y las horas de práctica en vivo.",
+  },
+  {
+    q: "¿Qué puedo hacer con el certificado?",
+    a: "La consejería laica todavía no se reconoce como una profesión distinta. No queremos confundir a nadie sobre las posibilidades laborales basadas en este curso. Dicho eso, la consejería en salud mental por personas sin título universitario se entiende cada vez más como una forma importante de responder a las necesidades de la comunidad. Muchas organizaciones en California y en EE. UU. han enviado a sus empleados a la LCA y pueden mirar con buenos ojos a los graduados. Esperamos que la consejería en salud mental por personas laicas sea reconocida y valorada en el futuro.",
+  },
+  {
+    q: "¿Otorgan CEUs (créditos de educación continua)?",
+    a: "Sí, para algunas profesiones de California. Si eres consejero de trastornos por uso de sustancias, la LCA brinda sesenta y cinco horas de educación continua para todas las agencias de certificación de SUD en California.",
+  },
+  {
+    q: "Ya tengo una licenciatura o maestría en consejería. ¿Aprenderé algo nuevo?",
+    a: "Los comentarios de más de mil doscientos participantes anteriores dicen que sí. Hemos tenido a LCSWs, LMFTs, psicólogos licenciados y psiquiatras tomando el curso y diciéndonos cosas como “Ojalá hubiera aprendido esto en el posgrado” y “Aprendí más en este curso que en mi práctica clínica”. Todo lo que enseñamos está basado en evidencia, pero se enseña de forma bastante distinta a la formación académica tradicional.",
+  },
+  {
+    q: "Realmente no me gustan las cosas escolares.",
+    a: "Te entendemos. El curso es una mezcla de métodos de aprendizaje: lecturas, grabaciones de audio, videos, escritura reflexiva, cuestionarios y más. Todo lo que está escrito también está grabado en audio para quienes no disfrutan leer.",
+  },
+  {
+    q: "¿Puedo inscribir a todo mi equipo u organización?",
+    a: "Sí. Muchos de nuestros participantes llegan a través de su empleador: agencias de salud conductual del condado, cuerpos de bomberos, escuelas, comunidades de fe, trabajadores de salud comunitaria y organizaciones sin fines de lucro. Ofrecemos precios por volumen y becas de equidad para grupos. Escribe a Angelica a Angelica@emorrisonconsulting.com con el número aproximado de personas y te responderá en dos (2) días hábiles.",
+  },
+  {
+    q: "¿Cuál es la diferencia entre los cursos A tu propio ritmo y En vivo?",
+    a: "A tu propio ritmo es el curso principal de setenta horas, totalmente asíncrono, con fechas de inicio flexibles. En vivo son catorce sesiones en vivo a lo largo de catorce semanas con una cohorte de pares, más cinco sesiones de consejería personal incluidas. Ambos llevan a la misma habilidad fundamental. A tu propio ritmo es para quien quiere avanzar a su ritmo; En vivo es para quien quiere práctica y retroalimentación con personas.",
+  },
+  {
+    q: "¿Tengo que terminar antes de cierta fecha? ¿Perderé el acceso después de un año?",
+    a: "Sin fecha límite y sin caducidad. Una vez inscrito, tienes acceso de por vida en la plataforma del curso, incluyendo cada futura actualización del currículo sin costo adicional.",
+  },
+];
+
+const numberWord = [
+  "Cero", "Una", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete", "Ocho",
+  "Nueve", "Diez", "Once", "Doce", "Trece", "Catorce", "Quince",
+  "Dieciséis", "Diecisiete", "Dieciocho", "Diecinueve", "Veinte",
+][faqs.length] ?? String(faqs.length);
+---
+
+<Layout
+  lang="es"
+  title="Preguntas frecuentes, La Academia del Consejero Laico"
+  description="Respuestas directas sobre el curso A tu propio ritmo de la LCA: qué es, para quién es, certificados, CEUs, política de reembolso y qué esperar."
+  extraSchemas={[{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://thelaycounseloracademy.com/es/faq/#faqpage",
+    inLanguage: "es",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      xpath: ["/html/head/title", "//main//h1", "//main//h2[@class='faq-question']"],
+    },
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  }]}
+>
+  <section class="page-hero" aria-labelledby="page-hero-title">
+    <div class="page-container">
+      <p class="eyebrow eyebrow-on-dark">{numberWord} respuestas directas</p>
+      <h1 id="page-hero-title" class="page-hero-title">
+        Preguntas <span class="title-accent">frecuentes.</span>
+      </h1>
+      <p class="page-hero-lede">
+        Aquí está la mayoría de lo que querrías saber sobre el curso A tu
+        propio ritmo. Si no respondimos tu pregunta, escribe a Angelica.
+      </p>
+    </div>
+  </section>
+
+  <nav class="faq-toc" aria-label="Salta a una pregunta">
+    <div class="page-container">
+      <p class="faq-toc-label">Ir a:</p>
+      <ol class="faq-toc-list">
+        {faqs.map((f, i) => (
+          <li>
+            <a href={`#q${i + 1}`} class="faq-toc-link">
+              <span class="faq-toc-number" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+              <span class="faq-toc-text">{f.q}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </nav>
+
+  <section class="faq-list-section" aria-label="Preguntas frecuentes">
+    <div class="page-container">
+      <ol class="faq-list">
+        {faqs.map((f, i) => (
+          <li class="faq-item" id={`q${i + 1}`}>
+            <p class="faq-number" aria-hidden="true">{String(i + 1).padStart(2, "0")}</p>
+            <div class="faq-body">
+              <h2 class="faq-question">{f.q}</h2>
+              <p class="faq-answer">{f.a}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div class="faq-still">
+        <h2 class="faq-still-title">
+          ¿Aún tienes una pregunta?
+        </h2>
+        <p class="faq-still-text">
+          Escribe a Angelica con cualquier cosa que no hayamos respondido aquí.
+          Ella se encarga de inscripciones y preguntas del programa, y responde
+          dentro de dos (2) días hábiles.
+        </p>
+        <a class="btn-primary" href="mailto:Angelica@emorrisonconsulting.com">
+          Angelica@emorrisonconsulting.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-close">
+    <div class="page-container">
+      <h2 class="page-close-title">
+        ¿Listo para <span class="title-accent">leer un artículo de muestra?</span>
+      </h2>
+      <p class="page-close-lede">
+        Nuestro artículo de muestra es <em>El consejo: por qué (y cómo) lo evitamos</em>. Te lo enviaremos a tu correo.
+      </p>
+      <div class="page-close-actions">
+        <a class="btn-primary" href="/es/#sample">Lee el artículo de muestra</a>
+        <span class="btn-soon">Inscripción: próximamente</span>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { background-color: var(--color-navy); background-image: url('/images/topo-light.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; color: var(--color-on-navy); padding: 5rem 0; }
+  @media (min-width: 768px) { .page-hero { padding: 7rem 0; } }
+  .page-hero-title { font-family: var(--font-serif); font-weight: 400; color: var(--color-on-navy); font-size: clamp(2rem, 4.5vw, 3.75rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0.75rem 0 1.5rem 0; max-width: 22ch; text-wrap: balance; }
+  .page-hero-lede { font-family: var(--font-sans); font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.6; color: var(--color-on-navy-soft); margin: 0; max-width: 56ch; }
+
+  .eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-coral-text); margin: 0; }
+  .eyebrow-on-dark { color: var(--color-coral); }
+  .title-accent { color: var(--color-coral-deep); }
+  .arrow { transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1); display: inline-block; }
+  a:hover .arrow { transform: translateX(3px); }
+
+  .faq-toc { padding: 3rem 0 2rem 0; background-color: var(--color-paper-soft); border-bottom: 1px solid var(--color-rule); }
+  @media (min-width: 768px) { .faq-toc { padding: 4rem 0 3rem 0; } }
+  .faq-toc-label { margin: 0 0 1.25rem 0; font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-coral-deep); }
+  .faq-toc-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0.5rem; max-width: 56rem; }
+  @media (min-width: 720px) { .faq-toc-list { grid-template-columns: 1fr 1fr; gap: 0.5rem 2rem; } }
+  .faq-toc-link { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0.75rem; align-items: baseline; padding: 0.4rem 0; font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.4; color: var(--color-ink-soft); text-decoration: none; transition: color 180ms cubic-bezier(0.22, 1, 0.36, 1); }
+  .faq-toc-link:hover { color: var(--color-coral-deep); }
+  .faq-toc-link:hover .faq-toc-text { text-decoration: underline; text-underline-offset: 3px; }
+  .faq-toc-number { font-family: var(--font-serif); font-weight: 500; color: var(--color-coral-deep); font-size: 0.95rem; }
+  .faq-toc-text { color: inherit; }
+
+  .faq-list-section { padding: 5rem 0; background-color: var(--color-paper); }
+  @media (min-width: 768px) { .faq-list-section { padding: 7rem 0; } }
+  .faq-list { list-style: none; margin: 0; padding: 0; max-width: 56rem; }
+  .faq-item { display: grid; grid-template-columns: 1fr; gap: 1rem; padding: 2.25rem 0; border-bottom: 1px solid var(--color-rule); }
+  @media (min-width: 720px) { .faq-item { grid-template-columns: 5rem 1fr; gap: 1rem 2rem; padding: 3rem 0; } }
+  .faq-number { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: clamp(2rem, 3vw, 2.75rem); line-height: 1; color: var(--color-coral-deep); }
+  .faq-body { min-width: 0; }
+  .faq-question { margin: 0 0 1rem 0; font-family: var(--font-serif); font-weight: 500; font-size: clamp(1.375rem, 2vw, 1.75rem); line-height: 1.25; letter-spacing: -0.01em; color: var(--color-navy); text-wrap: balance; }
+  .faq-answer { margin: 0; font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.7; color: var(--color-ink-soft); max-width: 65ch; }
+
+  .faq-still { margin-top: 4rem; padding: 2.5rem 2rem; background-color: var(--color-info); border-radius: 20px; max-width: 56rem; }
+  @media (min-width: 768px) { .faq-still { padding: 3rem 2.5rem; } }
+  .faq-still-title { margin: 0 0 0.875rem 0; font-family: var(--font-serif); font-weight: 500; font-size: clamp(1.5rem, 2.25vw, 1.875rem); color: var(--color-navy); line-height: 1.2; letter-spacing: -0.01em; }
+  .faq-still-text { margin: 0 0 1.5rem 0; font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.65; color: var(--color-ink-soft); max-width: 56ch; }
+
+  .page-close { background-color: var(--color-paper-soft); padding: 5rem 0; text-align: center; }
+  @media (min-width: 768px) { .page-close { padding: 7rem 0; } }
+  .page-close-title { font-family: var(--font-serif); font-weight: 500; color: var(--color-navy); font-size: clamp(1.875rem, 3.5vw, 2.75rem); line-height: 1.15; letter-spacing: -0.015em; margin: 0 auto 1rem auto; max-width: 26ch; text-wrap: balance; }
+  .page-close-lede { font-family: var(--font-sans); font-size: 1.0625rem; line-height: 1.65; color: var(--color-ink-soft); margin: 0 auto 2rem auto; max-width: 52ch; }
+  .page-close-lede em { font-family: var(--font-serif); font-style: italic; font-weight: 500; color: var(--color-navy); }
+  .page-close-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.25rem 1.5rem; }
+</style>

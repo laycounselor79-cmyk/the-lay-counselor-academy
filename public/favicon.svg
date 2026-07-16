@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <!--
+    The lca-logo.png is a 268x268 lockup containing the circular mark in the top
+    ~60% and the "THE LAY COUNSELOR ACADEMY" wordmark in the bottom ~40%. Render
+    the PNG at its native size, offset so only the circular mark sits inside the
+    160x160 favicon viewport — the wordmark falls below the viewBox and is
+    cropped out. Result: the browser tab shows just the circular mark.
+  -->
+  <image
+    href="/images/lca-logo.png"
+    width="268"
+    height="268"
+    x="-54"
+    y="-8"
+    preserveAspectRatio="xMidYMid meet"
+  />
+</svg>

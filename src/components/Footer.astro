@@ -1,0 +1,342 @@
+---
+import NewsletterForm from "./NewsletterForm.astro";
+
+const year = new Date().getFullYear();
+
+/* Footer mirrors the locale of the current page. Without this, Spanish
+ * visitors would be sent to the English homepage from every footer link. */
+const locale = (Astro.currentLocale || "en") as "en" | "es";
+const isEs = locale === "es";
+const root = isEs ? "/es" : "";
+
+const columns = isEs
+  ? [
+      {
+        heading: "Programa",
+        links: [
+          { href: `${root}/curriculum/`, label: "El currículum" },
+          { href: `${root}/#sample`, label: "Lección de muestra" },
+          { href: `${root}/pricing/`, label: "Precios" },
+          { href: `${root}/faq/`, label: "Preguntas frecuentes" },
+          { label: "Inscripción: próximamente", soon: true },
+        ],
+      },
+      {
+        heading: "Personas",
+        links: [
+          { href: `${root}/teachers/elizabeth-morrison/`, label: "Elizabeth Morrison" },
+          { href: `${root}/teachers/alli-moreno/`, label: "Alli Moreno" },
+          { href: `${root}/reviews/`, label: "Reseñas y respaldos" },
+          { href: `${root}/contact/`, label: "Contacto" },
+        ],
+      },
+      {
+        heading: "Más",
+        links: [
+          { href: "/downloads/LCA_Code_of_Ethics.pdf", label: "Código de ética" },
+          { href: "https://www.chcf.org/publication/lay-counselor-academy-evaluation-strengthening-behavioral-health-workforce/", label: "Evaluación CHCF", external: true },
+          { href: "https://www.emorrisonconsulting.com", label: "Elizabeth Morrison Consulting", external: true },
+          { href: "/accessibility/", label: "Accesibilidad" },
+          { href: "https://www.emorrisonconsulting.com/privacy-policy/", label: "Privacidad", external: true },
+          { href: "https://www.emorrisonconsulting.com/terms-of-service/", label: "Términos", external: true },
+        ],
+      },
+    ]
+  : [
+      {
+        heading: "Program",
+        links: [
+          { href: "/curriculum/", label: "The curriculum" },
+          { href: "/#sample", label: "Sample lesson" },
+          { href: "/pricing/", label: "Pricing" },
+          { href: "/faq/", label: "FAQ" },
+          { href: "https://app.teachfloor.com/the-lay-counselor-academy/c/32305", label: "Enroll", external: true },
+        ],
+      },
+      {
+        heading: "People",
+        links: [
+          { href: "/teachers/elizabeth-morrison/", label: "Elizabeth Morrison" },
+          { href: "/teachers/alli-moreno/", label: "Alli Moreno" },
+          { href: "/reviews/", label: "Reviews & endorsements" },
+          { href: "/contact/", label: "Contact" },
+        ],
+      },
+      {
+        heading: "More",
+        links: [
+          { href: "/downloads/LCA_Code_of_Ethics.pdf", label: "Code of ethics" },
+          { href: "https://www.chcf.org/publication/lay-counselor-academy-evaluation-strengthening-behavioral-health-workforce/", label: "CHCF evaluation", external: true },
+          { href: "https://www.emorrisonconsulting.com", label: "Elizabeth Morrison Consulting", external: true },
+          { href: "/accessibility/", label: "Accessibility" },
+          { href: "https://www.emorrisonconsulting.com/privacy-policy/", label: "Privacy", external: true },
+          { href: "https://www.emorrisonconsulting.com/terms-of-service/", label: "Terms", external: true },
+        ],
+      },
+    ];
+---
+
+<footer class="site-footer">
+  <div class="page-container footer-inner">
+    <NewsletterForm />
+
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a
+          href={isEs ? "/es/" : "/"}
+          class="footer-wordmark"
+          aria-label={isEs ? "La Academia del Consejero Laico, A tu propio ritmo, inicio" : "The Lay Counselor Academy, Self-Paced, home"}
+        >
+          <span class="footer-wordmark-the" aria-hidden="true">
+            <span class="footer-wordmark-rule"></span>
+            <span class="footer-wordmark-the-text">{isEs ? "La" : "The"}</span>
+            <span class="footer-wordmark-rule"></span>
+          </span>
+          <span class="footer-wordmark-main" aria-hidden="true">{isEs ? "Academia del" : "Lay Counselor"}</span>
+          <span class="footer-wordmark-academy" aria-hidden="true">{isEs ? "Consejero Laico" : "Academy"}</span>
+          <span class="footer-wordmark-tagline" aria-hidden="true">{isEs ? "A tu propio ritmo" : "Self-Paced"}</span>
+        </a>
+        <p class="footer-mission">
+          {isEs
+            ? "Un programa de formación para consejeros laicos, voluntarios de escucha y cualquiera a quien le hayan pedido sostener un espacio para otra persona."
+            : "A training program for lay counselors, volunteer listeners, and anyone who has been asked to hold space for another person."}
+        </p>
+      </div>
+
+      <div class="footer-columns">
+        {columns.map((col) => (
+          <div class="footer-column">
+            <h2>{col.heading}</h2>
+            <ul>
+              {col.links.map((link) => (
+                <li>
+                  {link.soon ? (
+                    <span class="footer-soon">{link.label}</span>
+                  ) : (
+                    <a
+                      href={link.href}
+                      {...(link.external ? { rel: "noopener" } : {})}
+                    >
+                      {link.label}
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        {isEs
+          ? `© ${year} Elizabeth Morrison Consulting. La Academia del Consejero Laico es un programa de Elizabeth Morrison Consulting.`
+          : `© ${year} Elizabeth Morrison Consulting. The Lay Counselor Academy is a program of Elizabeth Morrison Consulting.`}
+      </p>
+      <p class="counsel-note">
+        {isEs
+          ? "Este programa enseña habilidades de consejería laica. No es formación clínica. La consejería laica no es atención de salud mental licenciada."
+          : "This program teaches lay counseling skills. It is not clinical training. Lay counseling is not licensed mental health care."}
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 4rem;
+    background-color: var(--color-navy-deep);
+    color: oklch(0.92 0.012 70);
+  }
+
+  .footer-inner {
+    padding-top: 2.5rem;
+    padding-bottom: 1.75rem;
+  }
+  @media (min-width: 768px) {
+    .footer-inner {
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid oklch(0.92 0.012 70 / 0.15);
+  }
+  @media (min-width: 720px) {
+    .footer-top {
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .footer-top {
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+    }
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  /* Footer wordmark, typographic, not raster. Matches the lockup's structure
+     but renders crisply at any size. Left-aligned. */
+  .footer-wordmark {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: none;
+    color: oklch(0.97 0.012 70);
+    line-height: 1;
+    align-self: flex-start;
+  }
+  .footer-wordmark:hover {
+    color: oklch(1 0 0);
+    text-decoration: none;
+  }
+  .footer-wordmark-the {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .footer-wordmark-the-text {
+    padding: 0 0.125rem;
+  }
+  .footer-wordmark-rule {
+    display: inline-block;
+    width: 1.75rem;
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.75;
+  }
+  .footer-wordmark-main {
+    font-family: var(--font-sans);
+    font-size: 1.625rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .footer-wordmark-academy {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-top: 0.5rem;
+  }
+  .footer-wordmark-tagline {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-coral);
+    margin-top: 0.625rem;
+  }
+  @media (min-width: 768px) {
+    .footer-wordmark-the {
+      font-size: 0.78rem;
+    }
+    .footer-wordmark-main {
+      font-size: 1.875rem;
+    }
+    .footer-wordmark-academy {
+      font-size: 1.375rem;
+    }
+    .footer-wordmark-tagline {
+      font-size: 0.95rem;
+    }
+  }
+
+  .footer-mission {
+    color: oklch(0.85 0.012 70);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 32ch;
+  }
+
+  .footer-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
+  }
+  @media (min-width: 720px) {
+    .footer-columns {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  .footer-column h2 {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: oklch(0.75 0.030 21);
+    margin: 0 0 0.75rem 0;
+  }
+  .footer-column ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .footer-column a {
+    color: oklch(0.94 0.012 70);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    text-decoration: none;
+    line-height: 1.4;
+  }
+  .footer-column a:hover {
+    color: oklch(1 0 0);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .footer-soon {
+    color: oklch(0.72 0.012 70);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .footer-bottom {
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .copyright,
+  .counsel-note {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: oklch(0.78 0.012 70);
+    line-height: 1.5;
+  }
+  .counsel-note {
+    font-style: italic;
+    color: oklch(0.72 0.012 70);
+  }
+</style>

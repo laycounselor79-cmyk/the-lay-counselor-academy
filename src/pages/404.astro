@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Page not found, The Lay Counselor Academy"
+  description="The page you were looking for doesn't exist or has moved. Here's how to find what you came for."
+>
+  <section class="page-hero">
+    <div class="page-container">
+      <p class="eyebrow eyebrow-on-dark">404</p>
+      <h1 class="page-hero-title">
+        This page <span class="title-accent">isn't here.</span>
+      </h1>
+      <p class="page-hero-lede">
+        Either the URL is mistyped, or the page has moved. Most of what people
+        are looking for is one click away.
+      </p>
+    </div>
+  </section>
+
+  <section class="recovery">
+    <div class="page-container">
+      <ul class="recovery-list">
+        <li>
+          <a href="/" class="recovery-link">
+            <span class="recovery-eyebrow">Home</span>
+            <span class="recovery-title">The Lay Counselor Academy</span>
+            <span class="recovery-text">
+              What the program is, who it's for, and a sample lesson you can
+              read for free.
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/#sample" class="recovery-link">
+            <span class="recovery-eyebrow">Sample lesson</span>
+            <span class="recovery-title">Read the sample article</span>
+            <span class="recovery-text">
+              <em>Advice: Why (&amp; How) We Avoid It</em>. We'll send it to your inbox
+              in about a minute.
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/curriculum/" class="recovery-link">
+            <span class="recovery-eyebrow">Curriculum</span>
+            <span class="recovery-title">The full seventy hours</span>
+            <span class="recovery-text">
+              Seven modules, fourteen sessions, every learning objective.
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/pricing/" class="recovery-link">
+            <span class="recovery-eyebrow">Pricing</span>
+            <span class="recovery-title">Two ways to learn</span>
+            <span class="recovery-text">
+              Self-Paced is $1,200 with lifetime access. Live cohort is
+              $5,500 over fourteen weeks.
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="/contact/" class="recovery-link">
+            <span class="recovery-eyebrow">Contact</span>
+            <span class="recovery-title">Write to Angelica</span>
+            <span class="recovery-text">
+              For enrollment, organizational pricing, scholarships, or anything
+              else.
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="recovery-note">
+        If you followed a link from somewhere and ended up here, please email
+        <a href="mailto:Angelica@emorrisonconsulting.com">Angelica@emorrisonconsulting.com</a>
+        and let us know where the broken link is. We'll fix it.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { background-color: var(--color-navy); background-image: url('/images/topo-light.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; color: var(--color-on-navy); padding: 5rem 0; }
+  @media (min-width: 768px) { .page-hero { padding: 7rem 0; } }
+  .page-hero-title { font-family: var(--font-serif); font-weight: 400; color: var(--color-on-navy); font-size: clamp(2rem, 4.5vw, 3.75rem); line-height: 1.1; letter-spacing: -0.02em; margin: 0.75rem 0 1.5rem 0; max-width: 18ch; text-wrap: balance; }
+  .page-hero-lede { font-family: var(--font-sans); font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.6; color: var(--color-on-navy-soft); margin: 0; max-width: 56ch; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-coral-text); margin: 0; }
+  .eyebrow-on-dark { color: var(--color-coral); }
+  .title-accent { color: var(--color-coral-deep); }
+
+  .recovery { padding: 5rem 0; background-color: var(--color-paper); }
+  @media (min-width: 768px) { .recovery { padding: 7rem 0; } }
+  .recovery-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--color-rule); max-width: 56rem; }
+  .recovery-list li { border-bottom: 1px solid var(--color-rule); }
+  .recovery-link { display: grid; grid-template-columns: 1fr; gap: 0.5rem; padding: 1.75rem 0; text-decoration: none; color: var(--color-navy); transition: color 200ms cubic-bezier(0.22, 1, 0.36, 1); }
+  @media (min-width: 720px) { .recovery-link { grid-template-columns: 10rem 1fr; gap: 0.25rem 2.5rem; align-items: baseline; padding: 2rem 0; } }
+  .recovery-link:hover { color: var(--color-coral-deep); }
+  .recovery-link:hover .recovery-title { text-decoration: underline; text-underline-offset: 3px; }
+  .recovery-eyebrow { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-coral-text); }
+  @media (min-width: 720px) { .recovery-eyebrow { padding-top: 0.25rem; } }
+  .recovery-title { font-family: var(--font-serif); font-weight: 500; font-size: clamp(1.25rem, 1.75vw, 1.5rem); line-height: 1.25; letter-spacing: -0.01em; }
+  .recovery-text { font-family: var(--font-sans); font-size: 0.95rem; line-height: 1.6; color: var(--color-ink-soft); grid-column: 1; max-width: 56ch; }
+  @media (min-width: 720px) { .recovery-text { grid-column: 2; } }
+  .recovery-text em { font-family: var(--font-serif); font-style: italic; font-weight: 500; color: var(--color-navy); }
+  .recovery-note { margin: 3rem 0 0 0; font-family: var(--font-serif); font-style: italic; font-size: 1rem; line-height: 1.6; color: var(--color-ink-quiet); max-width: 56ch; }
+  .recovery-note a { color: var(--color-coral-deep); text-decoration: underline; text-underline-offset: 3px; }
+</style>

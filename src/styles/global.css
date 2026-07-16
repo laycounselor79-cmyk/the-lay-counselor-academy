@@ -1,0 +1,375 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+ * The Lay Counselor Academy — design tokens
+ *
+ * Anchored to DESIGN_SYSTEM.md hex values (brand continuity with the parent
+ * site, emorrisonconsulting.com). Computed values expressed in OKLCH per the
+ * impeccable craft rules (no pure #000 or #fff; neutrals tinted toward the
+ * navy hue).
+ * ------------------------------------------------------------------------- */
+
+@theme {
+  /* brand */
+  --color-navy: oklch(0.27 0.10 261);
+  --color-navy-deep: oklch(0.21 0.09 261);
+  --color-blue: oklch(0.38 0.10 261);
+  --color-blue-soft: oklch(0.46 0.09 261);
+  --color-coral: oklch(0.68 0.20 21);
+  --color-coral-deep: oklch(0.62 0.20 21);
+  /* WCAG AA text-safe coral: same hue, deep enough for 4.5:1 on paper-soft.
+     Use for SMALL coral text (eyebrows, labels) on light backgrounds. */
+  --color-coral-text: oklch(0.56 0.19 21);
+  --color-mint: #bfe5cc;                     /* brand mint — the secondary colour */
+  --color-mint-deep: oklch(0.80 0.07 165);   /* mint borders / hover */
+
+  /* surfaces — near-white tinted toward navy. The soft alt surface is now brand
+     MINT (the secondary colour), replacing the previous warm cream. */
+  --color-paper: oklch(0.985 0.004 261);
+  --color-paper-soft: oklch(0.955 0.030 165);
+  --color-paper-deep: oklch(0.925 0.042 165);
+  --color-info: oklch(0.96 0.020 261);
+
+  /* ink — cooler dark to match parent's #1B1B1B intent, with a hairline navy tint */
+  --color-ink: oklch(0.20 0.006 261);
+  --color-ink-soft: oklch(0.24 0.006 261);
+  --color-ink-quiet: oklch(0.44 0.008 261);
+  --color-rule: oklch(0.88 0.006 261);
+
+  /* on-navy text (used on the evaluation section + footer) */
+  --color-on-navy: oklch(0.97 0.012 70);
+  --color-on-navy-soft: oklch(0.86 0.012 70);
+  --color-on-navy-quiet: oklch(0.72 0.012 70);
+
+  /* fonts */
+  --font-serif: "Lora", Georgia, "Times New Roman", serif;
+  --font-sans: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ---------------------------------------------------------------------------
+ * Base
+ * ------------------------------------------------------------------------- */
+
+@layer base {
+  html {
+    color-scheme: light;
+    background-color: var(--color-paper);
+    color: var(--color-ink-soft);
+    font-family: var(--font-sans);
+    font-size: 17px; /* WCAG-comfortable base, scales up at md+ */
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Anchor targets land below the sticky nav instead of underneath it. */
+    scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      font-size: 18px;
+    }
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink-soft);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-navy);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a {
+    color: var(--color-blue);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color 180ms cubic-bezier(0.22, 1, 0.36, 1),
+                text-decoration-thickness 180ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  a:hover {
+    color: var(--color-navy);
+    text-decoration-thickness: 2px;
+  }
+
+  /* visible focus, navy ring, no glow */
+  :focus-visible {
+    outline: 2px solid var(--color-navy);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* selection */
+  ::selection {
+    background-color: oklch(0.68 0.20 21 / 0.25);
+    color: var(--color-navy-deep);
+  }
+
+  /* reduced motion is the baseline; the motion-enabled variant is additive */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Components — kept local; no global utility salad
+ * ------------------------------------------------------------------------- */
+
+@layer components {
+  /* primary CTA — navy pill (white text); coral reserved as accent */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background-color: var(--color-navy);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.4;
+    letter-spacing: 0.005em;
+    border-radius: 9999px;
+    text-decoration: none;
+    min-height: 48px;
+    transition: background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+                transform 120ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-navy-deep);
+    color: var(--color-paper);
+    text-decoration: none;
+  }
+
+  .btn-primary:active {
+    transform: translateY(1px);
+  }
+
+  /* On dark/navy grounds a navy pill would vanish — use the coral accent
+     with navy text (never white on coral, per brand). */
+  .hero .btn-primary,
+  .page-hero .btn-primary,
+  .bio-hero .btn-primary {
+    background-color: var(--color-coral);
+    color: var(--color-navy);
+  }
+  .hero .btn-primary:hover,
+  .page-hero .btn-primary:hover,
+  .bio-hero .btn-primary:hover {
+    background-color: var(--color-coral-deep);
+    color: var(--color-navy);
+  }
+
+  /* secondary CTA — navy text, coral hairline border */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: var(--color-navy);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--color-coral);
+    border-radius: 9999px;
+    text-decoration: none;
+    min-height: 44px;
+    transition: background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+                color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-navy);
+    color: var(--color-paper);
+    text-decoration: none;
+  }
+
+  /* Non-interactive "coming soon" button, same footprint as a button so it
+     sits cleanly in a button row. Used on the Spanish site until the Spanish
+     course is live, then swapped back for the enrollment link. */
+  .btn-soon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-paper-soft);
+    color: var(--color-ink-quiet);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1px solid var(--color-mint-deep);
+    border-radius: 9999px;
+    min-height: 44px;
+    cursor: default;
+  }
+  .btn-soon::before {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: var(--color-coral);
+    flex: none;
+  }
+
+  /* the measure for prose — 65-75ch per impeccable */
+  .measure {
+    max-width: 68ch;
+  }
+
+  .measure-narrow {
+    max-width: 52ch;
+  }
+
+  .measure-wide {
+    max-width: 80ch;
+  }
+
+  /* container, not container-everything */
+  .page-container {
+    width: 100%;
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .page-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* a quiet horizontal rule used between program-map items */
+  .rule-quiet {
+    border: 0;
+    height: 1px;
+    background-color: var(--color-rule);
+  }
+
+  /* the coral section marker glyph — used very sparingly */
+  .marker-coral {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--color-coral);
+    border-radius: 9999px;
+    vertical-align: middle;
+  }
+
+  /* CTA on a dark/navy ground — cream text with coral hairline border */
+  .btn-on-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: var(--color-on-navy);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--color-coral);
+    border-radius: 9999px;
+    text-decoration: none;
+    min-height: 44px;
+    transition: background-color 200ms cubic-bezier(0.22, 1, 0.36, 1),
+                color 200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-on-dark:hover {
+    background-color: var(--color-coral);
+    color: var(--color-navy);
+    text-decoration: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Mobile touch + legibility tuning
+ * Inline arrow links render ~25px tall by default. On small screens we pad
+ * them vertically so the hit zone reaches the 44px touch target without
+ * changing visual rhythm. A handful of micro-labels also get a small font
+ * bump so they stay legible at iPhone 13 base size (17px).
+ * ------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .link-arrow,
+  .hero-enroll-link,
+  .teacher-link,
+  .program-link,
+  .format-link,
+  .page-hero-link,
+  .pricing-faq-more a {
+    padding-block: 0.625rem;
+    min-height: 44px;
+  }
+
+  .footer-column a {
+    display: block;
+    padding-block: 0.625rem;
+    min-height: 44px;
+  }
+  .footer-column ul {
+    gap: 0 !important;
+  }
+
+  .hero-trust-panel-label {
+    font-size: 0.78rem !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Motion — additive over the reduced-motion baseline
+ * ------------------------------------------------------------------------- */
+
+@layer utilities {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-fade {
+      opacity: 0;
+      animation: hero-fade-in 1200ms cubic-bezier(0.22, 1, 0.36, 1) 200ms forwards;
+    }
+
+    @keyframes hero-fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}

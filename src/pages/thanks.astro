@@ -1,0 +1,88 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="The sample article is on its way, The Lay Counselor Academy"
+  description="Your sample article is on its way. Check your inbox for 'Advice: Why (&amp; How) We Avoid It.'"
+>
+  <section class="thanks">
+    <div class="page-container">
+      <div class="thanks-inner">
+        <p class="eyebrow">Sent</p>
+        <h1 class="thanks-title">
+          The sample article is on its way.
+        </h1>
+        <p class="thanks-text">
+          Check your inbox for <em>Advice: Why (&amp; How) We Avoid It</em>. It can take a
+          minute or two to arrive. If you don't see it, please check your spam
+          folder.
+        </p>
+        <p class="thanks-text">
+          While you're waiting, you might read about
+          <a href="/teachers/elizabeth-morrison/">Elizabeth Morrison</a>, who
+          teaches the lesson, or look at the
+          <a href="/#program">full course outline</a>.
+        </p>
+        <p class="thanks-back">
+          <a href="/">← Back to the homepage</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .thanks {
+    padding-top: 6rem;
+    padding-bottom: 8rem;
+    background-color: var(--color-paper);
+  }
+  @media (min-width: 768px) {
+    .thanks {
+      padding-top: 9rem;
+      padding-bottom: 10rem;
+    }
+  }
+  .thanks-inner {
+    max-width: 40rem;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-coral-text);
+    margin: 0 0 1.25rem 0;
+  }
+  .thanks-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    color: var(--color-navy);
+    margin: 0 0 2rem 0;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  .thanks-text {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    margin: 0 0 1.25rem 0;
+    max-width: 56ch;
+  }
+  .thanks-text em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-navy);
+  }
+  .thanks-back {
+    margin-top: 2.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+  }
+</style>

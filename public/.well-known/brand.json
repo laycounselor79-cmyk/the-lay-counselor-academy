@@ -1,0 +1,50 @@
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "@id": "https://thelaycounseloracademy.com/#organization",
+  "name": "The Lay Counselor Academy",
+  "alternateName": [
+    "LCA",
+    "La Academia del Consejero Laico",
+    "The Lay Counselor Academy: Self-Paced"
+  ],
+  "description": "A non-academic training program in mental health counseling for lay counselors, sponsors, volunteer listeners, and other non-clinicians. A 70-hour, self-paced online course taught from real clinical practice by Elizabeth Morrison, PhD, LCSW, MAC and co-created with Alli Moreno.",
+  "url": "https://thelaycounseloracademy.com",
+  "logo": "https://thelaycounseloracademy.com/images/lca-logo.png",
+  "inLanguage": ["en", "es"],
+  "sameAs": [
+    "https://www.emorrisonconsulting.com",
+    "https://www.emorrisonconsulting.com/services/lay-counselor-training-academy/",
+    "https://www.linkedin.com/in/elizabeth-morrison-consulting/",
+    "https://www.youtube.com/channel/UC9AfJJrLIpeZl0Liigh1UDA",
+    "https://www.instagram.com/emorrisonconsulting/"
+  ],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Elizabeth Morrison Consulting",
+    "url": "https://www.emorrisonconsulting.com"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "Angelica@emorrisonconsulting.com",
+    "contactType": "customer support",
+    "availableLanguage": ["English", "Spanish"]
+  },
+  "founder": {
+    "@type": "Person",
+    "@id": "https://thelaycounseloracademy.com/#person-elizabeth-morrison",
+    "name": "Elizabeth Morrison",
+    "honorificSuffix": "PhD, LCSW, MAC",
+    "jobTitle": "Founder and Co-Creator, The Lay Counselor Academy",
+    "url": "https://thelaycounseloracademy.com/teachers/elizabeth-morrison/"
+  },
+  "member": [
+    {
+      "@type": "Person",
+      "@id": "https://thelaycounseloracademy.com/#person-alli-moreno",
+      "name": "Alli Moreno",
+      "jobTitle": "Co-Creator, The Lay Counselor Academy",
+      "url": "https://thelaycounseloracademy.com/teachers/alli-moreno/"
+    }
+  ]
+}

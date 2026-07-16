@@ -1,0 +1,23 @@
+/**
+ * The Lay Counselor Academy — Cloudflare Worker with static assets.
+ *
+ * Deploy: npm run deploy  (builds Astro to dist/, then `wrangler deploy`)
+ *
+ * Secrets to set once per account (wrangler secret put <NAME>):
+ *   RESEND_API_KEY, SAMPLE_FROM, MAILCHIMP_API_KEY, MAILCHIMP_AUDIENCE_ID
+ * Optional: SAMPLE_REPLY_TO, SAMPLE_PDF_URL, SITE_BASE_URL
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "the-lay-counselor-academy",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-07-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
