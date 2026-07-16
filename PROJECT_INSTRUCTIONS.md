@@ -2,8 +2,8 @@
 
 Copy everything **below the divider** into the "Project instructions" box of a
 Claude Project (claude.ai → Projects → your project → Instructions), after
-connecting the GitHub connector to your repo. Replace `laycounselor79-cmyk/the-lay-counselor-academy` with
-your real repository (e.g. `laycounselor79-cmyk/the-lay-counselor-academy`).
+connecting the GitHub connector to the `laycounselor79-cmyk/the-lay-counselor-academy`
+repository.
 
 ---
 
