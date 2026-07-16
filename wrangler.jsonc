@@ -15,8 +15,16 @@
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    // Worker runs before asset serving so it can 301 www → apex (and any
+    // future host-level logic). Asset responses still come from ASSETS.fetch.
+    "run_worker_first": true
   },
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "thelaycounseloracademy.com", "custom_domain": true },
+    { "pattern": "www.thelaycounseloracademy.com", "custom_domain": true }
+  ],
   "observability": {
     "enabled": true
   }

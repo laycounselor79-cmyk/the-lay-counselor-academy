@@ -5,9 +5,9 @@
  *   POST /api/sample-lesson  — emails the sample article via Resend
  *   POST /api/newsletter     — Mailchimp double-opt-in signup
  *
- * Static requests never reach this script: with an `assets` config and no
- * `run_worker_first`, Cloudflare serves matching assets directly and only
- * invokes the worker for non-asset routes like /api/*.
+ * `run_worker_first` is enabled so every request passes through here first —
+ * that's what lets the www → apex redirect run. Anything that isn't an /api/*
+ * route or a www hostname falls through to the assets binding.
  *
  * Required secrets (wrangler secret put <NAME>):
  *   RESEND_API_KEY         — API key from the Resend dashboard
@@ -26,6 +26,12 @@ import { onRequestPost as newsletter } from "./api/newsletter.js";
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    // Canonical host: 301 www → apex (parity with the pre-migration setup).
+    if (url.hostname === "www.thelaycounseloracademy.com") {
+      url.hostname = "thelaycounseloracademy.com";
+      return Response.redirect(url.toString(), 301);
+    }
 
     if (url.pathname === "/api/sample-lesson" || url.pathname === "/api/sample-lesson/") {
       if (request.method !== "POST") return methodNotAllowed();
